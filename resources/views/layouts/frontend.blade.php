@@ -33,7 +33,7 @@
   @yield('template_linked_css')
 
   <style>
-    body {      
+    body {
       background-color: #f0f8ff;
     }
     .bd-placeholder-img {
@@ -249,7 +249,7 @@
                     <div id="sendmessage">Your message has been sent. Thank you!</div>
                     <div id="errormessage"></div>
      -->
-                    <div class="text-center"><button type="submit" title="Send Message">Send Message</button></div>
+                    <div class="text-center"><button class="btn btn-success" type="submit" title="Send Message">Send Message</button></div>
                   </form>
 
           </div>
