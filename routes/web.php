@@ -18,11 +18,10 @@ use Illuminate\Support\Facades\Route;
 // Homepage Route
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'FrontendController@index')->name('homepage');
-    Route::get('/select-plan/{plan}', 'FrontendController@select')->name('select.plan');
+  	Route::get('signup/{id}', 'FrontendController@checkout')->name('checkout');
     Route::get('/terms', 'TermsController@terms')->name('terms');
-	Route::get('plan/{id}', 'InvoiceController@userinvoice')->name('order');;	
-	Route::post('post-invoice', 'InvoiceController@postInvoice')->name('post-invoice');;
-	Route::get('confirmation', 'InvoiceController@confirmation')->name('invoice');;
+  	Route::post('post-invoice', 'InvoiceController@postInvoice')->name('post-invoice');
+  	Route::get('confirmation', 'InvoiceController@confirmation')->name('invoice');
 });
 
 // Authentication Routes
@@ -159,9 +158,9 @@ Route::group(['prefix' => 'manage', 'middleware' => ['auth', 'activated', 'role:
 			'confirmation'   => 'invoice',
         ],
     ]);
-	
-	
-	
+
+
+
 });
 
 Route::redirect('/php', '/phpinfo', 301);

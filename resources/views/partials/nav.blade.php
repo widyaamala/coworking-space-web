@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-success">
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             {!! config('app.name', trans('titles.app')) !!}

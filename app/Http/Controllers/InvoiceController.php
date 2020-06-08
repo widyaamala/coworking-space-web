@@ -32,19 +32,9 @@ class InvoiceController extends Controller
     public function create()
     {
         $data['plans'] = Plan::all();
-		$data['users'] = User::all();
+		    $data['users'] = User::all();
         return view('pages.invoices.create', $data);
     }
-
-	public function userinvoice($id){
-		$order = Plan::find($id);
-		$user = Auth::user();
-
-        if(Auth::guest()){
-        return Redirect::guest("login")->withSuccess('You have to login first');
-      }
-        return view('pages.invoices.userorder', $order, compact('order'));
-	 }
 
     /**
      * Store a newly created resource in storage.
@@ -139,7 +129,7 @@ class InvoiceController extends Controller
     {
     		$data['plans'] = Plan::all();
     		$data['users'] = User::all();
-        
+
         return view('pages.invoices.edit',$data, compact('invoice'));
 
     }
