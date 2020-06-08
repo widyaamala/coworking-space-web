@@ -6,6 +6,7 @@ use App\Invoice;
 use App\Models\User;
 use App\Plan;
 use Illuminate\Http\Request;
+use Validator,Redirect,Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Session;
@@ -161,6 +162,7 @@ class InvoiceController extends Controller
 
     		$plan = Plan::find($request->plan_id);
     		$total = $plan->price;
+			//dd($total);
 
     		if ($request->payment_method == 'Cash') {
     			$status = 'Confirmed';

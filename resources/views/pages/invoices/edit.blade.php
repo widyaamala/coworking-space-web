@@ -23,7 +23,7 @@
 			<div class="col-sm-10">
 				<select id="user_id" name="user_id" class="form-control">
 				@foreach ($users as $user)
-					<option value="{{$user->id}}" {{($invoice->user_id === $user->id) ? 'selected' : ''}}>{{$user->user_name}}</option>
+					<option value="{{$user->id}}" {{($invoice->user_id === $user->id) ? 'selected' : ''}}>{{$user->name}}</option>
 				@endforeach
 				</select>
 			</div>
@@ -42,7 +42,7 @@
 			<label for="payment_method" class="col-sm-2 col-form-label">Payment Method</label>
 			<div class="col-sm-10">
 				<select id="payment_method" name="payment_method" class="form-control">
-					<option value="{{$invoice->id}}" disabled selected>{{$invoice->payment_method}}</option>
+					<option value="{{$invoice->payment_method}}" selected>{{$invoice->payment_method}}</option>
 					<option value="Transfer Bank">Transfer Bank</option>
 					<option value="Cash">Cash</option>
 				</select>
