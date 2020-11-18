@@ -6,7 +6,7 @@
 }
 
 .navbar .nav-link {
-    color: #fff;
+    color: #C5BA1B;
 }
 
 .navbar .nav-link:hover,
@@ -16,7 +16,7 @@
 }
 
 .navbar .navbar-brand {
-    color: #fff;
+    color: #C5BA1B;
 }
 
 
@@ -262,6 +262,16 @@
   border-radius: 30px;
 }
 
+.button {
+  background: #107f35 none repeat scroll 0 0;
+  border: 1px solid #444;
+  color: #fff;
+  padding: 10px 35px;
+  text-transform: uppercase;
+  transition: all 0.4s ease 0s;
+  border-radius: 30px;
+}
+
 .pri_table_list>h3 {
   color: #333;
   font-size: 24px;
@@ -380,4 +390,30 @@
 	line-height: 85%;
 	color: #606060;
 	padding-bottom: 1.5em;
+}
+
+#custCarousel .carousel-indicators {
+    position: static;
+    margin-top: 20px
+}
+
+#custCarousel .carousel-indicators>li {
+    width: 100px
+}
+
+#custCarousel .carousel-indicators li img {
+    display: block;
+    opacity: 0.5
+}
+
+#custCarousel .carousel-indicators li.active img {
+    opacity: 1
+}
+
+#custCarousel .carousel-indicators li:hover img {
+    opacity: 0.75
+}
+
+.carousel-item img {
+    width: 80%
 }

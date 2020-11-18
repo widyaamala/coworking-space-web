@@ -45,9 +45,9 @@
           <div class="card-body">
             <div class="row">
               <div class="col-sm-6">
-                <p class="media-heading">{{$order->plan_name}}</p>
+                <p class="media-heading">{{$plan->plan_name}}</p>
               </div>
-              <div class="col-sm-5 text-right"><strong>Rp. {{ number_format($order->price, 2) }}</strong></div>
+              <div class="col-sm-5 text-right"><strong>Rp. {{ number_format($plan->price, 2) }}</strong></div>
               <div class="col-sm-1 text-right"></div>
             </div>
             <hr>
@@ -55,7 +55,7 @@
               <div class="col-sm-6">
                 <p class="font-weight-bold">Total</p>
               </div>
-              <div class="col-sm-5 text-right"><strong>Rp. {{ number_format($order->price, 2) }}</strong></div>
+              <div class="col-sm-5 text-right"><strong>Rp. {{ number_format($plan->price, 2) }}</strong></div>
               <div class="col-sm-1 text-right"></div>
             </div>
           </div>
@@ -65,20 +65,21 @@
         <div class="card p-3">
           <h4 class="card-title mb-3">Personal Information</h4>
           <div class="row">
-              <div class="form-group col-md-6 mb-3">
-              <input type="hidden" class="form-control" id="user_name" placeholder="User Name" aria-label="User Name" name="user_id" value="{{(Auth()->user()->id)}}">
+              <div class="form-group col-md-6 mb-3">			  
+              <input type="hidden" name="plan_id" value="{{$plan->id}}">
+              <input type="hidden" name="user_id" value="{{(Auth()->user()->id)}}">
               <input type="text" class="form-control" id="user_name" placeholder="User Name" aria-label="User Name" value="{{(Auth()->user()->name)}}" readonly>
               </div>
               <div class="col-md-6 mb-3">
-              <input type="text" class="form-control" id="user_email" placeholder="Email" aria-label="Email" value="{{(Auth()->user()->email)}}">
+              <input type="text" class="form-control" id="user_email" placeholder="Email" aria-label="Email" value="{{(Auth()->user()->email)}}" readonly>
               </div>
           </div>
           <div class="row">
               <div class="col-md-6 mb-3">
-              <input type="text" class="form-control" id="Instansi" placeholder="Instansi" aria-label="Instansi" value="">
+              <input type="text" class="form-control" id="Instansi" placeholder="Instansi" aria-label="Instansi" value="" readonly>
               </div>
               <div class="col-md-6 mb-3">
-              <input type="text" class="form-control" id="Phone" placeholder="Phone" aria-label="Phone" value="">
+              <input type="text" class="form-control" id="Phone" placeholder="Phone" aria-label="Phone" value="" readonly>
               </div>
           </div>
 
@@ -87,7 +88,7 @@
             <div class="btn-group d-flex btn-group-justified mb-3" data-toggle="buttons">
   	            <label class="btn btn-primary col-6 active" role="button" data-toggle="collapse" data-target="#bank" aria-expanded="true" aria-controls="bank">
   	            	<div class="method visa"><i class="fa fa-credit-card"></i> Bank Transfer</div>
-  	                <input type="radio" name="payment_method" value="bank" class="d-none" checked>
+  	                <input type="radio" name="payment_method" value="Bank Transfer" class="d-none" checked>
   	            </label>
   	            <label class="btn btn-info col-6" role="button" data-toggle="collapse" data-target="#paypal" aria-expanded="true" aria-controls="paypal">
   	            	<div class="method visa"><i class="fab fa-paypal"></i> Paypal</div>

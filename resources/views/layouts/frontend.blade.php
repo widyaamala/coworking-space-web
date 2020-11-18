@@ -29,6 +29,7 @@
   {{-- Styles --}}
   <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
   <link href="{{ asset('/css/personal.css') }}" rel="stylesheet">
+  <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 
   @yield('template_linked_css')
 
@@ -122,11 +123,11 @@
 
               <div id="navbarSupportedContent" class="collapse navbar-collapse">
                   <ul class="navbar-nav ml-auto">
-                      <li class="nav-item active"><a href="#" class="nav-link text-uppercase font-weight-bold">Home <span class="sr-only">(current)</span></a></li>
-                      <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">Prices</a></li>
-                      <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">Services</a></li>
-                      <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">About</a></li>
-                      <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">Contact</a></li>
+                      <li class="nav-item active"><a href="#intro" class="nav-link text-uppercase font-weight-bold">Home <span class="sr-only">(current)</span></a></li>
+                      <li class="nav-item"><a href="#prices" class="nav-link text-uppercase font-weight-bold">Prices</a></li>
+                      <li class="nav-item"><a href="#seats" class="nav-link text-uppercase font-weight-bold">Services</a></li>
+                      <li class="nav-item"><a href="#about" class="nav-link text-uppercase font-weight-bold">About</a></li>
+                      <li class="nav-item"><a href="#contacts" class="nav-link text-uppercase font-weight-bold">Contact</a></li>
                   </ul>
               </div>
           </div>
@@ -136,7 +137,7 @@
   	@yield('content')
 
   	<!-- Footer -->
-    <footer class="page-footer font-small unique-color-dark">
+    <footer id="contacts" class="page-footer font-small unique-color-dark">
 
       <div style="background-color: #107f35;">
         <div class="container">

@@ -3629,7 +3629,7 @@ input[type=button].btn-block {
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-  color: #16181b;
+  color: ##f8f9fa;
   text-decoration: none;
   background-color: #f8f9fa;
 }
@@ -3638,7 +3638,7 @@ input[type=button].btn-block {
 .dropdown-item:active {
   color: #ffffff;
   text-decoration: none;
-  background-color: #007bff;
+  background-color: #f8f9fa;
 }
 
 .dropdown-item.disabled,
@@ -3664,7 +3664,7 @@ input[type=button].btn-block {
 .dropdown-item-text {
   display: block;
   padding: 0.25rem 1.5rem;
-  color: #212529;
+  color: #f8f9fa;
 }
 
 .btn-group,
@@ -7015,7 +7015,7 @@ a.bg-success:hover,
 a.bg-success:focus,
 button.bg-success:hover,
 button.bg-success:focus {
-  background-color: #1e7e34 !important;
+  background-color: #ffffff !important;
 }
 
 .bg-info {

@@ -36,7 +36,7 @@
                   <td>{{ $membership->invoice_id }}</td>
                   <td class="hidden-xs">{{ date('d M Y', strtotime($membership->start_date)) }}</td>
                   <td class="hidden-xs">{{ date('d M Y', strtotime($membership->end_date)) }}</td>
-                  <td>Status</td>
+                  <td>Active</td>
                   <td>
                       <form action="{{ route('memberships.destroy',$membership->id) }}" method="POST">
                           <a class="btn btn-sm btn-primary" href="{{ route('memberships.edit',$membership->id) }}"><i class="fa fa-pencil"></i><span class="hidden-xs"> Edit</span></a>

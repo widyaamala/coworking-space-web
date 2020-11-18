@@ -144,10 +144,10 @@ class InvoiceController extends Controller
     public function update(Request $request,$id)
     {
 
-    		$request->validate([
-    			'user_id' => 'required',
-          'plan_id' => 'required',
-    			'payment_method' => 'required',
+    	$request->validate([
+    		'user_id' => 'required',
+			'plan_id' => 'required',
+    		'payment_method' => 'required',
         ]);
 
     		$plan = Plan::find($request->plan_id);
@@ -160,11 +160,11 @@ class InvoiceController extends Controller
     			$status = 'On Process';
     		}
 
-    		$invoice = Invoice::find($id);
-    		$invoice->user_id = $request->get('user_id');
+    	$invoice = Invoice::find($id);
+    	$invoice->user_id = $request->get('user_id');
         $invoice->plan_id = $request->get('plan_id');
         $invoice->total = $total;
-    		$invoice->payment_method = $request->get('payment_method');
+    	$invoice->payment_method = $request->get('payment_method');
         $invoice->status = $status;
 
         $invoice->update();
