@@ -177,6 +177,12 @@ Route::group(['prefix' => 'manage', 'middleware' => ['auth', 'activated', 'role:
           'index'   => 'rooms',
       ],
     ]);
+	
+	Route::resource('events', 'EventController', [
+      'names' => [
+          'index'   => 'events',
+      ],
+    ]);
 
 
 });
