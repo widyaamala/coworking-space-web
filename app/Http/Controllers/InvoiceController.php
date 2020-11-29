@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Invoice;
 use App\Models\User;
-use App\Plan;
+use App\Product;
+use App\Membership;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,8 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        $invoices = Invoice::all();
+        $invoices = Invoice::with(['user', 'product'])->latest('created_at')->paginate(15);
+        //dd($invoices);
         return view('pages.invoices.list', compact('invoices'));
     }
 
@@ -31,7 +33,7 @@ class InvoiceController extends Controller
      */
     public function create()
     {
-        $data['plans'] = Plan::all();
+        $data['products'] = Product::all();
 		    $data['users'] = User::all();
         return view('pages.invoices.create', $data);
     }
@@ -45,78 +47,111 @@ class InvoiceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-			'user_id' => 'required',
-            'plan_id' => 'required',
-			'payment_method' => 'required',
+		        'user_id' => 'required',
+            'product_id' => 'required',
+		        'payment_method' => 'required',
         ]);
 
-		$plan = Plan::find($request->plan_id);
-		$total = $plan->price;
+    		$product = Product::find($request->product_id);
 
-		if ($request->payment_method == 'Cash') {
-			$status = 'Confirmed';
-		} else {
-			$status = 'On Process';
-		}
+    		if ($request->payment_method == 'Cash') {
+    			$status = 'Confirmed';
+    		} else {
+    			$status = 'On Process';
+    		}
+        //dd($request->user_id);
 
-		$invoice = new Invoice([
-             'user_id' => $request->get('user_id'),
-             'plan_id'=> $request->get('plan_id'),
-             'total'=> $total,
-			 'payment_method'=> $request->get('payment_method'),
+        if($product->category == 'membership') {
+           $membership = new Membership([
+            'user_id' => $request->user_id,
+            'start_date' => date('Y-m-d'),
+            'end_date' => date('Y-m-d', strtotime(($product->name == 'Week')?'+1 week':'+1 month')),
+           ]);
+           $membership->save();
+           $membership->invoice()->create([
+             'user_id' => $request->user_id,
+             'product_id'=> $product->id,
+             'total'=> $product->price,
+             'payment_method'=> $request->payment_method,
+             'note'=> $request->note,
              'status'=> $status,
-         ]);
+           ]);
+           if($membership->invoice->status == 'Confirmed') {
+             $membership->status = 'Active';
+           }
+           $membership->save();
+        } else {
+  	      $invoice = new Invoice([
+               'user_id' => $request->user_id,
+               'product_id'=> $product->id,
+               'total'=> $product->price,
+  		         'payment_method'=> $request->payment_method,
+               'status'=> $status,
+               'status'=> $status,
+               'status'=> $status,
+           ]);
+           $invoice->save();
+        }
 
-         $invoice->save();
-
-		return redirect('manage/invoices')->with('success', 'Invoice has been added');
+	      return redirect('manage/invoices')->with('success', 'Invoice has been added');
     }
 
 	public function postInvoice(Request $request)
     {
         $request->validate([
-			'user_id' => 'required',
-            'plan_id' => 'required',
-			'payment_method' => 'required',
+            'user_id' => 'required',
+            'product_id' => 'required',
+            'payment_method' => 'required',
         ]);
 
-		$plan = Plan::find($request->plan_id);
-		$total = $plan->price;
+        $product = Product::find($request->product_id);
 
-		if ($request->payment_method == 'Cash') {
-			$status = 'Confirmed';
-		} else {
-			$status = 'On Process';
-		}
+        if ($request->payment_method == 'Cash') {
+          $status = 'Confirmed';
+        } else {
+          $status = 'On Process';
+        }
+        //dd($request->user_id);
 
-		$invoice = new Invoice([
-             'user_id' => $request->get('user_id'),
-             'plan_id'=> $request->get('plan_id'),
-             'total'=> $total,
-			 'payment_method'=> $request->get('payment_method'),
+        if($product->category == 'membership') {
+           $membership = new Membership([
+            'user_id' => $request->user_id,
+            'start_date' => date('Y-m-d'),
+            'end_date' => date('Y-m-d', strtotime(($product->name == 'Week')?'+1 week':'+1 month')),
+           ]);
+           $membership->save();
+           $membership->invoice()->create([
+             'user_id' => $request->user_id,
+             'product_id'=> $product->id,
+             'total'=> $product->price,
+             'payment_method'=> $request->payment_method,
+             'note'=> $request->note,
              'status'=> $status,
-         ]);
+           ]);
+           if($membership->invoice->status == 'Confirmed') {
+             $membership->status = 'Active';
+           }
+           $membership->save();
+        } else {
+          $invoice = new Invoice([
+               'user_id' => $request->user_id,
+               'product_id'=> $product->id,
+               'total'=> $product->price,
+               'payment_method'=> $request->payment_method,
+               'status'=> $status,
+               'status'=> $status,
+               'status'=> $status,
+           ]);
+           $invoice->save();
+        }
 
-         $invoice->save();
-
-		return view('pages.invoices.confirmation', compact('invoice'));
+	      return view('pages.invoices.confirmation', compact('invoice'));
     }
 
-	public function confrimation(Invoice $invoice)
+	public function confirmation(Invoice $invoice)
     {
-        $invoice = Invoice::all();
+        //$invoice = Invoice::all();
         return view('pages.invoices.confirmation', compact('invoice'));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Invoice  $invoice
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Invoice $invoice)
-    {
-        //
     }
 
     /**
@@ -127,10 +162,9 @@ class InvoiceController extends Controller
      */
     public function edit(Invoice $invoice)
     {
-    		$data['plans'] = Plan::all();
-    		$data['users'] = User::all();
-
-        return view('pages.invoices.edit',$data, compact('invoice'));
+    		$invoice->load(['user', 'product']);
+        //dd($invoice->product->category);
+        return view('pages.invoices.edit', compact('invoice'));
 
     }
 
@@ -141,35 +175,18 @@ class InvoiceController extends Controller
      * @param  \App\Invoice  $invoice
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, Invoice $invoice)
     {
+    	 $invoice->status = $request->get('status');
+       $invoice->update();
 
-    	$request->validate([
-    		'user_id' => 'required',
-			'plan_id' => 'required',
-    		'payment_method' => 'required',
-        ]);
+       if($invoice->product->category == 'membership') {
+         $membership = $invoice->invoicable;
+         $membership->status = ($request->get('status') == 'Confirmed') ? 'Active' : 'Deactive';
+         $membership->update();
+       }
 
-    		$plan = Plan::find($request->plan_id);
-    		$total = $plan->price;
-			//dd($total);
-
-    		if ($request->payment_method == 'Cash') {
-    			$status = 'Confirmed';
-    		} else {
-    			$status = 'On Process';
-    		}
-
-    	$invoice = Invoice::find($id);
-    	$invoice->user_id = $request->get('user_id');
-        $invoice->plan_id = $request->get('plan_id');
-        $invoice->total = $total;
-    	$invoice->payment_method = $request->get('payment_method');
-        $invoice->status = $status;
-
-        $invoice->update();
-
-		return redirect('manage/invoices')->with('success', 'Invoice has been updated');
+	     return redirect('manage/invoices')->with('success', 'Invoice has been updated');
     }
 
     /**

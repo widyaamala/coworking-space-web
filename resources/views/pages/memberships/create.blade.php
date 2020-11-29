@@ -11,7 +11,7 @@
             Create New Membership
         </div>
         <div class="col-lg-3 text-right">
-            <a class="btn btn-light btn-sm" href="{{ route('plans') }}"><i class="fa fa-fw fa-reply-all" aria-hidden="true"></i><span class="hidden-xs"> Back</span></a>
+            <a class="btn btn-light btn-sm" href="{{ route('memberships') }}"><i class="fa fa-fw fa-reply-all" aria-hidden="true"></i><span class="hidden-xs"> Back</span></a>
         </div>
     </div>
     <div class="card-body">
@@ -22,28 +22,27 @@
 			<div class="col-sm-10">
 				<select id="user_id" name="user_id" class="form-control">
 				@foreach ($users as $user)
-					<option value="{{$user->id}}">{{$user->name}}</option>
+					<option value="{{$user->id}}" {{(Auth::user()->id === $user->id) ? 'selected' : ''}}>{{$user->name}}</option>
 				@endforeach
 				</select>
 			</div>
 		</div>
 		<div class="form-group row">
-			<label for="plan_name" class="col-sm-2 col-form-label">Plan Name</label>
+			<label for="product_id" class="col-sm-2 col-form-label">Plan Name</label>
 			<div class="col-sm-10">
-				<select id="plan_id" name="plan_id" class="form-control">
+				<select id="product_id" name="product_id" class="form-control">
 				@foreach ($plans as $plan)
-					<option value="{{$plan->id}}">{{$plan->plan_name}} - {{$plan->price}}</option>
+					<option value="{{$plan->id}}">{{$plan->name}} - {{$plan->price}}</option>
 				@endforeach
 				</select>
 			</div>
 		</div>
 		<div class="form-group row">
-			<label for="invoice_name" class="col-sm-2 col-form-label">Invoice</label>
+			<label for="payment_method" class="col-sm-2 col-form-label">Payment Method</label>
 			<div class="col-sm-10">
-				<select id="invoice_id" name="invoice_id" class="form-control">
-				@foreach ($invoices as $invoice)
-					<option value="{{$invoice->id}}">{{$invoice->id}}</option>
-				@endforeach
+				<select id="payment_method" name="payment_method" class="form-control">
+					<option value="Transfer Bank">Transfer Bank</option>
+					<option value="Cash">Cash</option>
 				</select>
 			</div>
 		</div>

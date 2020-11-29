@@ -26,9 +26,7 @@
               </div>
               <div class="col-sm-5 text-right">
 				<input type="hidden" name="user_id" value="{{(Auth()->user()->id)}}">
-				@foreach ($plans as $plan)
-				<input type="hidden" name="plan_id" value="{{$plan->id}}">
-				@endforeach
+				<input type="hidden" name="product_id" value="{{$invoice->product->id}}">
 				<input type="text" class="form-control-plaintext" name="invoice_id" value="{{$invoice->id}}" readonly>
 			  </div>
               <div class="col-sm-1 text-right"></div>
@@ -48,13 +46,13 @@
       </div>
       <div class="col-md-8 order-md-1">
         <div class="card p-3">
-			
+
           <h4 class="card-title mb-3">Upload Receipt</h4>
 		  <div class="form-group custom-file">
 			<input type="file" class="custom-file-input" id="image" name="image" required>
 			<label class="custom-file-label" for="image">Choose file...</label>
 		  </div>
-		  
+
           <h4 class="mt-5">Payment Information</h4>
 		  <div class="row">
 			  <div class="form-group col-md-12">
@@ -87,7 +85,7 @@
 				<input type="hidden" name="total" value="{{$invoice->total}}">
 			  </div>
 		  </div>
-		  
+
 		  <hr class="mb-4">
             <div class="text-center">
                   <button class="btn btn-success submit-button" type="submit">Submit</button>
