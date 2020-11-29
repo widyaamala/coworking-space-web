@@ -70,6 +70,7 @@ class MembershipController extends Controller
          'note'=> $request->note,
          'status'=> $status,
         ]);
+        $membership->status = ($membership->invoice->status == 'Confirmed') ? 'Active' : 'Deactive';
         $membership->save();
 
         return redirect('manage/memberships')->with('success', 'Membership has been added');
@@ -95,30 +96,12 @@ class MembershipController extends Controller
      * @param  \App\Membership  $membership
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Membership $membership)
     {
-        $request->validate([
-  			'user_id' => 'required',
-  			'plan_id' => 'required',
-    		'invoice_id' => 'required',
-        ]);
+  	   $membership->status = $request->get('status');
+       $membership->update();
 
-      	if (Plan::find($request->plan_id)->plan_name == 'Week') {
-    			$enddate = '+1 week';
-    		} else {
-    			$enddate = '+1 month';
-    		}
-
-    		$membership = Membership::find($id);
-    		$membership->user_id = $request->get('user_id');
-  			$membership->plan_id = $request->get('plan_id');
-  			$membership->invoice_id = $request->get('invoice_id');
-  			$membership->start_date = date('Y-m-d');
-  			$membership->end_date = date('Y-m-d', strtotime($enddate));
-
-        $membership->update();
-
-		return redirect('manage/memberships')->with('success', 'Membership has been updated');
+	     return redirect('manage/memberships')->with('success', 'Membership has been updated');
     }
 
     /**
@@ -130,6 +113,6 @@ class MembershipController extends Controller
     public function destroy(Membership $membership)
     {
         $membership->delete();
-         return redirect('manage/memberships')->with('success', 'Mmebership deleted successfully');
+        return redirect('manage/memberships')->with('success', 'Mmebership deleted successfully');
     }
 }

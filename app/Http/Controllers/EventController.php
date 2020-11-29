@@ -34,7 +34,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        $data['plans'] = Product::where('category', 'room')->get();
+        $data['rooms'] = Product::where('category', 'room')->get();
     		$data['users'] = User::all();
         return view('pages.events.create', $data);
     }
@@ -49,11 +49,11 @@ class EventController extends Controller
     {
         $request->validate([
 		        'user_id' => 'required',
-            'product_id' => 'required',
+            'room_id' => 'required',
 		        'payment_method' => 'required',
         ]);
 
-    		$product = Product::find($request->product_id);
+    		$product = Product::find($request->room_id);
 
     		if ($request->payment_method == 'Cash') {
     			$status = 'Confirmed';
@@ -70,7 +70,7 @@ class EventController extends Controller
     		// isi dengan nama folder tempat kemana file diupload
     		$upload_folder = 'receipt';
     		$file->move($upload_folder,$file_name);
-
+        // dd($file_name);
         $event = new Event([
            'user_id' => $request->get('user_id'),
         	 'date'=> $request->get('date'),
@@ -83,7 +83,6 @@ class EventController extends Controller
         	 'layout_seat' => $request->get('layout_seat'),
         	 'facilities' => $request->get('facilities'),
            'image'=> $file_name,
-        	 'status' => $request->get('status'),
         ]);
         $event->save();
         $event->invoice()->create([
@@ -94,6 +93,7 @@ class EventController extends Controller
            'note'=> $request->note,
            'status'=> $status,
         ]);
+        $event->status = ($event->invoice->status == 'Confirmed') ? 'Active' : 'Deactive';
         $event->save();
 
         return redirect('manage/events')->with('success', 'Event has been added');
@@ -108,8 +108,9 @@ class EventController extends Controller
     public function edit(Event $event)
     {
         $event->load(['user', 'invoice']);
+        $data['rooms'] = Product::where('category', 'room')->get();
 
-        return view('pages.events.edit', compact('event'));
+        return view('pages.events.edit', $data, compact('event'));
     }
 
     /**
@@ -119,27 +120,31 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Event $event)
     {
-        $request->validate([
-  			'user_id' => 'required',
-  			'plan_id' => 'required',
-    		'invoice_id' => 'required',
-        ]);
+        // menyimpan data file yang diupload ke variabel $file
+    		$file = $request->file('image');
 
-      	if (Plan::find($request->plan_id)->plan_name == 'Week') {
-    			$enddate = '+1 week';
-    		} else {
-    			$enddate = '+1 month';
-    		}
+    		$file_name = time()."_".$file->getClientOriginalName();
 
-    		$event = Event::find($id);
-    		$event->user_id = $request->get('user_id');
-  			$event->plan_id = $request->get('plan_id');
-  			$event->invoice_id = $request->get('invoice_id');
-  			$event->start_date = date('Y-m-d');
-  			$event->end_date = date('Y-m-d', strtotime($enddate));
+    		// isi dengan nama folder tempat kemana file diupload
+    		$upload_folder = 'receipt';
+    		$file->move($upload_folder,$file_name);
 
+        $data = [
+           'user_id' => $request->get('user_id'),
+           'date'=> $request->get('date'),
+           'time' => $request->get('time'),
+           'duration'=> $request->get('duration'),
+           'event_name' => $request->get('event_name'),
+           'description' => $request->get('description'),
+           'event_type' => $request->get('event_type'),
+           'total_seats' => $request->get('total_seats'),
+           'layout_seat' => $request->get('layout_seat'),
+           'facilities' => $request->get('facilities'),
+           'image'=> $file_name,
+        ];
+        $event = $data;
         $event->update();
 
 		return redirect('manage/events')->with('success', 'Event has been updated');
