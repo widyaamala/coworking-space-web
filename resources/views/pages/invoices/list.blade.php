@@ -10,7 +10,7 @@
             <h3>All Invoices</h3>
         </div>
         <div class="col-lg-3 text-right">
-            <a class="btn btn-success" href="{{ route('invoices.create') }}"><i class="fa fa-plus"></i><span class="hidden-xs"> Create New Invoices</span></a>
+            <a class="btn btn-success" href="{{ route('invoices.create') }}"><i class="fa fa-plus"></i><span class="hidden-xs"> Create New</span></a>
         </div>
     </div>
     <div class="card-body">
@@ -20,7 +20,7 @@
               <th>User</th>
               <th class="hidden-xs">Plan</th>
               <th class="hidden-xs">Total</th>
-			  <th>Payment Method</th>
+	            <th>Payment Method</th>
               <th class="hidden-xs">Note</th>
               <th>Status</th>
               <th>Date</th>
@@ -29,8 +29,8 @@
           @foreach ($invoices as $invoice)
               <tr>
                   <td>{{ $invoice->id }}</td>
-                  <td>{{ $invoice->user_id }}</td>
-                  <td class="hidden-xs">{{ $invoice->plan_id }}</td>
+                  <td>{{ $invoice->user->name }}</td>
+                  <td class="hidden-xs">{{ $invoice->product->name }}</td>
                   <td class="hidden-xs">{{ $invoice->total }}</td>
 				  <td>{{ $invoice->payment_method }}</td>
                   <td class="hidden-xs">{{ $invoice->note }}</td>

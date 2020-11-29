@@ -21,31 +21,28 @@
 		<div class="form-group row">
 			<label for="user_id" class="col-sm-2 col-form-label">User</label>
 			<div class="col-sm-10">
-				<select id="user_id" name="user_id" class="form-control">
-				@foreach ($users as $user)
-					<option value="{{$user->id}}" {{($invoice->user_id === $user->id) ? 'selected' : ''}}>{{$user->name}}</option>
-				@endforeach
-				</select>
+				<input type="text" name="user_id" id="note" class="form-control" disabled value="{{$invoice->user->name}}"/>
 			</div>
 		</div>
 		<div class="form-group row">
-			<label for="plan_id" class="col-sm-2 col-form-label">Plan Name</label>
+			<label for="product_id" class="col-sm-2 col-form-label">Plan Name</label>
 			<div class="col-sm-10">
-				<select id="plan_id" name="plan_id" class="form-control">
-				@foreach ($plans as $plan)
-					<option value="{{$plan->id}}" {{($invoice->plan_id === $plan->id) ? 'selected' : ''}}>{{$plan->plan_name}} - {{$plan->price}}
-				@endforeach
+				<input type="text" name="product_id" id="note" class="form-control" disabled value="{{$invoice->product->name}}"/>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label for="status" class="col-sm-2 col-form-label">Status</label>
+			<div class="col-sm-10">
+				<select id="status" name="status" class="form-control">
+					<option value="Confirmed" {{($invoice->status === 'Confirmed') ? 'selected' : ''}}>Confirmed</option>
+          <option value="On Process" {{($invoice->status === 'On Process') ? 'selected' : ''}}>On Process</option>
 				</select>
 			</div>
 		</div>
 		<div class="form-group row">
 			<label for="payment_method" class="col-sm-2 col-form-label">Payment Method</label>
 			<div class="col-sm-10">
-				<select id="payment_method" name="payment_method" class="form-control">
-					<option value="{{$invoice->payment_method}}" selected disabled>{{$invoice->payment_method}}</option>
-					<option value="Transfer Bank">Transfer Bank</option>
-					<option value="Cash">Cash</option>
-				</select>
+				<input type="text" name="payment_method" id="note" class="form-control" disabled value="{{$invoice->payment_method}}"/>
 			</div>
 		</div>
 		<div class="form-group row">

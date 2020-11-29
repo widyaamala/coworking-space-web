@@ -163,4 +163,19 @@ class User extends Authenticatable
     {
         return $this->profiles()->detach($profile);
     }
+
+    public function membership()
+    {
+        return $this->hasMany('App\Membership');
+    }
+
+    public function invoice()
+    {
+        return $this->hasMany('App\Invoice');
+    }
+
+    public function event()
+    {
+        return $this->hasMany('App\Event');
+    }
 }

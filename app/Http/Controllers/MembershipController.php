@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Membership;
-use App\Plan;
+use App\Product;
 use App\Invoice;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -17,7 +17,7 @@ class MembershipController extends Controller
      */
     public function index()
     {
-        $memberships = Membership::all();
+        $memberships = Membership::with(['user', 'invoice'])->latest('created_at')->paginate(15);
         return view('pages.memberships.list', compact('memberships'));
     }
 
@@ -28,9 +28,8 @@ class MembershipController extends Controller
      */
     public function create()
     {
-        $data['plans'] = Plan::all();
-		$data['users'] = User::all();
-		$data['invoices'] = Invoice::all();
+        $data['plans'] = Product::where('category', 'membership')->get();
+    		$data['users'] = User::all();
         return view('pages.memberships.create', $data);
     }
 
@@ -43,40 +42,37 @@ class MembershipController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-			'user_id' => 'required',
-            'plan_id' => 'required',
-			'invoice_id' => 'required',
+		        'user_id' => 'required',
+            'product_id' => 'required',
+		        'payment_method' => 'required',
         ]);
-		
-		if (Plan::find($request->plan_id)->plan_name == 'Week') {
-			$enddate = '+1 week';
-		} else {
-			$enddate = '+1 month';
-		}
-		
-		$membership = new Membership([
-             'user_id' => $request->get('user_id'),
-             'plan_id'=> $request->get('plan_id'),
-			 'invoice_id'=> $request->get('invoice_id'),
-			 'start_date' => date('Y-m-d'),
-			 'end_date' => date('Y-m-d', strtotime($enddate)),
-         ]);
 
-         $membership->save();
-		
-		/* Membership::create(array('user_id' => $request->user_id, 'plan_id' => $request->plan_id,'invoice_id' => $request->invoice_id, 'start_date' => date('Y-m-d'), 'end_date' => date('Y-m-d', strtotime($enddate)))); */
+    		$product = Product::find($request->product_id);
+
+    		if ($request->payment_method == 'Cash') {
+    			$status = 'Confirmed';
+    		} else {
+    			$status = 'On Process';
+    		}
+        //dd($request->user_id);
+
+        $membership = new Membership([
+        'user_id' => $request->user_id,
+        'start_date' => date('Y-m-d'),
+        'end_date' => date('Y-m-d', strtotime(($product->name == 'Week')?'+1 week':'+1 month')),
+        ]);
+        $membership->save();
+        $membership->invoice()->create([
+         'user_id' => $request->user_id,
+         'product_id'=> $product->id,
+         'total'=> $product->price,
+         'payment_method'=> $request->payment_method,
+         'note'=> $request->note,
+         'status'=> $status,
+        ]);
+        $membership->save();
+
         return redirect('manage/memberships')->with('success', 'Membership has been added');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Membership  $membership
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Membership $membership)
-    {
-        //
     }
 
     /**
@@ -87,11 +83,9 @@ class MembershipController extends Controller
      */
     public function edit(Membership $membership)
     {
-        $data['plans'] = Plan::all();
-    	$data['users'] = User::all();
-		$data['invoices'] = Invoice::all();
+        $membership->load(['user', 'invoice']);
 
-        return view('pages.memberships.edit',$data, compact('membership'));
+        return view('pages.memberships.edit', compact('membership'));
     }
 
     /**
@@ -104,23 +98,23 @@ class MembershipController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-			'user_id' => 'required',
-			'plan_id' => 'required',
+  			'user_id' => 'required',
+  			'plan_id' => 'required',
     		'invoice_id' => 'required',
         ]);
 
-    	if (Plan::find($request->plan_id)->plan_name == 'Week') {
-			$enddate = '+1 week';
-		} else {
-			$enddate = '+1 month';
-		}
+      	if (Plan::find($request->plan_id)->plan_name == 'Week') {
+    			$enddate = '+1 week';
+    		} else {
+    			$enddate = '+1 month';
+    		}
 
     		$membership = Membership::find($id);
     		$membership->user_id = $request->get('user_id');
-			$membership->plan_id = $request->get('plan_id');
-			$membership->invoice_id = $request->get('invoice_id');
-			$membership->start_date = date('Y-m-d');
-			$membership->end_date = date('Y-m-d', strtotime($enddate));
+  			$membership->plan_id = $request->get('plan_id');
+  			$membership->invoice_id = $request->get('invoice_id');
+  			$membership->start_date = date('Y-m-d');
+  			$membership->end_date = date('Y-m-d', strtotime($enddate));
 
         $membership->update();
 

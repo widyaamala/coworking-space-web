@@ -17,14 +17,14 @@ use Illuminate\Support\Facades\Route;
 
 // Homepage Route
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/', 'FrontendController@index')->name('homepage');
+  Route::get('/', 'FrontendController@index')->name('homepage');
 	Route::get('home', 'FrontendController@home')->name('home');
 	Route::get('room', 'FrontendController@room')->name('room');
-  	Route::get('signup/{id}', 'FrontendController@checkout')->name('checkout');
+	Route::get('signup/{id}', 'FrontendController@checkout')->name('checkout');
 	Route::get('room/{id}', 'FrontendController@reserve')->name('reserve');
-    Route::get('/terms', 'TermsController@terms')->name('terms');
-  	Route::post('post-invoice', 'InvoiceController@postInvoice')->name('post-invoice');
-  	Route::get('confirmation', 'InvoiceController@confirmation')->name('invoice');
+  Route::get('/terms', 'TermsController@terms')->name('terms');
+	Route::post('post-invoice', 'InvoiceController@postInvoice')->name('post-invoice');
+	Route::get('confirmation', 'InvoiceController@confirmation')->name('invoice');
 	Route::get('confirm-payment/{id}', 'FrontendController@confirmPayment')->name('confirm-payment');
 	Route::post('post-confirmation', 'PaymentController@postConfirmation')->name('post-confirmation');
 });
@@ -145,9 +145,9 @@ Route::group(['prefix' => 'manage', 'middleware' => ['auth', 'activated', 'role:
     Route::get('routes', 'AdminDetailsController@listRoutes')->name('routes');
     Route::get('active-users', 'AdminDetailsController@activeUsers')->name('active-users');
 
-    Route::resource('plans', 'PlanController', [
+    Route::resource('products', 'ProductController', [
       'names' => [
-          'index'   => 'plans',
+          'index'   => 'products',
       ],
     ]);
 
@@ -157,19 +157,25 @@ Route::group(['prefix' => 'manage', 'middleware' => ['auth', 'activated', 'role:
         ],
     ]);
 
+    Route::resource('events', 'EventController', [
+        'names' => [
+            'index'   => 'events',
+        ],
+    ]);
+
     Route::resource('invoices', 'InvoiceController', [
         'names' => [
             'index'   => 'invoices',
-			'confirmation'   => 'invoice',
+		        'confirmation'   => 'invoice',
         ],
     ]);
-	
+
 	Route::resource('payments', 'PaymentController', [
         'names' => [
             'index'   => 'payments',
         ],
     ]);
-	
+
 	Route::post('confirm', 'PaymentController@confirm')->name('confirm');
 
 	Route::resource('rooms', 'RoomController', [

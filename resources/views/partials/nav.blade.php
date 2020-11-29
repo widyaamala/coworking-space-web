@@ -58,11 +58,11 @@
                             {!! trans('Packages') !!}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item {{ Request::is('manage/plans') ? 'active' : null }}" href="{{ route('plans') }}">
+                            <a class="dropdown-item {{ Request::is('manage/products') ? 'active' : null }}" href="{{ route('products') }}">
                                 {!! trans('All Packages') !!}
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('manage/plans/create') ? 'active' : null }}" href="{{ route('plans.create') }}">
+                            <a class="dropdown-item {{ Request::is('manage/products/create') ? 'active' : null }}" href="{{ route('products.create') }}">
                                 {!! trans('Create New Package') !!}
                             </a>
                         </div>
@@ -95,7 +95,7 @@
                             </a>
                         </div>
                     </li>
-					<li class="nav-item dropdown">
+		                <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {!! trans('Payments') !!}
                         </a>
@@ -108,6 +108,11 @@
                                 {!! trans('Create New Invoice') !!}
                             </a>
                         </div>
+                    </li>
+		                <li class="nav-item">
+                        <a class="nav-link {{ Request::is('manage/events') ? 'active' : null }}" href="{{ route('events') }}" role="button">
+                            {!! trans('Events') !!}
+                        </a>
                     </li>
 					<li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

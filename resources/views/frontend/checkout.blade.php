@@ -45,9 +45,9 @@
           <div class="card-body">
             <div class="row">
               <div class="col-sm-6">
-                <p class="media-heading">{{$plan->plan_name}}</p>
+                <p class="media-heading">{{$product->name}}</p>
               </div>
-              <div class="col-sm-5 text-right"><strong>Rp. {{ number_format($plan->price, 2) }}</strong></div>
+              <div class="col-sm-5 text-right"><strong>Rp. {{ number_format($product->price, 2) }}</strong></div>
               <div class="col-sm-1 text-right"></div>
             </div>
             <hr>
@@ -55,7 +55,7 @@
               <div class="col-sm-6">
                 <p class="font-weight-bold">Total</p>
               </div>
-              <div class="col-sm-5 text-right"><strong>Rp. {{ number_format($plan->price, 2) }}</strong></div>
+              <div class="col-sm-5 text-right"><strong>Rp. {{ number_format($product->price, 2) }}</strong></div>
               <div class="col-sm-1 text-right"></div>
             </div>
           </div>
@@ -65,8 +65,8 @@
         <div class="card p-3">
           <h4 class="card-title mb-3">Personal Information</h4>
           <div class="row">
-              <div class="form-group col-md-6 mb-3">			  
-              <input type="hidden" name="plan_id" value="{{$plan->id}}">
+              <div class="form-group col-md-6 mb-3">
+              <input type="hidden" name="product_id" value="{{$product->id}}">
               <input type="hidden" name="user_id" value="{{(Auth()->user()->id)}}">
               <input type="text" class="form-control" id="user_name" placeholder="User Name" aria-label="User Name" value="{{(Auth()->user()->name)}}" readonly>
               </div>

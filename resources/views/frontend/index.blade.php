@@ -103,7 +103,7 @@
     <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
   </header>
   <div class="row">
-    @foreach ($plans as $plan)
+    @foreach ($products as $plan)
 		<div class="col-md-4 col-sm-4 col-xs-12">
 		<div class="card h-100 mb-4 text-center border-success  align-items-center">
           <div class="card-header  ml-0 text-success bg-transparent">
@@ -123,16 +123,7 @@
 		</div>
 		@endforeach
       </div>
-    <!--<div class="col-md-4 col-sm-4 col-xs-12">
-      <div class="pri_table_list">
-        <h3 class="my-0">{{$plan->plan_name}}<br/> <span>{{$plan->price}}</span></h3>
-        <ol>
-        <li>{!!$plan->description!!}</li>
-        </ol>
-        <a class="button btn" href="{{ route('checkout', $plan->id) }}">Book now</a>
-      </div>
-    </div>-->
-    
+
   </div>
   </div>
 </div>

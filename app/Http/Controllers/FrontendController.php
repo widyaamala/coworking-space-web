@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Plan;
+use App\Product;
 use App\Invoice;
 use App\Room;
 use Validator,Redirect,Response;
@@ -17,18 +17,18 @@ class FrontendController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-	 
+
 	public function home()
     {
         return view('frontend.home');
     }
-	
+
     public function index()
     {
-        $plans = Plan::all();
-        return view('frontend.index', compact('plans'));
+        $products = Product::all();
+        return view('frontend.index', compact('products'));
     }
-	
+
 	public function room()
     {
         $rooms = Room::all();
@@ -48,15 +48,14 @@ class FrontendController extends Controller
 
     public function checkout($id)
     {
-        $plan = Plan::find($id);
-        $user = Auth::user();
+        $product = Product::find($id);
 
         if(Auth::guest()){
           return Redirect::guest("login")->withSuccess('You have to login first');
         }
-        return view('frontend.checkout', compact('plan'));
+        return view('frontend.checkout', compact('product'));
     }
-	
+
 	public function reserve($id)
     {
         $room = Room::find($id);
@@ -67,16 +66,14 @@ class FrontendController extends Controller
         }
         return view('frontend.reservation', compact('room'));
     }
-	
+
 	public function confirmPayment($id)
     {
         $invoice = Invoice::find($id);
-		$data['plans'] = Plan::all();
-        $user = Auth::user();
 
         if(Auth::guest()){
           return Redirect::guest("login")->withSuccess('You have to login first');
         }
-        return view('frontend.confirm-payment', $data, compact('invoice'));
+        return view('frontend.confirm-payment', compact('invoice'));
     }
 }

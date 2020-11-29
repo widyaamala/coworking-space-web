@@ -22,7 +22,7 @@
 			<div class="col-sm-10">
 				<select id="user_id" name="user_id" class="form-control">
 				@foreach ($users as $user)
-					<option value="{{$user->id}}">{{$user->name}}</option>
+					<option value="{{$user->id}}" {{(Auth::user()->id === $user->id) ? 'selected' : ''}}>{{$user->name}}</option>
 				@endforeach
 				</select>
 			</div>
@@ -30,9 +30,9 @@
 		<div class="form-group row">
 			<label for="plan_name" class="col-sm-2 col-form-label">Plan Name</label>
 			<div class="col-sm-10">
-				<select id="plan_id" name="plan_id" class="form-control">
-				@foreach ($plans as $plan)
-					<option value="{{$plan->id}}">{{$plan->plan_name}} - {{$plan->price}}
+				<select id="product_id" name="product_id" class="form-control">
+				@foreach ($products as $product)
+					<option value="{{$product->id}}">{{$product->name}} - {{$product->price}}
 				@endforeach
 				</select>
 			</div>
