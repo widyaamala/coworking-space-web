@@ -184,7 +184,6 @@ Route::group(['prefix' => 'manage', 'middleware' => ['auth', 'activated', 'role:
       ],
     ]);
 
-
 });
 
 Route::redirect('/php', '/phpinfo', 301);

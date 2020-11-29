@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:300|Montserrat:700,800|Source+Sans+Pro:300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:300|Open+Sans:400|Montserrat:700,800|Source+Sans+Pro:300&display=swap');
 
 
 :root {
@@ -34,6 +34,18 @@
 p{
 	font-family: 'Source Sans Pro', sans-serif;
 	color: #606060;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  margin: 0 0 20px 0;
+  padding: 0;
 }
  
 .btn-login {
@@ -377,10 +389,20 @@ a:visited {
 
 .intro-info .title{
 	color: #107f35;
-	font-size: 98px;
-	font-weight: 600;
+	font-size: 56px;
+	font-weight: 800;
 	font-family: "Montserrat" sans-serif;
 
+}
+#intro .intro-info h2 {
+  color: #413e66;
+  margin-bottom: 40px;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+#intro .intro-info h2 span {
+  color: #107f35;
 }
 
 .intro-info .subtitle{
@@ -393,16 +415,36 @@ a:visited {
 .intro-info .subsub{
 	font-size: 36px;
 	font-family: "Montserrat-Thin" sans-serif;
-	padding-bottom: 1em;
 
 }
 
 .intro-info .quote{
-	color: #707070;
-	padding-top: 2em;
+	padding-top : 1em;
+	padding-bottom: 2em;
 	font-family: "Montserrat-Thin" sans-serif;
 	font-style: italic;
 
+}
+
+#intro .intro-info .btn-get-started,
+#intro .intro-info .btn-services {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 32px;
+  border-radius: 4px;
+  transition: 0.5s;
+  color: #fff;
+  background: #1bb1dc;
+  color: #fff;
+}
+
+#intro .intro-info .btn-get-started:hover,
+#intro .intro-info .btn-services:hover {
+  background: #0a98c0;
 }
 
 .service {
@@ -415,13 +457,14 @@ a:visited {
   text-align: center;
   position: relative;
   font-family: "Montserrat", sans-serif;
-  opacity: 50%;
+  opacity: 70%;
+  
 }
 
 .service .information{
 	padding-top: 5em;
 	position: relative;
-	font-family: "Montserrat-Thin" sans-serif;
+	font-family: "Montserrat" sans-serif;
 }
 
 .service .info h4{
@@ -433,6 +476,81 @@ a:visited {
 
 .service .slider1{
 	padding-top: 1.5em;
+}
+
+.single-well{
+	padding-top: 3em;
+}
+
+.single-well p{
+  color: #444;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+	
+}
+
+.single-well>a {
+  display: block;
+}
+
+.single-well ul li {
+  color: #444;
+  display: block;
+  padding: 5px 0;
+}
+
+.single-well ul li i {
+  color: #3EC1D5;
+  padding-right: 10px;
+  font-size: 12px;
+}
+
+.single-well p {
+  color: #444;
+}
+
+#parallax {
+  background: url("../img/parallax.jpeg") center top no-repeat fixed;
+  background-size: cover;
+  padding: 60px 0 40px 0;
+  position: relative;
+}
+
+#parallax::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.85);
+  z-index: 9;
+}
+
+#parallax .container {
+  position: relative;
+  z-index: 10;
+}
+
+#parallax .counters {
+  padding-top: 40px;
+}
+
+#parallax .counters span {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 48px;
+  display: block;
+  color: #107f35;
+}
+
+#parallax .counters p {
+  padding: 0;
+  margin: 0 0 20px 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #107f35;
+  opacity: 50%;
 }
 
 
@@ -458,10 +576,49 @@ a:visited {
 
 .room{
 	padding-bottom: 5em;
+	padding-top: 2em;
 }
 
 .room-img{
 	padding-top: 1.5em;
+	position: relative;
+}
+
+
+#services .room .room-img img {
+  width: 100%;
+  border: 8px solid #fff;
+  transition: .5s;
+}
+
+#services .room .room-img img:hover {
+  width: 100%;
+  -webkit-transform: scale(1.03);
+  transform: scale(1.03);
+}
+
+#services .room .room-img::before {
+  position: absolute;
+  left: -31px;
+  top: -30px;
+  width: 90%;
+  height: 92%;
+  z-index: -1;
+  content: '';
+  background-color: #ebf1fa;
+  transition: .5s;
+}
+
+#services .room .room-img::after {
+  position: absolute;
+  right: -31px;
+  bottom: -30px;
+  width: 90%;
+  height: 92%;
+  z-index: -1;
+  content: '';
+  background-color: #ebf1fa;
+  transition: .5s;
 }
 
 .room-tagline {
@@ -604,6 +761,29 @@ a:visited {
 
 #clients .owl-dot.active {
   background-color: #1bb1dc;
+}
+
+#partnership {
+  background: url("../img/community.jpg") center top no-repeat fixed;
+  background-size: cover;
+  padding: 60px 0 40px 0;
+  position: relative;
+}
+
+#partnership::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.80);
+  z-index: 9;
+}
+
+#partnership .container {
+  position: relative;
+  z-index: 10;
 }
 
 /* Payment Page

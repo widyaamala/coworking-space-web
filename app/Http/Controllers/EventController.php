@@ -17,8 +17,14 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::with(['user', 'invoice'])->latest('created_at')->paginate(15);
+    		$events = Event::with(['user', 'invoice'])->latest('created_at')->paginate(15);
         return view('pages.events.list', compact('events'));
+    }
+
+	public function calendar()
+    {
+		    $events = Event::all();
+        return view('pages.events.calendar', compact('events'));
     }
 
     /**
@@ -56,19 +62,37 @@ class EventController extends Controller
     		}
         //dd($request->user_id);
 
+        // menyimpan data file yang diupload ke variabel $file
+    		$file = $request->file('image');
+
+    		$file_name = time()."_".$file->getClientOriginalName();
+
+    		// isi dengan nama folder tempat kemana file diupload
+    		$upload_folder = 'receipt';
+    		$file->move($upload_folder,$file_name);
+
         $event = new Event([
-        'user_id' => $request->user_id,
-        'start_date' => date('Y-m-d'),
-        'end_date' => date('Y-m-d', strtotime(($product->name == 'Week')?'+1 week':'+1 month')),
+           'user_id' => $request->get('user_id'),
+        	 'date'=> $request->get('date'),
+           'time' => $request->get('time'),
+           'duration'=> $request->get('duration'),
+        	 'event_name' => $request->get('event_name'),
+        	 'description' => $request->get('description'),
+        	 'event_type' => $request->get('event_type'),
+        	 'total_seats' => $request->get('total_seats'),
+        	 'layout_seat' => $request->get('layout_seat'),
+        	 'facilities' => $request->get('facilities'),
+           'image'=> $file_name,
+        	 'status' => $request->get('status'),
         ]);
         $event->save();
         $event->invoice()->create([
-         'user_id' => $request->user_id,
-         'product_id'=> $product->id,
-         'total'=> $product->price,
-         'payment_method'=> $request->payment_method,
-         'note'=> $request->note,
-         'status'=> $status,
+           'user_id' => $request->user_id,
+           'product_id'=> $product->id,
+           'total'=> $product->price,
+           'payment_method'=> $request->payment_method,
+           'note'=> $request->note,
+           'status'=> $status,
         ]);
         $event->save();
 
