@@ -76,9 +76,7 @@ class InvoiceController extends Controller
              'note'=> $request->note,
              'status'=> $status,
            ]);
-           if($membership->invoice->status == 'Confirmed') {
-             $membership->status = 'Active';
-           }
+           $membership->status = ($membership->invoice->status == 'Confirmed') ? 'Active' : 'Deactive';
            $membership->save();
         } else {
   	      $invoice = new Invoice([
@@ -128,9 +126,7 @@ class InvoiceController extends Controller
              'note'=> $request->note,
              'status'=> $status,
            ]);
-           if($membership->invoice->status == 'Confirmed') {
-             $membership->status = 'Active';
-           }
+           $membership->status = ($membership->invoice->status == 'Confirmed') ? 'Active' : 'Deactive';
            $membership->save();
         } else {
           $invoice = new Invoice([
@@ -180,7 +176,7 @@ class InvoiceController extends Controller
     	 $invoice->status = $request->get('status');
        $invoice->update();
 
-       if($invoice->product->category == 'membership') {
+       if($invoice->product->category == 'membership' || $invoice->product->category == 'room') {
          $membership = $invoice->invoicable;
          $membership->status = ($request->get('status') == 'Confirmed') ? 'Active' : 'Deactive';
          $membership->update();

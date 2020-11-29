@@ -31,9 +31,9 @@
   			<label for="room_name" class="col-sm-2 col-form-label">Room Name</label>
   			<div class="col-sm-10">
   				<select id="room_id" name="room_id" class="form-control">
-  				@foreach ($rooms as $room)
-  					<option value="{{$room->id}}">{{$room->room_name}}</option>
-  				@endforeach
+		        @foreach ($rooms as $room)
+  					<option value="{{$room->id}}">{{$room->name}}</option>
+			      @endforeach
   				</select>
   			</div>
   		</div>
@@ -100,14 +100,19 @@
   			</select>
   			</div>
   		</div>
-  		<div class="form-group custom-file row">
-  			<input type="file" class="custom-file-input" id="image" name="image" required>
-  			<label class="custom-file-label" for="image">Choose file...</label>
-  		</div>
   		<div class="form-group row">
-  			<label for="price" class="col-sm-2 col-form-label">Status</label>
+        <label class="col-sm-2 col-form-label" for="image">Image</label>
+        <div class="col-sm-10">
+			     <input type="file" class="form-control" id="image" name="image" required>
+         </div>
+      </div>
+  		<div class="form-group row">
+  			<label for="payment_method" class="col-sm-2 col-form-label">Payment</label>
   			<div class="col-sm-10">
-  				<input type="text" name="status" id="status" class="form-control" placeholder="Status">
+  				<select id="payment_method" name="payment_method" class="form-control">
+            <option value="Cash">Cash</option>
+  					<option value="Transfer Bank">Transfer Bank</option>
+  				</select>
   			</div>
   		</div>
   		<div class="form-group row">
