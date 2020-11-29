@@ -104,8 +104,8 @@
                                 {!! trans('All Payments') !!}
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('manage/invoices/create') ? 'active' : null }}" href="{{ route('invoices.create') }}">
-                                {!! trans('Create New Invoice') !!}
+                            <a class="dropdown-item {{ Request::is('manage/payments/create') ? 'active' : null }}" href="{{ route('payments.create') }}">
+                                {!! trans('Create New Payment') !!}
                             </a>
                         </div>
                     </li>
@@ -114,12 +114,30 @@
                             {!! trans('Rooms') !!}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item {{ Request::is('manage/payments') ? 'active' : null }}" href="{{ route('rooms') }}">
+                            <a class="dropdown-item {{ Request::is('manage/rooms') ? 'active' : null }}" href="{{ route('rooms') }}">
                                 {!! trans('All Rooms') !!}
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item {{ Request::is('manage/rooms/create') ? 'active' : null }}" href="{{ route('rooms.create') }}">
                                 {!! trans('Create New Room') !!}
+                            </a>
+                        </div>
+                    </li>
+					<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {!! trans('Events') !!}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item {{ Request::is('manage/events') ? 'active' : null }}" href="{{ route('events') }}">
+                                {!! trans('All Events') !!}
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item {{ Request::is('manage/events/create') ? 'active' : null }}" href="{{ route('events.create') }}">
+                                {!! trans('Create New Event') !!}
+                            </a>
+							<div class="dropdown-divider"></div>
+                            <a class="dropdown-item {{ Request::is('manage/events/calendar') ? 'active' : null }}" href="{{ route('events.calendar') }}">
+                                {!! trans('Calendar') !!}
                             </a>
                         </div>
                     </li>

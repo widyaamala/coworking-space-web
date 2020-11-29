@@ -19,6 +19,12 @@ class EventController extends Controller
 		$events = Event::all();
         return view('pages.events.list', compact('events'));
     }
+	
+	public function calendar()
+    {
+		$events = Event::all();
+        return view('pages.events.calendar', compact('events'));
+    }
 
     /**
      * Show the form for creating a new resource.

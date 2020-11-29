@@ -9,11 +9,15 @@
 		<div class="container d-flex h-100">
 		  <div class="content row justify-content-center align-self-center">
 			<div class="col-md-6 intro-info order-md-first order-last">
-			  <h1 class="title">EZO</h1>
-			  <h1 class="subtitle">Co-Working Space</h1>
-			  <h1 class="subsub"><strong>everytime.</strong> coffee</h1>
+			  <h2>Ezo Co-working<br><span>Space</span></h2>
+			  <span style="line-height: 2.5em;">
+				  <span class="subtitle">Rangsang</span><span class="subsub"><strong> Kreatatifitas</strong></span>
+				  <span class="subtitle">Perluas</span><span class="subsub"><strong> Networking</strong></span>
+			  </span>
+			  <div class="quote">Co-Working Space terlengkap hanya untuk kamu</br>Didesain sesuai kebutuhanmu
+			  </div>
 			  <div>
-				<p class="quote">everything we do <br>all need refreshing by drinking coffee</p>
+				<a href="#about" class="btn-get-started scrollto">Get Started</a>
 			  </div>
 			</div>
 		   
@@ -25,53 +29,104 @@
 		</div>
 	</section> <!-- #intro -->
 	
-	<!-- Ezo section -->
-<div id="services" class="service spacer p-t-30 p-b-30">
+<!-- Home -->
+<div id="home" class="service spacer p-t-30 p-b-30">
 	<div class="container">
-        <header class="section-header">
-          <h3>Ezo Coworking Space</h3>
-        </header>
 		<div class="row">
-			<div class="col-lg-8">
-				<div class="slider1">
-					<div id="slider-featured" class="carousel slide bs-slider carousel-fade control-round indicators-line my-3" data-ride="carousel" data-pause="hover" data-interval="8000">
-						<ol class="carousel-indicators">
-							<li data-target="#slider-featured" data-slide-to="0" class=""></li>
-							<li data-target="#slider-featured" data-slide-to="1" class="active"></li>
-						</ol>
-						<div class="carousel-inner" role="listbox">
-							<div class="carousel-item">
-								<img src="img/img2.jpg" alt="slide1" width="90%" height="345">
-							</div>
-							<div class="carousel-item active">
-								<img src="img/img3.jpg" alt="slide2" width="90%" height="345">
-							</div>
-							<a class="left carousel-control-prev text-white font-14" href="#slider-featured" role="button" data-slide="prev">
-								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-								<span class="sr-only">Sebelumnya</span>
-							</a>
-							<a class="right carousel-control-next text-white font-14" href="#slider-featured" role="button" data-slide="next">
-								<span class="carousel-control-next-icon" aria-hidden="true"></span>
-								<span class="sr-only">Selanjutnya</span>
-							</a>
-						</div>
-					</div>
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="section-header">
+				  <h3>Ezo Coworking Space</h3>
 				</div>
 			</div>
-			<div class="information col-lg-4">
-				<p>Molestiae omnis numquam corrupti omnis itaque. Voluptatum quidem impedit. Odio dolorum exercitationem est error omnis repudiandae ad dolorum sit.</p>
-				<p>
-					Explicabo repellendus quia labore. Non optio quo ea ut ratione et quaerat. Porro facilis deleniti porro consequatur
-					et temporibus. Labore est odio.
-
-					Odio omnis saepe qui. Veniam eaque ipsum. Ea quia voluptatum quis explicabo sed nihil repellat..
-				</p>
-			</div>
 		</div>
+		<div class="row">
+        <!-- single-well start-->
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="well-left">
+            <div class="single-well">
+              <a href="#">
+								  <img src="img/ezo.jpeg" alt="" width="100%" height="325">
+								</a>
+            </div>
+          </div>
+        </div>
+        <!-- single-well end-->
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="well-middle">
+            <div class="single-well">
+              <p>
+                Ezo Coworking Space adalah tempat berkumpul talenta kreatif sehingga dapat memicu inspirasi dan kreatifitas. Semua fasilitas Ezo Coworking Space didesain sesuai kebutuhan kamu. Nggak masalah kamu baru memulai Start-Up atau freelancer yang sedang cari inspirasi. Di Ezo aja!
+              </p>
+              <ul>
+                <li>
+                  <i class="fa fa-check"></i> Group Events
+                </li>
+                <li>
+                  <i class="fa fa-check"></i> Office Supplies
+                </li>
+                <li>
+                  <i class="fa fa-check"></i> Coffee Shops
+                </li>
+                <li>
+                  <i class="fa fa-check"></i> Modern Design
+                </li>
+                <li>
+                  <i class="fa fa-check"></i> Fast Internet
+                </li>
+				<li>
+                  <i class="fa fa-check"></i> Free Parking
+                </li>
+				<li>
+                  <i class="fa fa-check"></i> Relax Room
+                </li>
+				<li>
+                  <i class="fa fa-check"></i> Conference Room
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- End col-->
+      </div>
 	</div>
 </div>
 
-<!-- Services -->
+<section id="parallax">
+      <div class="container">
+		<center>
+			  <h3 style="color: #413e66;">Why Choose Us</h3>
+			  <p>Karena Coworking Space adalah tempat kerja yang mengusung konsep “bekerja bersama” yang didesain tanpa batas, vibes yang dihasilkan dari bekerja di Coworking Space sangat berbeda daripada kantor pada umumnya.</p>
+		
+		</center>
+        <div class="row counters">
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">274</span>
+            <p>Clients</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">1000+</span>
+            <p>Events</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">1,364</span>
+            <p>Visitors</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">18</span>
+            <p>Hard Workers</p>
+          </div>
+  
+        </div>
+
+	</div>
+</section>
+<!-- #home -->
+
+<!-- Services
   <section class="page-section section-bg" id="services">
     <div class="container">
       <div class="icon-sec row text-center">
@@ -111,14 +166,17 @@
 		</div>
 	  </div>
     </div>
-  </section>
+  </section> -->
   
    <section id="services" class="service spacer p-t-30 p-b-30">
       <div class="container">
+		<div class="section-header">
+			<h3>Our Services</h3>
+		</div>
         <div class="room row">
           <div class="col-lg-6">
             <div class="room-img">
-              <img src="img/personal.jpg" alt="" class="img-fluid" width="80%">
+              <img src="img/individu.png" alt="" class="img-fluid" width="100%">
             </div>
           </div>
 
@@ -127,8 +185,8 @@
 				  <div class="room-tagline">Meet New Creative <br>People Everyday</div>
 				  <div class="room-title">Coworking Space</div>
 				  <div class="room-info">
-					<p>Commodi quia voluptatum. Est cupiditate voluptas quaerat officiis ex alias dignissimos et ipsum. Soluta at enim modi ut incidunt dolor et.</p>
-					<p>Commodi quia voluptatum. Est cupiditate voluptas quaerat officiis ex alias dignissimos et ipsum. Soluta at enim modi ut incidunt dolor et.</p>
+					<p>Rangsang kreativitas dan perluas networking dengan bekerja di open space dan bertemu dengan pekerja kreatif setiap hari.</p>
+					<p>Meja dan kursi (tidak dapat dipindahkan)</br>Wi-Fi</br>Stop kontak</p>
 				  </div>
 				<a class="button btn" href="{{ route('homepage') }}">See More</a>          
             </div>
@@ -143,8 +201,8 @@
 				  <div class="room-tagline">Enjoy Event or <br>Workshop</div>
 				  <div class="room-title">Event Space</div>
 				  <div class="room-info">
-					<p>Commodi quia voluptatum. Est cupiditate voluptas quaerat officiis ex alias dignissimos et ipsum. Soluta at enim modi ut incidunt dolor et.</p>
-					<p>Commodi quia voluptatum. Est cupiditate voluptas quaerat officiis ex alias dignissimos et ipsum. Soluta at enim modi ut incidunt dolor et.</p>
+					<p>Nikmati berbagai event menarik yang bisa kamu inisiasi sendiri sesuai ide kreatifmu.</p>
+					<p>Layar (Screen)</br>Papan Tulis dan Spidol></br>Sound System</br>1 (satu) Microphone</p>
 				  </div>
 				<a class="button btn" href="{{ route('homepage') }}">See More</a>
 				
@@ -153,24 +211,24 @@
           </div>
           <div class="col-lg-6">
             <div class="room-img">
-              <img src="img/personal.jpg" alt="" class="img-fluid" width="80%">
+              <img src="img/event.png" alt="" class="img-fluid" width="100%">
             </div>
           </div>
         </div>
 		<div class="room row">
           <div class="col-lg-6">
             <div class="room-img">
-              <img src="img/personal.jpg" alt="" class="img-fluid" width="80%">
+              <img src="img/private.png" alt="" class="img-fluid" width="100%">
             </div>
           </div>
 
           <div class="col-lg-6">
             <div class="space-content">
-				  <div class="room-tagline">Discuss Everything in <br>Meeting Room</div>
-				  <div class="room-title">Meeting Room</div>
+				  <div class="room-tagline">Own Your <br>Virtual Office</div>
+				  <div class="room-title">Private Office</div>
 				  <div class="room-info">
-					<p>Commodi quia voluptatum. Est cupiditate voluptas quaerat officiis ex alias dignissimos et ipsum. Soluta at enim modi ut incidunt dolor et.</p>
-					<p>Commodi quia voluptatum. Est cupiditate voluptas quaerat officiis ex alias dignissimos et ipsum. Soluta at enim modi ut incidunt dolor et.</p>
+					<p>Jika kamu adalah pekerja nomaden, miliki kantor virtualmu dan kamu bisa bereja dengan kenyamanan yang menginspirasi.</p>
+					<p>Meja dan kursi (tidak dapat dipindahkan)></br>Self Service (Air Mineral, Tea)</br>Wi-Fi dan Stop kontak</br>Free Seminar apapun 1x (Sebulan)</p>
 				  </div>
 				<a class="button btn" href="{{ route('room') }}">See More</a>          
             </div>
@@ -181,6 +239,21 @@
 		</div>
 	</section>
 	<!-- #services -->
+	
+	<!-- #events -->
+	<section id="events" class="service spacer p-t-30 p-b-30">
+      <div class="container">
+		<div class="section-header">
+			<h3>Events</h3>
+			<center>
+			<span class="subtitle">Temukan</span><span class="subsub"><strong> event</strong></span><span class="subtitle"> menarik atau buat</span><span class="subsub"><strong> event impianmu!</strong></span>
+			</center>
+		</div>
+		
+		<div id='calendar'></div>
+		
+	  </div>
+	</section>
 	
 	<!-- about us-->
 	<section id="about" class="service spacer p-t-30 p-b-30">
@@ -202,41 +275,48 @@
 			  <div class="aboutus-tagline">Our Benefits</div>
 				<div class="row">
 					<div class="col-md-3">
-						<h6 class="text-uppercase font-weight-bold">Feature One</h6>
+						<h6 class="text-uppercase font-weight-bold">Affordable Prices</h6>
 						<hr class="cyan accent-4 accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-						<p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-						  consectetur
-						  adipisicing elit.
+						<p>Get the best experience with affordable prices.
 						</p>
 					</div>
 					<div class="col-md-3">
-						<h6 class="text-uppercase font-weight-bold">Feature Two</h6>
+						<h6 class="text-uppercase font-weight-bold">Best Services</h6>
 						<hr class="cyan accent-4 accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-						<p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-						  consectetur
-						  adipisicing elit.
+						<p>Best service to stimulate your productivity. We will give you a comfortable room with the best facilities
 						</p>
 					</div>
 					<div class="col-md-3">
-						<h6 class="text-uppercase font-weight-bold">Feature Three</h6>
+						<h6 class="text-uppercase font-weight-bold">Wider Networking</h6>
 						<hr class="cyan accent-4 accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-						<p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-						  consectetur
-						  adipisicing elit.
+						<p>Get wider networking with our engaged community in the city.
 						</p>
 					</div>
 					<div class="col-md-3">
-						<h6 class="text-uppercase font-weight-bold">Feature Four</h6>
+						<h6 class="text-uppercase font-weight-bold">Event Starter</h6>
 						<hr class="cyan accent-4 accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-						<p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-						  consectetur
-						  adipisicing elit.
+						<p>Create your own event from scratch and get new participants and collaboration partners.
 						</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+	
+	<section id="partnership">
+      <div class="container">
+		<center>
+			  <h3 style="color: #413e66;">Join Our Community</h3>
+			  <span class="subtitle">Gabung</span><span class="subsub"><strong> Ezo Coworking Space</strong></span><span class="subtitle"> Dengan Menjadi Partner Kami</span></br>
+			  <span class="subtitle"> Dapatkan</span><span class="subsub"><strong> Penawaran Menarik</strong></span><span class="subtitle"> Dari Kami</span></br>
+			  <div style="padding-top: 1.3em;">
+			  <button type="button" class="btn btn-outline-primary">Send Your Proposal</button>
+			  </div>
+		
+		</center>
+
+	</div>
+</section>
 	
 	@endsection
 
