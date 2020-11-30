@@ -38,7 +38,10 @@
 		<div class="form-group row">
 			<label for="category" class="col-sm-2 col-form-label">Category</label>
 			<div class="col-sm-10">
-				<input type="text" name="category" id="category" class="form-control" placeholder="Category">
+				<select id="category" name="category" class="form-control">
+					<option value="Membership">Membership</option>
+					<option value="Room">Room</option>
+				</select>
 			</div>
 		</div>
 		<div class="form-group row">

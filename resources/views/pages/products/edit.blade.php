@@ -11,29 +11,38 @@
             Edit Plan
         </div>
         <div class="col-lg-3 text-right">
-            <a class="btn btn-light btn-sm" href="{{ route('plans') }}"><i class="fa fa-fw fa-reply-all" aria-hidden="true"></i><span class="hidden-xs"> Back</span></a>
+            <a class="btn btn-light btn-sm" href="{{ route('products') }}"><i class="fa fa-fw fa-reply-all" aria-hidden="true"></i><span class="hidden-xs"> Back</span></a>
         </div>
     </div>
     <div class="card-body">
-      <form action="{{ route('plans.update', $plan->id) }}" method="POST">
+      <form action="{{ route('products.update', $product->id) }}" method="POST">
 		@csrf
 		@method('PUT')
 		<div class="form-group row">
-			<label for="plan_name" class="col-sm-2 col-form-label">Plan Name</label>
+			<label for="name" class="col-sm-2 col-form-label">Product Name</label>
 			<div class="col-sm-10">
-				<input type="text" name="plan_name" id="plan_name" class="form-control" value="{{ $plan->plan_name }}" placeholder="Plan Name">
+				<input type="text" name="name" id="name" class="form-control" value="{{ $product->name }}" placeholder="Product Name">
 			</div>
 		</div>
 		<div class="form-group row">
 			<label for="description" class="col-sm-2 col-form-label">Description</label>
 			<div class="col-sm-10">
-				<textarea type="textarea" name="description" id="description" class="form-control" placeholder="Description">{{ $plan->description }}</textarea>
+				<textarea type="textarea" name="description" id="description" class="form-control" placeholder="Description">{{ $product->description }}</textarea>
 			</div>
 		</div>
 		<div class="form-group row">
 			<label for="price" class="col-sm-2 col-form-label">Price</label>
 			<div class="col-sm-10">
-				<input type="number" name="price" id="price" class="form-control" value="{{ $plan->price }}" placeholder="Price">
+				<input type="number" name="price" id="price" class="form-control" value="{{ $product->price }}" placeholder="Price">
+			</div>
+		</div>
+		<div class="form-group row">
+			<label for="category" class="col-sm-2 col-form-label">Category</label>
+			<div class="col-sm-10">
+				<select id="category" name="category" class="form-control">
+					<option value="Membership">Membership</option>
+					<option value="Room">Room</option>
+				</select>
 			</div>
 		</div>
 		<div class="form-group row">

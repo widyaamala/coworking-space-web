@@ -65,7 +65,7 @@ class InvoiceController extends Controller
            $membership = new Membership([
             'user_id' => $request->user_id,
             'start_date' => date('Y-m-d'),
-            'end_date' => date('Y-m-d', strtotime(($product->name == 'Week')?'+1 week':'+1 month')),
+            'end_date' => date('Y-m-d', strtotime(($product->name == 'Weekly')?'+1 week':'+1 month')),
            ]);
            $membership->save();
            $membership->invoice()->create([
@@ -115,7 +115,7 @@ class InvoiceController extends Controller
            $membership = new Membership([
             'user_id' => $request->user_id,
             'start_date' => date('Y-m-d'),
-            'end_date' => date('Y-m-d', strtotime(($product->name == 'Week')?'+1 week':'+1 month')),
+            'end_date' => date('Y-m-d', strtotime(($product->name == 'Weekly')?'+1 week':'+1 month')),
            ]);
            $membership->save();
            $membership->invoice()->create([
@@ -128,6 +128,7 @@ class InvoiceController extends Controller
            ]);
            $membership->status = ($membership->invoice->status == 'Confirmed') ? 'Active' : 'Deactive';
            $membership->save();
+		   $invoice = $membership-> invoice;
         } else {
           $invoice = new Invoice([
                'user_id' => $request->user_id,
