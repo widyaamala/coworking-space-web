@@ -32,8 +32,9 @@
 }
 
 p{
-	font-family: 'Source Sans Pro', sans-serif;
-	color: #606060;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	color: #444;
 }
 
 h1,
@@ -636,11 +637,6 @@ a:visited {
   text-transform: uppercase;
   font-family: "Montserrat", sans-serif;
   opacity: 50%;
-}
-
-.room-info p{
-	 font-family: 'Source Sans Pro', sans-serif;
-	 color: #606060;
 }
 
 .space-content .btn-room {
