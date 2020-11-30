@@ -78,6 +78,7 @@ class InvoiceController extends Controller
            ]);
            $membership->status = ($membership->invoice->status == 'Confirmed') ? 'Active' : 'Deactive';
            $membership->save();
+           $invoice = $membership->invoice;
         } else {
   	      $invoice = new Invoice([
                'user_id' => $request->user_id,
@@ -128,6 +129,7 @@ class InvoiceController extends Controller
            ]);
            $membership->status = ($membership->invoice->status == 'Confirmed') ? 'Active' : 'Deactive';
            $membership->save();
+           $invoice = $membership->invoice;
         } else {
           $invoice = new Invoice([
                'user_id' => $request->user_id,
