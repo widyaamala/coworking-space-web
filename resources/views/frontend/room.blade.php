@@ -20,40 +20,29 @@
           <div class="carousel-container">
             <div class="carousel-content">
               <h2>We are professional</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <p>We are open to global trends, and have a corporate, elitist and altruistic mindset, as well as participating in major events, branding and public relations.</p>
 
             </div>
           </div>
         </div>
 
         <div class="carousel-item">
-          <div class="carousel-background"><img src="img/personal.jpg" alt=""></div>
+          <div class="carousel-background"><img src="img/room1.jpeg" alt=""></div>
           <div class="carousel-container">
             <div class="carousel-content">
-              <h2>At vero eos et accusamus</h2>
-              <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut.</p>
+              <h2>We fulfill the accessibility of the lone eagle</h2>
+              <p>We fulfill the accessibility of membership and lone eagles (intellectual workers, freelancers, etc.) in establishing relationships with agencies, start-ups, and communities and are able to become a third place that brings together individuals in the events we provide.</p>
 
             </div>
           </div>
         </div>
 
         <div class="carousel-item">
-          <div class="carousel-background"><img src="img/img4.jpg" alt=""></div>
+          <div class="carousel-background"><img src="img/room2.jpeg" alt=""></div>
           <div class="carousel-container">
             <div class="carousel-content">
-              <h2>Temporibus autem quibusdam</h2>
-              <p>Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt omnis iste natus error sit voluptatem accusantium.</p>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="carousel-item">
-          <div class="carousel-background"><img src="img/img2.jpg" alt=""></div>
-          <div class="carousel-container">
-            <div class="carousel-content">
-              <h2>Nam libero tempore</h2>
-              <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum.</p>
+              <h2>We have flexibility space and hybridization of a Coworking Space</h2>
+              <p>We fulfill workspace flexibility which includes the quality of facilities and infrastructure that support workers, as well as additional functions that are managed as a separate unit in the form of a coffee shop that can fulfill the hybridization of a coworking space.</p>
 
             </div>
           </div>
@@ -80,44 +69,96 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-6">
-        <img src="img/cowork.jpg" class="img-fluid" alt="" width="100%">
+        <div id="custCarousel" class="carousel slide" data-ride="carousel" align="center">
+                <!-- slides -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active"> <img src="img/event2.jpg" alt="Hills"> </div>
+                    <div class="carousel-item"> <img src="img/events.jpg" alt="Hills"> </div>
+                    <div class="carousel-item"> <img src="img/paket3.jpg" alt="Hills"> </div>
+                    <div class="carousel-item"> <img src="img/event1.jpg" alt="Hills"> </div>
+                </div> <!-- Left right --> <a class="carousel-control-prev" href="#custCarousel" data-slide="prev"> <span class="carousel-control-prev-icon"></span> </a> <a class="carousel-control-next" href="#custCarousel" data-slide="next"> <span class="carousel-control-next-icon"></span> </a> <!-- Thumbnails -->
+                <ol class="carousel-indicators list-inline">
+                    <li class="list-inline-item active"> <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#custCarousel"> <img src="img/event2.jpg" class="img-fluid"> </a> </li>
+                    <li class="list-inline-item"> <a id="carousel-selector-1" data-slide-to="1" data-target="#custCarousel"> <img src="img/events.jpg" class="img-fluid"> </a> </li>
+                    <li class="list-inline-item"> <a id="carousel-selector-2" data-slide-to="2" data-target="#custCarousel"> <img src="img/paket3.jpg" class="img-fluid"> </a> </li>
+                    <li class="list-inline-item"> <a id="carousel-selector-2" data-slide-to="3" data-target="#custCarousel"> <img src="img/event1.jpg" class="img-fluid"> </a> </li>
+                </ol>
+        </div>
       </div>
       <div class="info col-lg-6">
-        <h4>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h4>
-        <p>Molestiae omnis numquam corrupti omnis itaque. Voluptatum quidem impedit. Odio dolorum exercitationem est error omnis repudiandae ad dolorum sit.</p>
+        <center><h4>No Space For Your Event's Attendance?</br> We Have You Covered!</h4></center>
         <p>
-          Explicabo repellendus quia labore. Non optio quo ea ut ratione et quaerat. Porro facilis deleniti porro consequatur
-          et temporibus. Labore est odio.
-
-          Odio omnis saepe qui. Veniam eaque ipsum. Ea quia voluptatum quis explicabo sed nihil repellat..
+          Reserve our spaces to your events and get the best facilities, best services, and flexibility space at an affordable price. We have a hall space with a capacity of up to 100 attendance that is designed according to your needs of your events. We also have a mini hall with a capacity of 10 people that you can use to discuss with your team in our relaxed private room to stimulate creativity and provide various insights. By offering our space directly to you, everything you need for your Seminar & Workshop, Community Gathering, Press Conference, etc. we will make sure you can focus on it because we already take care the rest.
         </p>
       </div>
     </div>
   </div>
 </div><!-- #info -->
 
+<!-- Services-->
+  <section class="page-section section-bg" id="services">
+    <div class="container">
+      <div class="icon-sec row text-center">
+        <div class="col-md-6 col-lg-3">
+          <i class="fa fa-wifi fa-3x"></i>
+          <p class="text-muted">Full Fast Internet 50 MBPS</p>
+		</div>
+        <div class="col-md-6 col-lg-3">
+          <i class="fas fa-video fa-3x"></i>
+          <p class="text-muted">LCD Projector</p>
+		</div>
+        <div class="col-md-6 col-lg-3">
+          <i class="fas fa-chalkboard-teacher fa-3x"></i>
+          <p class="text-muted">Screen Projector</p>
+		</div>
+		<div class="col-md-6 col-lg-3">
+          <i class="fas fa-microphone fa-3x"></i>
+          <p class="text-muted">Microphone</p>
+		</div>
+      </div></br>
+	  <div class="icon-sec row text-center">	  
+		<div class="col-md-3">
+          <i class="fas fa-tv fa-3x"></i>
+          <p class="text-muted">Smart TV</p>
+		</div>
+		<div class="col-md-3">
+          <i class="fas fa-chalkboard fa-3x"></i>
+          <p class="text-muted">Whiteboard</p>
+		</div>
+		<div class="col-md-3">
+          <i class="fas fa-volume-up fa-3x"></i>
+          <p class="text-muted">Sound System</p>
+		</div>
+		<div class="col-md-3">
+          <i class="fas fa-utensils fa-3x"></i>
+          <p class="text-muted">Available Catering for Request</p>
+		</div>
+	  </div>
+    </div>
+  </section>
+
   <div id="prices" class="service">
 <div class="container">
-  <header class="section-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <header class="section-header px-3 py-3 pb-md-4 mx-auto text-center">
     <h3>Pricing</h3>
-    <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
+    <p class="lead">Reserve our spaces and get the best services for your events.</p>
   </header>
   <div class="row">
-    @foreach ($rooms as $room)
+    @foreach ($products as $product)
 		<div class="col-md-4 col-sm-4 col-xs-12">
 		<div class="card h-100 mb-4 text-center border-success  align-items-center">
           <div class="card-header  ml-0 text-success bg-transparent">
-            <h3 class="my-0">{{$room->room_name}}<br/> <span>{{$room->price}}</span></h3>
+            <h3 class="my-0">{{$product->name}}<br/> <span>{{$product->price}}</span></h3>
           </div>
           <div class="card-body ml-0 ">
             <div class="row">
               <ol>
-				<li style="list-style-type: none;">{!!$room->description!!}</li>
+				<li style="list-style-type: none;">{!!$product->description!!}</li>
 			  </ol>
             </div>
           </div>
 			<div class="card-footer bg-transparent">
-				<a class="button btn" href="{{ route('reserve', $room->id) }}">Book now</a>
+				<a class="button btn" href="{{ route('reserve', $product->id) }}">Book now</a>
 			</div>
         </div>
 		</div>

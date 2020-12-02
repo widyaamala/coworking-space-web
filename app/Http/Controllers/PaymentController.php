@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Payment;
 use App\Invoice;
 use App\Models\User;
-use App\Plan;
+use App\Product;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
 use Illuminate\Support\Facades\Auth;
@@ -29,15 +29,17 @@ class PaymentController extends Controller
 	{
 		$request->validate([
 			'user_id' => 'required',
-            'plan_id' => 'required',
 			'invoice_id' => 'required',
 			'image' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
 			'from_bank' => 'required',
             'acc_name' => 'required',
 			'acc_number' => 'required',
 			'to_bank' => 'required',
-			'total' => 'required',
+			'date' => 'required',
         ]);
+		
+		$total_invoice = Invoice::find($request->invoice_id);
+		$total = $total_invoice->total;
 		
 		// menyimpan data file yang diupload ke variabel $file
 		$file = $request->file('image');
@@ -50,14 +52,15 @@ class PaymentController extends Controller
 		
 		$payment = new Payment([
              'user_id' => $request->get('user_id'),
-             'plan_id'=> $request->get('plan_id'),
+             'product_id'=> $request->get('product_id'),
 			 'invoice_id' => $request->get('invoice_id'),
              'image'=> $file_name,
 			 'from_bank'=> $request->get('from_bank'),
              'acc_name' => $request->get('acc_name'),
              'acc_number'=> $request->get('acc_number'),
 			 'to_bank' => $request->get('to_bank'),
-			 'total' => $request->get('total'),
+			 'total' => $total,
+			 'date' => $request->get('date'),
          ]);
 
          $payment->save();
@@ -73,7 +76,10 @@ class PaymentController extends Controller
      */
     public function create()
     {
-        //
+        $data['products'] = Product::all();
+		$data['users'] = User::all();
+		$data['invoices'] = User::all();
+        return view('pages.payments.create', $data);
     }
 
     /**
@@ -84,7 +90,45 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+			'user_id' => 'required',
+            'product_id' => 'required',
+			'invoice_id' => 'required',
+			'image' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+			'from_bank' => 'required',
+            'acc_name' => 'required',
+			'acc_number' => 'required',
+			'to_bank' => 'required',
+			'total' => 'required',
+        ]);
+		
+		$total_invoice = Invoice::find($request->invoice_id);
+		$total = $total_invoice->total;
+		
+		// menyimpan data file yang diupload ke variabel $file
+		$file = $request->file('image');
+		
+		$file_name = time()."_".$file->getClientOriginalName();
+		
+		// isi dengan nama folder tempat kemana file diupload
+		$upload_folder = 'receipt';
+		$file->move($upload_folder,$file_name);
+		
+		$payment = new Payment([
+             'user_id' => $request->get('user_id'),
+             'product_id'=> $request->get('product_id'),
+			 'invoice_id' => $request->get('invoice_id'),
+             'image'=> $file_name,
+			 'from_bank'=> $request->get('from_bank'),
+             'acc_name' => $request->get('acc_name'),
+             'acc_number'=> $request->get('acc_number'),
+			 'to_bank' => $request->get('to_bank'),
+			 'total' => $total,
+         ]);
+
+         $payment->save();
+		 
+		 return redirect('manage/payments')->with('success', 'Payment has been added');
     }
 
     /**
@@ -102,7 +146,7 @@ class PaymentController extends Controller
 	{
 		$request->validate([
 			'user_id' => 'required',
-            'plan_id' => 'required',
+            'product_id' => 'required',
 			'invoice_id' => 'required',
 			'image' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
 			'from_bank' => 'required',
@@ -125,7 +169,7 @@ class PaymentController extends Controller
 		
 		$payment = Payment::find($id);
 		$payment->user_id = $request->get('user_id');
-		$payment->plan_id= $request->get('plan_id');
+		$payment->product_id= $request->get('product_id');
 		$payment->invoice_id = $request->get('invoice_id');
         $payment->image= $file_name;
 		$payment->from_bank= $request->get('from_bank');

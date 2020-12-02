@@ -25,14 +25,14 @@ class FrontendController extends Controller
 
     public function index()
     {
-        $products = Product::all();
+		$products = Product::whereCategory('membership')->get();
         return view('frontend.index', compact('products'));
     }
 
 	public function room()
     {
-        $rooms = Room::all();
-        return view('frontend.room', compact('rooms'));
+        $products = Product::whereCategory('room')->get();
+        return view('frontend.room', compact('products'));
     }
 
     /**
@@ -58,13 +58,12 @@ class FrontendController extends Controller
 
 	public function reserve($id)
     {
-        $room = Room::find($id);
-        $user = Auth::user();
+        $product = Product::find($id);
 
         if(Auth::guest()){
           return Redirect::guest("login")->withSuccess('You have to login first');
         }
-        return view('frontend.reservation', compact('room'));
+        return view('frontend.reservation', compact('product'));
     }
 
 	public function confirmPayment($id)

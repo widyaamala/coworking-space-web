@@ -82,7 +82,7 @@
 			</br>
 			<hr class="mb-4">
                 <div class="text-center">
-                  <button class="btn btn-success submit-button" type="submit">Next: Confirm Information</button>
+				  <a class="button btn" href="{{ route('confirm-payment', $invoice->id) }}">Next: Confirm Information</a>
                 </div>
 			</div>
 			</div>

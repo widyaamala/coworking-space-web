@@ -28,7 +28,7 @@ class MembershipController extends Controller
      */
     public function create()
     {
-        $data['plans'] = Product::where('category', 'membership')->get();
+        $data['products'] = Product::where('category', 'membership')->get();
     		$data['users'] = User::all();
         return view('pages.memberships.create', $data);
     }

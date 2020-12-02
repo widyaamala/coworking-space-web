@@ -18,7 +18,7 @@
           <tr>
               <th>No</th>
               <th>User</th>
-              <th>Plan</th>
+              <th>Product</th>
               <th>Invoice</th>
               <th class="hidden-xs">Start Date</th>
               <th class="hidden-xs">End Date</th>

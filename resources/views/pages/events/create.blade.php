@@ -28,11 +28,11 @@
   			</div>
   		</div>
   		<div class="form-group row">
-  			<label for="room_name" class="col-sm-2 col-form-label">Room Name</label>
+  			<label for="product_name" class="col-sm-2 col-form-label">Room Name</label>
   			<div class="col-sm-10">
-  				<select id="room_id" name="room_id" class="form-control">
-		        @foreach ($rooms as $room)
-  					<option value="{{$room->id}}">{{$room->name}}</option>
+  				<select id="product_id" name="product_id" class="form-control">
+		        @foreach ($products as $product)
+  					<option value="{{$product->id}}">{{$product->name}}</option>
 			      @endforeach
   				</select>
   			</div>
@@ -110,7 +110,7 @@
   			<label for="payment_method" class="col-sm-2 col-form-label">Payment</label>
   			<div class="col-sm-10">
   				<select id="payment_method" name="payment_method" class="form-control">
-            <option value="Cash">Cash</option>
+					<option value="Cash">Cash</option>
   					<option value="Transfer Bank">Transfer Bank</option>
   				</select>
   			</div>

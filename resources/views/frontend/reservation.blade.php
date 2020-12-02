@@ -77,40 +77,39 @@
 
 <div id="services" class="service spacer p-t-30 p-b-30">
   <div class="container">
-  <form class="mb-5" action="{{ route('checkout', $room->id) }}" method="POST">
+  <form class="mb-5" action="{{ route('post-event') }}" method="POST" enctype="multipart/form-data">
   @csrf
     <div class="row">
       <div class="col-md-6 order-md-1 mb-4">
 		<div id="custCarousel" class="carousel slide" data-ride="carousel" align="center">
                 <!-- slides -->
                 <div class="carousel-inner">
-                    <div class="carousel-item active"> <img src="https://i.imgur.com/weXVL8M.jpg" alt="Hills"> </div>
-                    <div class="carousel-item"> <img src="https://i.imgur.com/Rpxx6wU.jpg" alt="Hills"> </div>
-                    <div class="carousel-item"> <img src="https://i.imgur.com/83fandJ.jpg" alt="Hills"> </div>
-                    <div class="carousel-item"> <img src="https://i.imgur.com/JiQ9Ppv.jpg" alt="Hills"> </div>
+                    <div class="carousel-item active"> <img src="img/event2.jpg" alt="Hills"> </div>
+                    <div class="carousel-item"> <img src="img/events.jpg" alt="Hills"> </div>
+                    <div class="carousel-item"> <img src="img/paket3.jpg" alt="Hills"> </div>
+                    <div class="carousel-item"> <img src="img/event1.jpg" alt="Hills"> </div>
                 </div> <!-- Left right --> <a class="carousel-control-prev" href="#custCarousel" data-slide="prev"> <span class="carousel-control-prev-icon"></span> </a> <a class="carousel-control-next" href="#custCarousel" data-slide="next"> <span class="carousel-control-next-icon"></span> </a> <!-- Thumbnails -->
                 <ol class="carousel-indicators list-inline">
-                    <li class="list-inline-item active"> <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#custCarousel"> <img src="https://i.imgur.com/weXVL8M.jpg" class="img-fluid"> </a> </li>
-                    <li class="list-inline-item"> <a id="carousel-selector-1" data-slide-to="1" data-target="#custCarousel"> <img src="https://i.imgur.com/Rpxx6wU.jpg" class="img-fluid"> </a> </li>
-                    <li class="list-inline-item"> <a id="carousel-selector-2" data-slide-to="2" data-target="#custCarousel"> <img src="https://i.imgur.com/83fandJ.jpg" class="img-fluid"> </a> </li>
-                    <li class="list-inline-item"> <a id="carousel-selector-2" data-slide-to="3" data-target="#custCarousel"> <img src="https://i.imgur.com/JiQ9Ppv.jpg" class="img-fluid"> </a> </li>
+                    <li class="list-inline-item active"> <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#custCarousel"> <img src="img/event2.jpg" class="img-fluid"> </a> </li>
+                    <li class="list-inline-item"> <a id="carousel-selector-1" data-slide-to="1" data-target="#custCarousel"> <img src="img/events.jpg" class="img-fluid"> </a> </li>
+                    <li class="list-inline-item"> <a id="carousel-selector-2" data-slide-to="2" data-target="#custCarousel"> <img src="img/paket3.jpg" class="img-fluid"> </a> </li>
+                    <li class="list-inline-item"> <a id="carousel-selector-2" data-slide-to="3" data-target="#custCarousel"> <img src="img/event1.jpg" class="img-fluid"> </a> </li>
                 </ol>
         </div>
       </div>
       <div class="col-md-6 order-md-2">
           <h4 class="mb-3">Event Hall</h4>
 		  <div class="form-group row">
-			  <label for="date" class="col-4 col-form-label">Date and time</label>
+			  <label for="date" class="col-4 col-form-label">Date</label>
 			  <div class="col-8">
-              <input type="hidden" name="user_id" value="{{(Auth()->user()->id)}}">			  
-              <input type="hidden" name="room_id" value="{{$room->id}}">
-				<input class="form-control" type="datetime-local" value="2020-18-11T13:45:00" id="date" name="date">
+              <input type="hidden" name="user_id" value="{{(Auth()->user()->id)}}">	<input type="hidden" name="product_id" value="{{$product->id}}">
+				<input class="form-control" type="date" name="date" value="2020-11-21" min="2020-01-01" max="2022-01-01">
 			  </div>
 		  </div>
 		  <div class="form-group row">
-			  <label for="event_name" class="col-4 col-form-label">Event Name</label>
+			  <label for="time" class="col-4 col-form-label">Start Time</label>
 			  <div class="col-8">
-				<input class="form-control" type="text" value="" id="event_name" name="event_name">
+				<input class="form-control" type="time" name="time" value="22:00">
 			  </div>
 		  </div>
 		  <div class="form-group row">
@@ -120,10 +119,23 @@
 			  </div>
 		  </div>
 		  <div class="form-group row">
-			  <label for="room_name" class="col-4 col-form-label">Room Name</label>
+			  <label for="event_name" class="col-4 col-form-label">Event Name</label>
 			  <div class="col-8">
-              <input type="text" class="form-control" id="room_name" name="room_name" placeholder="Room Name" aria-label="Room Name" value="{{$room->room_name}}" readonly>
+				<input class="form-control" type="text" value="" id="event_name" name="event_name">
 			  </div>
+		  </div>
+		  <div class="form-group">
+			<label for="description">Event Description</label>
+			<textarea class="form-control" id="description" name ="description" rows="5" placeholder="Description"></textarea>
+		  </div>
+		  <div class="form-group row">
+			<label for="status" class="col-4 col-form-label">Event Type</label>
+			<div class="col-8">
+			<select class="form-control" id="status" name="status">
+			  <option>Private</option>
+			  <option>Public</option>
+			</select>
+			</div>
 		  </div>
 		  <div class="form-group row">
 			  <label for="total_seat" class="col-4 col-form-label">Total Seat</label>
@@ -132,13 +144,7 @@
 			  </div>
 		  </div>
 		  <div class="form-group row">
-			  <label for="total_snacks" class="col-4 col-form-label">Total Snacks</label>
-			  <div class="col-8">
-				<input class="form-control" type="number" value="" id="total_snacks" name="total_snacks">
-			  </div>
-		  </div>
-		  <div class="form-group row">
-			  <label for="snack_choices" class="col-4 col-form-label">Snacks</label>
+			  <label for="snack_choices" class="col-4 col-form-label">Snacks Choices</label>
 			  <label><input type="checkbox" name="snack_choices[]" value="Laravel"> Laravel</label>
               <label><input type="checkbox" name="snack_choices[]" value="JQuery"> JQuery</label>
               <label><input type="checkbox" name="snack_choices[]" value="Bootstrap"> Bootstrap</label>
@@ -148,24 +154,37 @@
 			<label for="layout_seat" class="col-4 col-form-label">Layout Seat</label>
 			<div class="col-8">
 			<select class="form-control" id="layout_seat" name="layout_seat">
-			  <option>1</option>
-			  <option>2</option>
-			  <option>3</option>
-			  <option>4</option>
-			  <option>5</option>
+			  <option>Classroom Layout</option>
+			  <option>O-Layout</option>
+			  <option>U-Layout</option>
+			  <option>Group Layout</option>
+			  <option>Theater Layout</option>
+			  <option>Square Layout</option>
 			</select>
 			</div>
 		  </div>
-		  <div class="form-group">
-			<label for="note">Event Description</label>
-			<textarea class="form-control" id="note" name ="note" rows="5"></textarea>
+		  <div class="form-group row">
+			  <label for="facilities" class="col-4 col-form-label">Facilities</label>
+			  <label><input type="checkbox" name="facilities[]" value="Screen"> Screen</label>
+              <label><input type="checkbox" name="facilities[]" value="Microphone"> Microphone</label>
+              <label><input type="checkbox" name="facilities[]" value="Sound System"> Sound System</label>
+              <label><input type="checkbox" name="facilities[]" value="Whiteboard & Marker"> Whiteboard & Marker</label>
+			  <label><input type="checkbox" name="facilities[]" value="Additional Screen"> Additional Screen (Extra Charge 50k)</label>
+			  <label><input type="checkbox" name="facilities[]" value="Additional Microphone"> Additional Microphone (Extra Charge 20k)</label>
 		  </div>
 		  <div class="form-group row">
-			<label for="status" class="col-4 col-form-label">Event Type</label>
+			  <h4 class="card-title mb-3">Poster Event / Logo Institute</h4>
+			  <div class="custom-file">
+				<input type="file" class="custom-file-input" id="image" name="image" required>
+				<label class="custom-file-label" for="image">Choose file...</label>
+			  </div>
+		  </div>
+		  <div class="form-group row">
+			<label for="payment_method" class="col-4 col-form-label">DP Payment Method</label>
 			<div class="col-8">
-			<select class="form-control" id="status" name="status">
-			  <option>Private</option>
-			  <option>Public</option>
+			<select class="form-control" id="payment_method" name="payment_method">
+			  <option>Transfer Bank</option>
+			  <option>Paypal</option>
 			</select>
 			</div>
 		  </div>

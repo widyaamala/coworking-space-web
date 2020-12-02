@@ -34,7 +34,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        $data['rooms'] = Product::where('category', 'room')->get();
+        $data['products'] = Product::where('category', 'room')->get();
     		$data['users'] = User::all();
         return view('pages.events.create', $data);
     }
@@ -49,11 +49,11 @@ class EventController extends Controller
     {
         $request->validate([
 		        'user_id' => 'required',
-            'room_id' => 'required',
+            'product_id' => 'required',
 		        'payment_method' => 'required',
         ]);
 
-    		$product = Product::find($request->room_id);
+    		$product = Product::find($request->product_id);
 
     		if ($request->payment_method == 'Cash') {
     			$status = 'Confirmed';
@@ -108,7 +108,7 @@ class EventController extends Controller
     public function edit(Event $event)
     {
         $event->load(['user', 'invoice']);
-        $data['rooms'] = Product::where('category', 'room')->get();
+        $data['products'] = Product::where('category', 'room')->get();
 
         return view('pages.events.edit', $data, compact('event'));
     }

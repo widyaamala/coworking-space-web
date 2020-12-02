@@ -16,11 +16,11 @@
       <div class="carousel-inner" role="listbox">
 
         <div class="carousel-item active">
-          <div class="carousel-background"><img src="img/event.jpg" alt=""></div>
+          <div class="carousel-background"><img src="img/img3.jpg" alt=""></div>
           <div class="carousel-container">
             <div class="carousel-content">
               <h2>We are professional</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <p>We are open to global trends, and have a corporate, elitist and altruistic mindset, as well as participating in major events, branding and public relations.</p>
 
             </div>
           </div>
@@ -30,30 +30,19 @@
           <div class="carousel-background"><img src="img/personal.jpg" alt=""></div>
           <div class="carousel-container">
             <div class="carousel-content">
-              <h2>At vero eos et accusamus</h2>
-              <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut.</p>
+              <h2>We fulfill the accessibility of the lone eagle</h2>
+              <p>We fulfill the accessibility of membership and lone eagles (intellectual workers, freelancers, etc.) in establishing relationships with agencies, start-ups, and communities and are able to become a third place that brings together individuals in the events we provide.</p>
 
             </div>
           </div>
         </div>
 
         <div class="carousel-item">
-          <div class="carousel-background"><img src="img/img4.jpg" alt=""></div>
+          <div class="carousel-background"><img src="img/paket3.jpg" alt=""></div>
           <div class="carousel-container">
             <div class="carousel-content">
-              <h2>Temporibus autem quibusdam</h2>
-              <p>Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt omnis iste natus error sit voluptatem accusantium.</p>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="carousel-item">
-          <div class="carousel-background"><img src="img/img2.jpg" alt=""></div>
-          <div class="carousel-container">
-            <div class="carousel-content">
-              <h2>Nam libero tempore</h2>
-              <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum.</p>
+              <h2>We have flexibility space and hybridization of a Coworking Space</h2>
+              <p>We fulfill workspace flexibility which includes the quality of facilities and infrastructure that support workers, as well as additional functions that are managed as a separate unit in the form of a coffee shop that can fulfill the hybridization of a coworking space.</p>
 
             </div>
           </div>
@@ -83,24 +72,63 @@
         <img src="img/cowork.jpg" class="img-fluid" alt="" width="100%">
       </div>
       <div class="info col-lg-6">
-        <h4>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h4>
-        <p>Molestiae omnis numquam corrupti omnis itaque. Voluptatum quidem impedit. Odio dolorum exercitationem est error omnis repudiandae ad dolorum sit.</p>
+        <center><h4>No Coworking Space Benefits? We Have You Covered!</h4></center>
+        <p>We provide open space that is designed according to your needs with comfort that can stimulate creativity and provide various insights. We are able to become a third place that can expand your networking by bringing together creative workers in our space so that they can forge social relationships between individuals into a community that can spill their creative ideas synergistically.</p>
         <p>
-          Explicabo repellendus quia labore. Non optio quo ea ut ratione et quaerat. Porro facilis deleniti porro consequatur
-          et temporibus. Labore est odio.
-
-          Odio omnis saepe qui. Veniam eaque ipsum. Ea quia voluptatum quis explicabo sed nihil repellat..
+          We provide best facilities, best services, and flexibility space at an affordable price. Join our membership plan and get our best services for the time period you want. By offering the plan directly to you, we remove the cost and hassle of a middleman. We keep it simple, pass the savings to you, and focus on your works.
         </p>
       </div>
     </div>
   </div>
 </div><!-- #info -->
 
+<!-- Services-->
+  <section class="page-section section-bg" id="services">
+    <div class="container">
+      <div class="icon-sec row text-center">
+        <div class="col-md-6 col-lg-3">
+          <i class="fa fa-wifi fa-3x"></i>
+          <p class="text-muted">Full Fast Internet 50 MBPS</p>
+		</div>
+        <div class="col-md-6 col-lg-3">
+          <i class="fas fa-video fa-3x"></i>
+          <p class="text-muted">LCD Projector</p>
+		</div>
+        <div class="col-md-6 col-lg-3">
+          <i class="fas fa-chalkboard-teacher fa-3x"></i>
+          <p class="text-muted">Screen Projector</p>
+		</div>
+		<div class="col-md-6 col-lg-3">
+          <i class="fas fa-microphone fa-3x"></i>
+          <p class="text-muted">Microphone</p>
+		</div>
+      </div></br>
+	  <div class="icon-sec row text-center">	  
+		<div class="col-md-3">
+          <i class="fas fa-tv fa-3x"></i>
+          <p class="text-muted">Smart TV</p>
+		</div>
+		<div class="col-md-3">
+          <i class="fas fa-chalkboard fa-3x"></i>
+          <p class="text-muted">Whiteboard</p>
+		</div>
+		<div class="col-md-3">
+          <i class="fas fa-volume-up fa-3x"></i>
+          <p class="text-muted">Sound System</p>
+		</div>
+		<div class="col-md-3">
+          <i class="fas fa-utensils fa-3x"></i>
+          <p class="text-muted">Available Catering for Request</p>
+		</div>
+	  </div>
+    </div>
+  </section>
+
   <div id="prices" class="service">
 <div class="container">
   <header class="section-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h3>Pricing</h3>
-    <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
+    <p class="lead">Join our membership plans and get the best services at minimum prices.</p>
   </header>
   <div class="row">
     @foreach ($products as $product)
@@ -128,6 +156,7 @@
   </div>
 </div>
 
+<!-- layout
 <section id="seats" class="service">
   <div class="container">
     <header class="section-header">
@@ -164,7 +193,7 @@
   </div>
 </section>
 
-<!-- about us-->
+<!-- about us
 <section id="about" class="service spacer p-t-30 p-b-30">
   <div class="container">
     <div class="section-header">
@@ -210,7 +239,7 @@
       </div>
     </div>
   </div>
-</section>
+</section>-->
 @endsection
 
 @section('footer_scripts')

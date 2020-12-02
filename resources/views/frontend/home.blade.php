@@ -95,7 +95,7 @@
       <div class="container">
 		<center>
 			  <h3 style="color: #413e66;">Why Choose Us</h3>
-			  <p>Karena Coworking Space adalah tempat kerja yang mengusung konsep “bekerja bersama” yang didesain tanpa batas, vibes yang dihasilkan dari bekerja di Coworking Space sangat berbeda daripada kantor pada umumnya.</p>
+			  <p>Karena Ezo Coworking Space adalah tempat kerja yang mengusung konsep “bekerja bersama” yang didesain tanpa batas, vibes yang dihasilkan dari bekerja di Coworking Space sangat berbeda daripada kantor pada umumnya.</p>
 		
 		</center>
         <div class="row counters">
@@ -125,48 +125,6 @@
 	</div>
 </section>
 <!-- #home -->
-
-<!-- Services
-  <section class="page-section section-bg" id="services">
-    <div class="container">
-      <div class="icon-sec row text-center">
-        <div class="col-md-6 col-lg-3">
-          <i class="fa fa-wifi fa-3x"></i>
-          <p class="text-muted">Full Fast Internet 50 MBPS</p>
-		</div>
-        <div class="col-md-6 col-lg-3">
-          <i class="fas fa-video fa-3x"></i>
-          <p class="text-muted">LCD Projector</p>
-		</div>
-        <div class="col-md-6 col-lg-3">
-          <i class="fas fa-chalkboard-teacher fa-3x"></i>
-          <p class="text-muted">Screen Projector</p>
-		</div>
-		<div class="col-md-6 col-lg-3">
-          <i class="fas fa-microphone fa-3x"></i>
-          <p class="text-muted">Microphone</p>
-		</div>
-      </div></br>
-	  <div class="icon-sec row text-center">	  
-		<div class="col-md-3">
-          <i class="fas fa-tv fa-3x"></i>
-          <p class="text-muted">Smart TV</p>
-		</div>
-		<div class="col-md-3">
-          <i class="fas fa-chalkboard fa-3x"></i>
-          <p class="text-muted">Whiteboard</p>
-		</div>
-		<div class="col-md-3">
-          <i class="fas fa-volume-up fa-3x"></i>
-          <p class="text-muted">Sound System</p>
-		</div>
-		<div class="col-md-3">
-          <i class="fas fa-utensils fa-3x"></i>
-          <p class="text-muted">Available Catering for Request</p>
-		</div>
-	  </div>
-    </div>
-  </section> -->
   
    <section id="services" class="service spacer p-t-30 p-b-30">
       <div class="container">
@@ -204,7 +162,7 @@
 					<p>Nikmati berbagai event menarik yang bisa kamu inisiasi sendiri sesuai ide kreatifmu.</p>
 					<p>Layar (Screen)</br>Papan Tulis dan Spidol></br>Sound System</br>1 (satu) Microphone</p>
 				  </div>
-				<a class="button btn" href="{{ route('homepage') }}">See More</a>
+				<a class="button btn" href="{{ route('room') }}">See More</a>
 				
             </div>
 
