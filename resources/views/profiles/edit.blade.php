@@ -85,6 +85,42 @@
                                                             @endif
                                                         </div>
                                                     </div>
+													<div class="form-group has-feedback {{ $errors->has('profession') ? ' has-error ' : '' }}">
+                                                        {!! Form::label('profession', trans('profile.label-profession') , array('class' => 'col-12 control-label')); !!}
+                                                        <div class="col-12">
+                                                            {!! Form::text('profession', old('profession'), array('id' => 'profession', 'class' => 'form-control', 'placeholder' => trans('profile.ph-profession'))) !!}
+                                                            <span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
+                                                            @if ($errors->has('profession'))
+                                                                <span class="help-block">
+                                                                    <strong>{{ $errors->first('profession') }}</strong>
+                                                                </span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+													<div class="form-group has-feedback {{ $errors->has('institute') ? ' has-error ' : '' }}">
+                                                        {!! Form::label('institute', trans('profile.label-institute') , array('class' => 'col-12 control-label')); !!}
+                                                        <div class="col-12">
+                                                            {!! Form::text('institute', old('institute'), array('id' => 'institute', 'class' => 'form-control', 'placeholder' => trans('profile.ph-institute'))) !!}
+                                                            <span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
+                                                            @if ($errors->has('institute'))
+                                                                <span class="help-block">
+                                                                    <strong>{{ $errors->first('institute') }}</strong>
+                                                                </span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+													<div class="form-group has-feedback {{ $errors->has('phone') ? ' has-error ' : '' }}">
+                                                        {!! Form::label('phone', trans('profile.label-phone') , array('class' => 'col-12 control-label')); !!}
+                                                        <div class="col-12">
+                                                            {!! Form::text('phone', old('phone'), array('id' => 'phone', 'class' => 'form-control', 'placeholder' => trans('profile.ph-phone'))) !!}
+                                                            <span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
+                                                            @if ($errors->has('phone'))
+                                                                <span class="help-block">
+                                                                    <strong>{{ $errors->first('phone') }}</strong>
+                                                                </span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
                                                     <div class="form-group has-feedback {{ $errors->has('location') ? ' has-error ' : '' }}">
                                                         {!! Form::label('location', trans('profile.label-location') , array('class' => 'col-12 control-label')); !!}
                                                         <div class="col-12">
@@ -117,6 +153,30 @@
                                                             @if ($errors->has('twitter_username'))
                                                                 <span class="help-block">
                                                                     <strong>{{ $errors->first('twitter_username') }}</strong>
+                                                                </span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+													<div class="form-group has-feedback {{ $errors->has('facebook') ? ' has-error ' : '' }}">
+                                                        {!! Form::label('facebook', trans('profile.label-facebook_username') , array('class' => 'col-12 control-label')); !!}
+                                                        <div class="col-12">
+                                                            {!! Form::text('facebook', old('facebook'), array('id' => 'facebook', 'class' => 'form-control', 'placeholder' => trans('profile.ph-facebook'))) !!}
+                                                            <span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
+                                                            @if ($errors->has('facebook'))
+                                                                <span class="help-block">
+                                                                    <strong>{{ $errors->first('facebook') }}</strong>
+                                                                </span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+													<div class="form-group has-feedback {{ $errors->has('instagram') ? ' has-error ' : '' }}">
+                                                        {!! Form::label('instagram', trans('profile.label-instagram') , array('class' => 'col-12 control-label')); !!}
+                                                        <div class="col-12">
+                                                            {!! Form::text('instagram', old('instagram'), array('id' => 'instagram', 'class' => 'form-control', 'placeholder' => trans('profile.ph-instagram'))) !!}
+                                                            <span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
+                                                            @if ($errors->has('instagram'))
+                                                                <span class="help-block">
+                                                                    <strong>{{ $errors->first('instagram') }}</strong>
                                                                 </span>
                                                             @endif
                                                         </div>

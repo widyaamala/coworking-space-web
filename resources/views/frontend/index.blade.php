@@ -145,7 +145,7 @@
             </div>
           </div>
 			<div class="card-footer bg-transparent">
-				<a class="button btn" href="{{ route('checkout', $product->id) }}">Book now</a>
+				<a class="button" href="{{ route('checkout', $product->id) }}">Book now</a>
 			</div>
         </div>
 		</div>

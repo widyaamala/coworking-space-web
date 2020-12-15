@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="card-body">
-      <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('events.update', $event->id) }}" method="POST" enctype="multipart/form-data">
   		@csrf
   		<div class="form-group row">
   			<label for="user_name" class="col-sm-2 col-form-label">User Name</label>
@@ -24,11 +24,11 @@
   			</div>
   		</div>
   		<div class="form-group row">
-  			<label for="room_name" class="col-sm-2 col-form-label">Room Name</label>
+  			<label for="product_name" class="col-sm-2 col-form-label">Room Name</label>
   			<div class="col-sm-10">
-  				<select id="room_id" name="room_id" class="form-control">
-		        @foreach ($rooms as $room)
-  					<option value="{{$room->id}}" {{($event->invoice->product->id === $room->id) ? 'selected' : ''}}>{{$room->name}}</option>
+  				<select id="product_id" name="product_id" class="form-control">
+		        @foreach ($products as $product)
+  					<option value="{{$product->id}}" {{($event->invoice->product->id === $product->id) ? 'selected' : ''}}>{{$product->name}}</option>
 			      @endforeach
   				</select>
   			</div>
@@ -82,24 +82,51 @@
   			<label for="layout_seat" class="col-sm-2 col-form-label">Layout</label>
   			<div class="col-sm-10">
   				<select class="form-control" id="layout_seat" name="layout_seat">
-  					  <option value="o" {{($event->layout_seat === 'o') ? 'selected' : ''}}>O</option>
-  					  <option value="u" {{($event->layout_seat === 'u') ? 'selected' : ''}}>U</option>
+  					  <option value="Classroom Layout" {{($event->layout_seat === 'o') ? 'selected' : ''}}>O</option>
+  					  <option value="O-Layout" {{($event->layout_seat === 'u') ? 'selected' : ''}}>U</option>
+					  <option value="U-Layout" {{($event->layout_seat === 'u') ? 'selected' : ''}}>U</option>
+					  <option value="Group Layout" {{($event->layout_seat === 'u') ? 'selected' : ''}}>U</option>
+					  <option value="Theater Layout" {{($event->layout_seat === 'u') ? 'selected' : ''}}>U</option>
+					  <option value="Square Layout" {{($event->layout_seat === 'u') ? 'selected' : ''}}>U</option>
   				</select>
   			</div>
   		</div>
   		<div class="form-group row">
   			<label for="facilities" class="col-sm-2 col-form-label">Facilities</label>
   			<div class="col-sm-10">
-  				<select class="form-control" id="facilities" name="facilities">
-			       <option value="speaker" {{($event->facilities === 'speaker') ? 'selected' : ''}}>Speaker</option>
-		         <option value="lcd" {{($event->facilities === 'lcd') ? 'selected' : ''}}>LCD</option>
-  			</select>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="facilities[]" name="facilities[]" value="Screen" {{($event->facilities === 'Screen') ? 'selected' : ''}}>
+				  <label class="form-check-label" for "facilities[]">Screen</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="facilities[]" name="facilities[]" value="Microphone" {{($event->facilities === 'Microphone') ? 'selected' : ''}}>
+				  <label class="form-check-label" for "facilities[]">Microphone</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="facilities[]" name="facilities[]" value="Sound System" {{($event->facilities === 'Sound System') ? 'selected' : ''}}>
+				  <label class="form-check-label" for "facilities[]">Sound System</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="facilities[]" name="facilities[]" value="Whiteboard & Marker" {{($event->facilities === 'Whiteboard & Marker') ? 'selected' : ''}}>
+				  <label class="form-check-label" for "facilities[]">Whiteboard  Marker</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="facilities[]" name="facilities[]" value="Additional Screen" {{($event->facilities === 'Additional Screen') ? 'selected' : ''}}>
+				  <label class="form-check-label" for "facilities[]">Additional Screen (Extra Charge 50k)</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="facilities[]" name="facilities[]" value="Additional Microphone" {{($event->facilities === 'Additional Microphone') ? 'selected' : ''}}>
+				  <label class="form-check-label" for "facilities[]">Additional Microphone (Extra Charge 20k)</label>
+				</div>
   			</div>
   		</div>
   		<div class="form-group row">
-        <label class="col-sm-2 col-form-label" for="image">Image</label>
+        <label class="col-sm-2 col-form-label" for="image">Poster Event / Logo</label>
         <div class="col-sm-10">
-			     <input type="file" class="form-control" id="image" name="image" required>
+			<div class="custom-file">
+				<input type="file" class="custom-file-input" id="image" name="image" required>
+				<label class="custom-file-label" for="image">Choose file...</label>
+			</div>
         </div>
       </div>
   		<div class="form-group row">

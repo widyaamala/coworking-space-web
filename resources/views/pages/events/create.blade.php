@@ -85,25 +85,52 @@
   		<div class="form-group row">
   			<label for="layout_seat" class="col-sm-2 col-form-label">Layout</label>
   			<div class="col-sm-10">
-  				<select class="form-control" id="layout_seat" name="layout_seat">
-  					  <option>o</option>
-  					  <option>u</option>
-  				</select>
+  			<select class="form-control" id="layout_seat" name="layout_seat">
+			  <option>Classroom Layout</option>
+			  <option>O-Layout</option>
+			  <option>U-Layout</option>
+			  <option>Group Layout</option>
+			  <option>Theater Layout</option>
+			  <option>Square Layout</option>
+			</select>
   			</div>
   		</div>
   		<div class="form-group row">
   			<label for="facilities" class="col-sm-2 col-form-label">Facilities</label>
   			<div class="col-sm-10">
-  				<select class="form-control" id="facilities" name="facilities">
-  			  <option>Speaker</option>
-  			  <option>LCD</option>
-  			</select>
+  				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="facilities[]" name="facilities[]" value="Screen">
+				  <label class="form-check-label" for "facilities[]">Screen</label>
+			  </div>
+			  <div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="facilities[]" name="facilities[]" value="Microphone">
+				  <label class="form-check-label" for "facilities[]">Microphone</label>
+			  </div>
+			  <div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="facilities[]" name="facilities[]" value="Sound System">
+				  <label class="form-check-label" for "facilities[]">Sound System</label>
+			  </div>
+			  <div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="facilities[]" name="facilities[]" value="Whiteboard & Marker">
+				  <label class="form-check-label" for "facilities[]">Whiteboard & Marker</label>
+			  </div>
+			  <div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="facilities[]" name="facilities[]" value="Additional Screen">
+				  <label class="form-check-label" for "facilities[]">Additional Screen (Extra Charge 50k)</label>
+			  </div>
+			  <div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="facilities[]" name="facilities[]" value="Additional Microphone">
+				  <label class="form-check-label" for "facilities[]">Additional Microphone (Extra Charge 20k)</label>
+			  </div>
   			</div>
   		</div>
   		<div class="form-group row">
-        <label class="col-sm-2 col-form-label" for="image">Image</label>
+        <label class="col-sm-2 col-form-label" for="image">Poster Event / Logo Institute</label>
         <div class="col-sm-10">
-			     <input type="file" class="form-control" id="image" name="image" required>
+			<div class="custom-file">
+				<input type="file" class="custom-file-input" id="image" name="image" required>
+				<label class="custom-file-label" for="image">Choose file...</label>
+			</div>
          </div>
       </div>
   		<div class="form-group row">

@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="card-body">
-      <table class="table table-bordered">
+      <table class="table table-bordered table-responsive">
           <tr>
               <th>No</th>
               <th>User</th>
@@ -48,7 +48,8 @@
     				  <td>{{ $event->event_type }}</td>
     				  <td>{{ $event->total_seats }}</td>
     				  <td>{{ $event->layout_seat }}</td>
-    				  <td>{{ $event->facilities }}</td>
+    				  <td>{{ implode(', ', $event->facilities) }}</td>
+					  
     				  <td><img width="150px" src="{{ url('/receipt/'.$event->image) }}"></td>
     				  <td>{{ $event->status }}</td>
               <td>

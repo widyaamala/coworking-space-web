@@ -16,44 +16,33 @@
       <div class="carousel-inner" role="listbox">
 
         <div class="carousel-item active">
-          <div class="carousel-background"><img src="img/event.jpg" alt=""></div>
+          <div class="carousel-background"><img src="/img/event.jpg" alt=""></div>
           <div class="carousel-container">
             <div class="carousel-content">
               <h2>We are professional</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <p>We are open to global trends, and have a corporate, elitist and altruistic mindset, as well as participating in major events, branding and public relations.</p>
 
             </div>
           </div>
         </div>
 
         <div class="carousel-item">
-          <div class="carousel-background"><img src="img/personal.jpg" alt=""></div>
+          <div class="carousel-background"><img src="/img/room1.jpeg" alt=""></div>
           <div class="carousel-container">
             <div class="carousel-content">
-              <h2>At vero eos et accusamus</h2>
-              <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut.</p>
+              <h2>We fulfill the accessibility of the lone eagle</h2>
+              <p>We fulfill the accessibility of membership and lone eagles (intellectual workers, freelancers, etc.) in establishing relationships with agencies, start-ups, and communities and are able to become a third place that brings together individuals in the events we provide.</p>
 
             </div>
           </div>
         </div>
 
         <div class="carousel-item">
-          <div class="carousel-background"><img src="img/img4.jpg" alt=""></div>
+          <div class="carousel-background"><img src="/img/room2.jpeg" alt=""></div>
           <div class="carousel-container">
             <div class="carousel-content">
-              <h2>Temporibus autem quibusdam</h2>
-              <p>Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt omnis iste natus error sit voluptatem accusantium.</p>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="carousel-item">
-          <div class="carousel-background"><img src="img/img2.jpg" alt=""></div>
-          <div class="carousel-container">
-            <div class="carousel-content">
-              <h2>Nam libero tempore</h2>
-              <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum.</p>
+              <h2>We have flexibility space and hybridization of a Coworking Space</h2>
+              <p>We fulfill workspace flexibility which includes the quality of facilities and infrastructure that support workers, as well as additional functions that are managed as a separate unit in the form of a coffee shop that can fulfill the hybridization of a coworking space.</p>
 
             </div>
           </div>
@@ -84,16 +73,16 @@
 		<div id="custCarousel" class="carousel slide" data-ride="carousel" align="center">
                 <!-- slides -->
                 <div class="carousel-inner">
-                    <div class="carousel-item active"> <img src="img/event2.jpg" alt="Hills"> </div>
-                    <div class="carousel-item"> <img src="img/events.jpg" alt="Hills"> </div>
-                    <div class="carousel-item"> <img src="img/paket3.jpg" alt="Hills"> </div>
-                    <div class="carousel-item"> <img src="img/event1.jpg" alt="Hills"> </div>
+                    <div class="carousel-item active"> <img src="/img/event2.jpg"  alt="Hills"> </div>
+                    <div class="carousel-item"> <img src="/img/events.jpg" alt="Hills"> </div>
+                    <div class="carousel-item"> <img src="/img/paket3.jpg" alt="Hills"> </div>
+                    <div class="carousel-item"> <img src="/img/event1.jpg" alt="Hills"> </div>
                 </div> <!-- Left right --> <a class="carousel-control-prev" href="#custCarousel" data-slide="prev"> <span class="carousel-control-prev-icon"></span> </a> <a class="carousel-control-next" href="#custCarousel" data-slide="next"> <span class="carousel-control-next-icon"></span> </a> <!-- Thumbnails -->
                 <ol class="carousel-indicators list-inline">
-                    <li class="list-inline-item active"> <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#custCarousel"> <img src="img/event2.jpg" class="img-fluid"> </a> </li>
-                    <li class="list-inline-item"> <a id="carousel-selector-1" data-slide-to="1" data-target="#custCarousel"> <img src="img/events.jpg" class="img-fluid"> </a> </li>
-                    <li class="list-inline-item"> <a id="carousel-selector-2" data-slide-to="2" data-target="#custCarousel"> <img src="img/paket3.jpg" class="img-fluid"> </a> </li>
-                    <li class="list-inline-item"> <a id="carousel-selector-2" data-slide-to="3" data-target="#custCarousel"> <img src="img/event1.jpg" class="img-fluid"> </a> </li>
+                    <li class="list-inline-item active"> <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#custCarousel"> <img src="/img/event2.jpg" class="img-fluid"> </a> </li>
+                    <li class="list-inline-item"> <a id="carousel-selector-1" data-slide-to="1" data-target="#custCarousel"> <img src="/img/events.jpg" class="img-fluid"> </a> </li>
+                    <li class="list-inline-item"> <a id="carousel-selector-2" data-slide-to="2" data-target="#custCarousel"> <img src="/img/paket3.jpg" class="img-fluid"> </a> </li>
+                    <li class="list-inline-item"> <a id="carousel-selector-2" data-slide-to="3" data-target="#custCarousel"> <img src="/img/event1.jpg" class="img-fluid"> </a> </li>
                 </ol>
         </div>
       </div>
@@ -124,31 +113,24 @@
 				<input class="form-control" type="text" value="" id="event_name" name="event_name">
 			  </div>
 		  </div>
-		  <div class="form-group">
-			<label for="description">Event Description</label>
+		  <div class="form-group row">
+			<label for="description" class="col-4 col-form-label">Event Description</label>
 			<textarea class="form-control" id="description" name ="description" rows="5" placeholder="Description"></textarea>
 		  </div>
 		  <div class="form-group row">
-			<label for="status" class="col-4 col-form-label">Event Type</label>
+			<label for="event_type" class="col-4 col-form-label">Event Type</label>
 			<div class="col-8">
-			<select class="form-control" id="status" name="status">
+			<select class="form-control" id="event_type" name="event_type">
 			  <option>Private</option>
 			  <option>Public</option>
 			</select>
 			</div>
 		  </div>
 		  <div class="form-group row">
-			  <label for="total_seat" class="col-4 col-form-label">Total Seat</label>
+			  <label for="total_seats" class="col-4 col-form-label">Total Seat</label>
 			  <div class="col-8">
-				<input class="form-control" type="number" value="" id="total_seat" name="total_seat">
+				<input class="form-control" type="number" value="" id="total_seats" name="total_seats">
 			  </div>
-		  </div>
-		  <div class="form-group row">
-			  <label for="snack_choices" class="col-4 col-form-label">Snacks Choices</label>
-			  <label><input type="checkbox" name="snack_choices[]" value="Laravel"> Laravel</label>
-              <label><input type="checkbox" name="snack_choices[]" value="JQuery"> JQuery</label>
-              <label><input type="checkbox" name="snack_choices[]" value="Bootstrap"> Bootstrap</label>
-              <label><input type="checkbox" name="snack_choices[]" value="Codeigniter"> Codeigniter</label>
 		  </div>
 		  <div class="form-group row">
 			<label for="layout_seat" class="col-4 col-form-label">Layout Seat</label>
@@ -165,15 +147,35 @@
 		  </div>
 		  <div class="form-group row">
 			  <label for="facilities" class="col-4 col-form-label">Facilities</label>
-			  <label><input type="checkbox" name="facilities[]" value="Screen"> Screen</label>
-              <label><input type="checkbox" name="facilities[]" value="Microphone"> Microphone</label>
-              <label><input type="checkbox" name="facilities[]" value="Sound System"> Sound System</label>
-              <label><input type="checkbox" name="facilities[]" value="Whiteboard & Marker"> Whiteboard & Marker</label>
-			  <label><input type="checkbox" name="facilities[]" value="Additional Screen"> Additional Screen (Extra Charge 50k)</label>
-			  <label><input type="checkbox" name="facilities[]" value="Additional Microphone"> Additional Microphone (Extra Charge 20k)</label>
+			  <div class="col-6">
+			  <div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="facilities[]" name="facilities[]" value="Screen">
+				  <label class="form-check-label" for "facilities[]">Screen</label>
+			  </div>
+			  <div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="facilities[]" name="facilities[]" value="Microphone">
+				  <label class="form-check-label" for "facilities[]">Microphone</label>
+			  </div>
+			  <div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="facilities[]" name="facilities[]" value="Sound System">
+				  <label class="form-check-label" for "facilities[]">Sound System</label>
+			  </div>
+			  <div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="facilities[]" name="facilities[]" value="Whiteboard & Marker">
+				  <label class="form-check-label" for "facilities[]">Whiteboard & Marker</label>
+			  </div>
+			  <div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="facilities[]" name="facilities[]" value="Additional Microphone">
+				  <label class="form-check-label" for "facilities[]">Additional Screen (Extra Charge 50k)</label>
+			  </div>
+			  <div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="facilities[]" name="facilities[]" value="Whiteboard & Marker">
+				  <label class="form-check-label" for "facilities[]">Additional Microphone (Extra Charge 20k)</label>
+			  </div>
+			  </div>
 		  </div>
-		  <div class="form-group row">
-			  <h4 class="card-title mb-3">Poster Event / Logo Institute</h4>
+		  <div class="form-group row ">
+			  <label class="col-6 col-form-label">Poster Event / Logo Institute</label>
 			  <div class="custom-file">
 				<input type="file" class="custom-file-input" id="image" name="image" required>
 				<label class="custom-file-label" for="image">Choose file...</label>
@@ -203,8 +205,13 @@
 @section('footer_scripts')
 	<script type="text/javascript">
 		$(document).ready(function() {
-      $('.navbar').removeClass('fixed-top');
-			$('.navbar').addClass('active');
+			$(window).on('scroll', function () {
+				if ( $(window).scrollTop() > 10 ) {
+					$('.navbar').addClass('active');
+				} else {
+					$('.navbar').removeClass('active');
+				}
+			});
 		});
   </script>
 @endsection

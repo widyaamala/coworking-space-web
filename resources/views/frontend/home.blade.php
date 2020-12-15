@@ -146,7 +146,7 @@
 					<p>Rangsang kreativitas dan perluas networking dengan bekerja di open space dan bertemu dengan pekerja kreatif setiap hari.</p>
 					<p>Meja dan kursi (tidak dapat dipindahkan)</br>Wi-Fi</br>Stop kontak</p>
 				  </div>
-				<a class="button btn" href="{{ route('homepage') }}">See More</a>          
+				<a class="btn-room" href="{{ route('homepage') }}">See More</a>          
             </div>
 
           </div>
@@ -160,9 +160,9 @@
 				  <div class="room-title">Event Space</div>
 				  <div class="room-info">
 					<p>Nikmati berbagai event menarik yang bisa kamu inisiasi sendiri sesuai ide kreatifmu.</p>
-					<p>Layar (Screen)</br>Papan Tulis dan Spidol></br>Sound System</br>1 (satu) Microphone</p>
+					<p>Layar (Screen)</br>Papan Tulis dan Spidol</br>Sound System</br>1 (satu) Microphone</p>
 				  </div>
-				<a class="button btn" href="{{ route('room') }}">See More</a>
+				<a class="btn-room" href="{{ route('room') }}">See More</a>
 				
             </div>
 
@@ -188,7 +188,7 @@
 					<p>Jika kamu adalah pekerja nomaden, miliki kantor virtualmu dan kamu bisa bereja dengan kenyamanan yang menginspirasi.</p>
 					<p>Meja dan kursi (tidak dapat dipindahkan)></br>Self Service (Air Mineral, Tea)</br>Wi-Fi dan Stop kontak</br>Free Seminar apapun 1x (Sebulan)</p>
 				  </div>
-				<a class="button btn" href="{{ route('room') }}">See More</a>          
+				<a class="btn-room" href="{{ route('office') }}">See More</a>          
             </div>
 
           </div>
@@ -208,6 +208,48 @@
 			</center>
 		</div>
 		
+      <div class="row">
+	  @foreach ($events as $event)
+        <div class="col-sm-12 text-right pt-5 pb-5">
+            <a class="btn btn-success mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                <i class="fa fa-arrow-left"></i>
+            </a>
+            <a class="btn btn-success mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                <i class="fa fa-arrow-right"></i>
+            </a>
+        </div>
+        <div class="col-12">
+            <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+
+                            <div class="col-md-3 mb-3">
+                                <div class="card">
+                                    <img class="img-fluid" alt="100%x280" src="{{ url('/receipt/'.$event->image) }}">
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{ $event->event_name }}</h4>
+                                        <div class="card-text">
+											<i class="fas fa-calendar-alt"></i> {{ date('d M Y', strtotime($event->date)) }}										
+											<span style="float: right"><i class="far fa-clock"></i> {{ $event->time }} </span>
+											<div class="pt-2"><strong>{{ $event->event_type }}</strong></div>
+										</div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                    
+
+                        </div>
+                    </div>
+				</div>
+            </div>
+        </div>
+		@endforeach
+      </div>
+		
 		<div id='calendar'></div>
 		
 	  </div>
@@ -219,15 +261,27 @@
 			<div class="section-header">
 			  <h3>About Us</h3>
 			  <div class="aboutus-tagline">Partners</div>
-					<div id="clients" class="owl-carousel clients-carousel">
-					  <img src="img/clients/client-1.png" alt="">
-					  <img src="img/clients/client-2.png" alt="">
-					  <img src="img/clients/client-3.png" alt="">
-					  <img src="img/clients/client-4.png" alt="">
-					  <img src="img/clients/client-5.png" alt="">
-					  <img src="img/clients/client-6.png" alt="">
-					  <img src="img/clients/client-7.png" alt="">
-					  <img src="img/clients/client-8.png" alt="">
+					<div id="clients" class="carousel slide pt-1" data-ride="carousel" align="center">
+					<!-- slides -->
+					<div class="carousel-inner">
+					  <div class="carousel-item active">
+						<div class="row">
+							<div class="col-md-3 mb-3"><img src="img/clients/client-1.png" alt=""></div>
+							<div class="col-md-3 mb-3"><img src="img/clients/client-2.png" alt=""></div>
+							<div class="col-md-3 mb-3"><img src="img/clients/client-3.png" alt=""></div>
+							<div class="col-md-3 mb-3"><img src="img/clients/client-4.png" alt=""></div>
+						</div>
+					  </div>
+					  <div class="carousel-item"> 
+						<div class="row">
+							<div class="col-md-3 mb-3"><img src="img/clients/client-5.png" alt=""></div>
+							<div class="col-md-3 mb-3"><img src="img/clients/client-6.png" alt=""></div>
+							<div class="col-md-3 mb-3"><img src="img/clients/client-7.png" alt=""></div>
+							<div class="col-md-3 mb-3"><img src="img/clients/client-8.png" alt=""></div>
+						</div>
+					  </div>
+					</div>
+					<!-- Left right --> <a class="carousel-control-prev" href="#custCarousel" data-slide="prev"> <span class="carousel-control-prev-icon"></span> </a> <a class="carousel-control-next" href="#custCarousel" data-slide="next"> <span class="carousel-control-next-icon"></span> </a>
 					</div>
 					
 			  <div class="aboutus-tagline">Our Benefits</div>
@@ -268,14 +322,14 @@
 			  <span class="subtitle">Gabung</span><span class="subsub"><strong> Ezo Coworking Space</strong></span><span class="subtitle"> Dengan Menjadi Partner Kami</span></br>
 			  <span class="subtitle"> Dapatkan</span><span class="subsub"><strong> Penawaran Menarik</strong></span><span class="subtitle"> Dari Kami</span></br>
 			  <div style="padding-top: 1.3em;">
-			  <button type="button" class="btn btn-outline-primary">Send Your Proposal</button>
+			  <a class="btn btn-outline-primary" href="{{ route('partnership') }}">Send Your Proposal</a>
 			  </div>
 		
 		</center>
 
 	</div>
 </section>
-	
+		
 	@endsection
 
 @section('footer_scripts')
@@ -289,5 +343,24 @@
 				}
 			});
 		});
-  </script>
+		
+		
+				$(document).ready(function() {
+					// page is now ready, initialize the calendar...
+					$('#calendar').fullCalendar({
+						// put your options and callbacks here
+						events : [
+							@foreach($events as $event)
+							{
+								title : '{{ $event->event_name }}',
+								start : '{{ $event->date }}',
+								url : '{{ route('events.edit', $event->id) }}'
+							},
+							@endforeach
+						]
+					})
+				});
+		
+		
+	</script>
 @endsection

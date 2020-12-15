@@ -55,15 +55,15 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {!! trans('Packages') !!}
+                            {!! trans('Products') !!}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item {{ Request::is('manage/products') ? 'active' : null }}" href="{{ route('products') }}">
-                                {!! trans('All Packages') !!}
+                                {!! trans('All Products') !!}
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item {{ Request::is('manage/products/create') ? 'active' : null }}" href="{{ route('products.create') }}">
-                                {!! trans('Create New Package') !!}
+                                {!! trans('Create New Product') !!}
                             </a>
                         </div>
                     </li>
@@ -111,20 +111,6 @@
                     </li>
 		                <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {!! trans('Rooms') !!}
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item {{ Request::is('manage/rooms') ? 'active' : null }}" href="{{ route('rooms') }}">
-                                {!! trans('All Rooms') !!}
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('manage/rooms/create') ? 'active' : null }}" href="{{ route('rooms.create') }}">
-                                {!! trans('Create New Room') !!}
-                            </a>
-                        </div>
-                    </li>
-		                <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {!! trans('Events') !!}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -136,7 +122,7 @@
                                 {!! trans('Create New Event') !!}
                             </a>
 	                          <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('manage/events/calendar') ? 'active' : null }}" href="{{ route('events') }}">
+                            <a class="dropdown-item {{ Request::is('manage/events/calendar') ? 'active' : null }}" href="{{ route('calendar') }}">
                                 {!! trans('Calendar') !!}
                             </a>
                         </div>

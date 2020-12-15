@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="card-body">
-      <table class="table table-bordered">
+     <table class="table table-bordered table-responsive">
           <tr>
               <th>Invoice</th>
               <th>User</th>

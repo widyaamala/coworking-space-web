@@ -3,16 +3,16 @@
 @section('content')
 <div class="container-fluid">
   <div class="row no-gutter">
-    <div class="d-flex justify-content-center align-items-center col-md-4 col-lg-6">
+    <!--<div class="d-flex justify-content-center align-items-center col-md-4 col-lg-6">
 		<div class="text-center">
 		<h2 class="login-heading">Welcome to</br>Ezo Coworking Space</h2>
 		</div>
-	</div>
-    <div class="col-md-8 col-lg-6">
+	</div>-->
+    <div class="col-md-12 col-lg-12">
       <div class="login d-flex align-items-center py-5">
         <div class="container">
           <div class="row">
-            <div class="col-md-12 col-lg-12 mx-auto">
+            <div class="col-md-6 col-lg-6 mx-auto">
 				
 			<h6 class="mb-4">Register your account here.</h6>
               

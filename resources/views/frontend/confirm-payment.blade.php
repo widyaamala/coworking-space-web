@@ -87,7 +87,7 @@
 		  </div>
 		  <div class="row">
 			<div class="form-group col-md-12">
-  			<label for="date">Date</label>
+  			<label for="date">Date of Payment</label>
   				<input class ="form-control" type="datetime-local" name="date" value="2020-11-21" min="2020-01-01" max="2022-01-01">
 			</div>
 		  </div>

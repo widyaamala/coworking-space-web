@@ -25,6 +25,7 @@
 
 	<!-- Material Design Bootstrap -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.0/css/mdb.min.css" rel="stylesheet">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />
 
   {{-- Styles --}}
   <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
@@ -124,8 +125,8 @@
               <div id="navbarSupportedContent" class="collapse navbar-collapse">
                   <ul class="navbar-nav ml-auto">
                       <li class="nav-item active"><a href="#intro" class="nav-link text-uppercase font-weight-bold">Home <span class="sr-only">(current)</span></a></li>
-                      <li class="nav-item"><a href="#prices" class="nav-link text-uppercase font-weight-bold">Prices</a></li>
-                      <li class="nav-item"><a href="#seats" class="nav-link text-uppercase font-weight-bold">Services</a></li>
+                      <li class="nav-item"><a href="#prices" class="nav-link text-uppercase font-weight-bold">Services</a></li>
+                      <li class="nav-item"><a href="#seats" class="nav-link text-uppercase font-weight-bold">Events</a></li>
                       <li class="nav-item"><a href="#about" class="nav-link text-uppercase font-weight-bold">About</a></li>
                       <li class="nav-item"><a href="#contacts" class="nav-link text-uppercase font-weight-bold">Contact</a></li>
                   </ul>
@@ -194,7 +195,7 @@
           <div class="col-md-6 col-lg-6 col-xl-6 mx-auto mb-4">
 
             <!-- Content -->
-            <h6 class="text-uppercase font-weight-bold">Company name</h6>
+            <h6 class="text-uppercase font-weight-bold">EZO SPACE</h6>
             <hr class="cyan accent-4 accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
             <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
               consectetur
@@ -205,13 +206,11 @@
             <h6 class="text-uppercase font-weight-bold">Contact</h6>
             <hr class="cyan accent-4 accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
             <p>
-              <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+              <i class="fas fa-home mr-3"></i> Jl. Dewandaru68 Malang Jawa Timur</p>
             <p>
-              <i class="fas fa-envelope mr-3"></i> info@example.com</p>
+              <i class="fas fa-envelope mr-3"></i> info@ezospace.co</p>
             <p>
-              <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-            <p>
-              <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+              <i class="fas fa-phone mr-3"></i> 082341600020</p>
 
           </div>
           <!-- Grid column -->
@@ -222,10 +221,7 @@
             <!-- Content -->
             <h6 class="text-uppercase font-weight-bold">Contact Us</h6>
             <hr class="cyan accent-4 accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-            <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-              consectetur
-              adipisicing elit.
-    		</p>
+            
 
     		<!-- Form -->
             <form action="" method="post" role="form" class="contactForm">
@@ -273,7 +269,9 @@
 
     {{-- Scripts --}}
   	<!-- JQuery -->
-  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js"></script>
   	<!-- Bootstrap tooltips -->
   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
   	<!-- Bootstrap core JavaScript -->
@@ -281,6 +279,7 @@
   	<!-- MDB core JavaScript -->
   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.0/js/mdb.min.js"></script>
     <script src="{{ mix('/js/app.js') }}"></script>
+	<script src="{{ asset('/js/main.js') }}" defer></script>
 
     @yield('footer_scripts')
     </div>

@@ -29,9 +29,14 @@ class Profile extends Model
      */
     protected $fillable = [
         'theme_id',
+		'profession',
+		'institute',
+		'phone',
         'location',
         'bio',
         'twitter_username',
+		'facebook',
+		'instagram',
         'github_username',
         'user_profile_bg',
         'avatar',

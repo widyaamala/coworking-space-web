@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Product;
 use App\Invoice;
-use App\Room;
+use App\Event;
 use Validator,Redirect,Response;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,19 +20,38 @@ class FrontendController extends Controller
 
 	public function home()
     {
-        return view('frontend.home');
+		$events = Event::whereStatus('active')->get();
+        return view('frontend.home' , compact('events'));
     }
 
     public function index()
     {
-		$products = Product::whereCategory('membership')->get();
+		$products = Product::whereType('general membership')->get();
         return view('frontend.index', compact('products'));
+    }
+	
+	public function office()
+    {
+		$products = Product::whereType('private')->get();
+        return view('frontend.private-office', compact('products'));
     }
 
 	public function room()
     {
         $products = Product::whereCategory('room')->get();
         return view('frontend.room', compact('products'));
+    }
+	
+	public function partnership()
+    {
+		
+        return view('frontend.partnership');
+    }
+	
+	public function calendar()
+    {
+		    $events = Event::all();
+        return view('home', compact('events'));
     }
 
     /**

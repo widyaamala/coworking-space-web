@@ -7,6 +7,8 @@ use App\Product;
 use App\Invoice;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Validator,Redirect,Response;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -95,7 +97,10 @@ class EventController extends Controller
         ]);
         $event->status = ($event->invoice->status == 'Confirmed') ? 'Active' : 'Deactive';
         $event->save();
-
+		
+		/**if(Auth::User()){
+          return redirect('confirmation/')->withSuccess('Get Your Invoice');
+        }*/
         return redirect('manage/events')->with('success', 'Event has been added');
     }
 

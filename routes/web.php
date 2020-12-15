@@ -19,14 +19,19 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => ['web']], function () {
   Route::get('/', 'FrontendController@index')->name('homepage');
 	Route::get('home', 'FrontendController@home')->name('home');
+	Route::get('office', 'FrontendController@office')->name('office');
+	Route::get('partnership', 'FrontendController@partnership')->name('partnership');
 	Route::get('room', 'FrontendController@room')->name('room');
 	Route::get('signup/{id}', 'FrontendController@checkout')->name('checkout');
 	Route::get('room/{id}', 'FrontendController@reserve')->name('reserve');
   Route::get('/terms', 'TermsController@terms')->name('terms');
 	Route::post('post-invoice', 'InvoiceController@postInvoice')->name('post-invoice');
+	Route::post('post-event', 'EventController@store')->name('post-event');
+	Route::post('post-partner', 'PartnershipController@store')->name('post-partner');
 	Route::get('confirmation', 'InvoiceController@confirmation')->name('invoice');
 	Route::get('confirm-payment/{id}', 'FrontendController@confirmPayment')->name('confirm-payment');
 	Route::post('post-confirmation', 'PaymentController@postConfirmation')->name('post-confirmation');
+	Route::get('calendar', 'EventController@calendar')->name('calendar');
 });
 
 // Authentication Routes
@@ -160,6 +165,7 @@ Route::group(['prefix' => 'manage', 'middleware' => ['auth', 'activated', 'role:
     Route::resource('events', 'EventController', [
         'names' => [
             'index'   => 'events',
+			'calendar'   => 'events',
         ],
     ]);
 

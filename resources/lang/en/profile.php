@@ -24,6 +24,9 @@ return [
     'showProfileFirstName'       => 'First Name',
     'showProfileLastName'        => 'Last Name',
     'showProfileEmail'           => 'E-mail Address',
+	'showProfileProfession'           => 'Profession',
+	'showProfileInstitute'           => 'Institute',
+	'showProfilePhone'           => 'Phone Number',
     'showProfileLocation'        => 'Location',
     'showProfileBio'             => 'Bio',
     'showProfileTheme'           => 'Theme',
@@ -39,6 +42,15 @@ return [
     // User edit profile form
     'label-theme' => 'Your theme:',
     'ph-theme'    => 'Select your theme',
+	
+	'label-profession' => 'Your profession (Job/Study):',
+    'ph-profession'    => 'Enter your profession (job/study)',
+	
+	'label-institute' => 'Your institute (Company/University/School):',
+    'ph-institute'    => 'Enter your institute (Company/University/School)',
+	
+	'label-phone' => 'Your phone number:',
+    'ph-phone'    => 'Enter your phone number',
 
     'label-location' => 'Your location:',
     'ph-location'    => 'Enter your location',
@@ -51,6 +63,12 @@ return [
 
     'label-twitter_username' => 'Your Twitter username:',
     'ph-twitter_username'    => 'Enter your Twitter username',
+	
+	'label-facebook' => 'Your Facebook username:',
+    'ph-facebook'    => 'Enter your Facebook username',
+	
+	'label-instagram' => 'Your Instagram username:',
+    'ph-instagram'    => 'Enter your Instagram username',
 
     // User Account Settings Tab
     'editTriggerAlt'        => 'Toggle User Menu',
