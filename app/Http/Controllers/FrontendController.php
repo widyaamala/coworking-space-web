@@ -48,6 +48,17 @@ class FrontendController extends Controller
         return view('frontend.partnership');
     }
 	
+	public function eventStarter()
+    {
+		$products = Product::whereCategory('room')->get();
+        return view('frontend.event-starter', compact('products'));
+    }
+	
+	public function eventDetail()
+    {
+        return view('frontend.detail-event');
+    }
+	
 	public function calendar()
     {
 		    $events = Event::all();

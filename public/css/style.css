@@ -780,6 +780,15 @@ h6 {
   z-index: 10;
 }
 
+.masthead {
+  height: 60vh;
+  min-height: 500px;
+  background-image: url("../img/community.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 /* Payment Page
 --------------------------------*/
 .leftside, .rightside{

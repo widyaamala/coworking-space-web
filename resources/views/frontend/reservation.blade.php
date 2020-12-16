@@ -102,9 +102,9 @@
 			  </div>
 		  </div>
 		  <div class="form-group row">
-			  <label for="duration" class="col-4 col-form-label">Duration</label>
+			  <label for="end_time" class="col-4 col-form-label">End Time</label>
 			  <div class="col-8">
-				<input class="form-control" type="number" value="" id="duration" name="duration">
+				<input class="form-control" type="time" value="22:00" id="end_time" name="end_time">
 			  </div>
 		  </div>
 		  <div class="form-group row">
@@ -123,6 +123,17 @@
 			<select class="form-control" id="event_type" name="event_type">
 			  <option>Private</option>
 			  <option>Public</option>
+			</select>
+			</div>
+		  </div>
+		  <div class="form-group row">
+			<label for="event_category" class="col-4 col-form-label">Event Category</label>
+			<div class="col-8">
+			<select class="form-control" id="event_category" name="event_category">
+			  <option>Seminar</option>
+			  <option>Workshop</option>
+			  <option>Meeting</option>
+			  <option>Collaboration</option>
 			</select>
 			</div>
 		  </div>
