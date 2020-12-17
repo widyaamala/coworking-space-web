@@ -89,16 +89,22 @@
       <div class="col-md-6 order-md-2">
           <h4 class="mb-3">Event Hall</h4>
 		  <div class="form-group row">
-			  <label for="date" class="col-4 col-form-label">Date</label>
+			  <label for="organiser" class="col-4 col-form-label">Company/Organization </label>
 			  <div class="col-8">
               <input type="hidden" name="user_id" value="{{(Auth()->user()->id)}}">	<input type="hidden" name="product_id" value="{{$product->id}}">
+				<input class="form-control" type="text" value="" id="organizer" name="organizer">
+			  </div>
+		  </div>
+		  <div class="form-group row">
+			  <label for="date" class="col-4 col-form-label">Date</label>
+			  <div class="col-8">
 				<input class="form-control" type="date" name="date" value="2020-11-21" min="2020-01-01" max="2022-01-01">
 			  </div>
 		  </div>
 		  <div class="form-group row">
-			  <label for="time" class="col-4 col-form-label">Start Time</label>
+			  <label for="start_time" class="col-4 col-form-label">Start Time</label>
 			  <div class="col-8">
-				<input class="form-control" type="time" name="time" value="22:00">
+				<input class="form-control" type="time" name="start_time" value="22:00">
 			  </div>
 		  </div>
 		  <div class="form-group row">
@@ -116,6 +122,10 @@
 		  <div class="form-group row">
 			<label for="description" class="col-4 col-form-label">Event Description</label>
 			<textarea class="form-control" id="description" name ="description" rows="5" placeholder="Description"></textarea>
+		  </div>
+		  <div class="form-group row">
+			<label for="rundown" class="col-4 col-form-label">Rundown</label>
+			<textarea class="form-control" id="rundown" name ="rundown" rows="5" placeholder="Rundown"></textarea>
 		  </div>
 		  <div class="form-group row">
 			<label for="event_type" class="col-4 col-form-label">Event Type</label>

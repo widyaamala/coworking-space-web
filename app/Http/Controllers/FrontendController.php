@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Product;
 use App\Invoice;
 use App\Event;
+use App\EventStarter;
 use Validator,Redirect,Response;
 use Illuminate\Support\Facades\Auth;
 
@@ -54,9 +55,16 @@ class FrontendController extends Controller
         return view('frontend.event-starter', compact('products'));
     }
 	
-	public function eventDetail()
+	public function eventDetail($id)
     {
-        return view('frontend.detail-event');
+		$eventStarter = EventStarter::find($id);
+        return view('frontend.detail-event', compact('eventStarter'));
+    }
+	
+	public function daftarEvent()
+    {
+		$eventStarters = EventStarter::whereStatus('confirmed')->get();
+        return view('frontend.daftar-event', compact('eventStarters'));
     }
 	
 	public function calendar()

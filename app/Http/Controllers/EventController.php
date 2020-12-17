@@ -75,12 +75,15 @@ class EventController extends Controller
         // dd($file_name);
         $event = new Event([
            'user_id' => $request->get('user_id'),
+		   'organizer' => $request->get('organizer'),
         	 'date'=> $request->get('date'),
-           'time' => $request->get('time'),
-           'duration'=> $request->get('duration'),
+           'start_time' => $request->get('start_time'),
+           'end_time'=> $request->get('end_time'),
         	 'event_name' => $request->get('event_name'),
         	 'description' => $request->get('description'),
+			 'rundown' => $request->get('rundown'),
         	 'event_type' => $request->get('event_type'),
+			 'event_category' => $request->get('event_category'),
         	 'total_seats' => $request->get('total_seats'),
         	 'layout_seat' => $request->get('layout_seat'),
         	 'facilities' => $request->get('facilities'),

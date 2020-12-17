@@ -23,13 +23,15 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('partnership', 'FrontendController@partnership')->name('partnership');
 	Route::get('room', 'FrontendController@room')->name('room');
 	Route::get('event-starter', 'FrontendController@eventStarter')->name('event-starter');
-	Route::get('detail-event', 'FrontendController@eventDetail')->name('detail-event');
+	Route::get('detail-event/{id}', 'FrontendController@eventDetail')->name('detail-event');
+	Route::get('daftar-event', 'FrontendController@daftarEvent')->name('daftar-event');
 	Route::get('signup/{id}', 'FrontendController@checkout')->name('checkout');
 	Route::get('room/{id}', 'FrontendController@reserve')->name('reserve');
   Route::get('/terms', 'TermsController@terms')->name('terms');
 	Route::post('post-invoice', 'InvoiceController@postInvoice')->name('post-invoice');
 	Route::post('post-event', 'EventController@store')->name('post-event');
 	Route::post('post-partner', 'PartnershipController@store')->name('post-partner');
+	Route::post('post-eventStarter', 'EventStarterController@store')->name('post-eventStarter');
 	Route::get('confirmation', 'InvoiceController@confirmation')->name('invoice');
 	Route::get('confirm-payment/{id}', 'FrontendController@confirmPayment')->name('confirm-payment');
 	Route::post('post-confirmation', 'PaymentController@postConfirmation')->name('post-confirmation');
@@ -190,6 +192,12 @@ Route::group(['prefix' => 'manage', 'middleware' => ['auth', 'activated', 'role:
       'names' => [
           'index'   => 'rooms',
       ],
+    ]);
+	
+	Route::resource('eventStarters', 'EventStarterController', [
+        'names' => [
+            'index'   => 'eventStarters',
+        ],
     ]);
 
 });
