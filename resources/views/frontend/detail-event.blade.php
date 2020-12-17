@@ -5,41 +5,21 @@
 @section('content')
 
 
-<!-- #intro -->
-	<section id="intro" class="clearfix">
-		<div class="container d-flex h-100">
-		  <div class="content row justify-content-center align-self-center">
-			<div class="col-md-6 intro-info mt-6">
-			  <h5>Company Name</h5>
-			  <span style="line-height: 2.5em;">
-				  <span class="subtitle">Belajar Membuat Service Pertama di Aplikasi Android</span>
-			  </span>
-			</div>
-		   
-			<div class="col-md-6 intro-img order-md-last order-first">
-			  <img src="img/img-ill.png" alt="" class="img-fluid">
-			</div>
-		  </div>
-
-		</div>
-	</section> <!-- #intro -->
 
 <!-- Info section -->
 <div id="services" class="service spacer p-t-30 p-b-30">
   <div class="container">
-    <div class="row">
+    <div class="row pt-5">
 		<div class="col-lg-9">
-			<div class="row">
+			<div class="row ">
 				<div class="room-img col-lg-6 col-sm-5 col-md-4 mb-sm-7">
 					<img src="img/cowork.jpg" class="img-fluid" alt="" width="100%">
-				  </div>
+				 </div>
 				  <div class="info col-lg-6 col-sm-7 col-md-8 pt-3 pl-xl-4 pl-lg-5 pl-sm-4">
-					<span class="badge badge-secondary">Seminar</span>
-										<h2>Dicoding Developer Coaching #15: Android | Belajar Membuat Service Pertamamu di Aplikasi Android</h2>
-										<small class="text-muted d-block mb-3">Diselenggarakan oleh: Dicoding Event</small>
-										<a class="btn btn-small btn-outline-success btn-block" href="">Share This Event</a>
-										
-															
+					<span class="badge badge-secondary">{{$eventStarter->event_category}}</span>
+					<h2>{{$eventStarter->event_name}}</h2>
+					<small class="text-muted d-block mb-3">Diselenggarakan oleh: <span class="text-muted">{{$eventStarter->organizer}}</span></small>
+					<a class="btn btn-small btn-outline-success btn-block" href="">Share This Event</a>					
 				   </div>
 			</div>
 		</div>
@@ -65,13 +45,18 @@
 		  </div>
 		</nav>
 		<div class="tab-content" id="nav-tabContent">
-		  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
+		  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+		  {{$eventStarter->description}}
+		  <hr>
+		  {{$eventStarter->rundown}}
+		  </div>
 		  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
 		</div>
     </div>
 	</div>
 </div>
 <!-- #info -->
+
 @endsection
 
 @section('footer_scripts')
