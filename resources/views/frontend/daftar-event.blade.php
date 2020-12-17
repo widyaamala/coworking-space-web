@@ -43,7 +43,7 @@
                             <div class="col-sm-6">
 								<div class="card white-bg shadow  mb-3 ">
 									<a href="{{ route('detail-event', $eventStarter->id) }}"  class="position-relative">
-										<div class="rounded-top js-balanced-height-img"><img src="{{ url('/receipt/'.$eventStarter->image) }}" class="img-fluid" alt="" width="100%" />
+										<div class="rounded-top js-balanced-height-img"><img src="{{ url('/uploads/'.$eventStarter->image) }}" class="img-fluid" alt="" width="100%" />
 											<noscript>
 												<img src="{{ url('/uploads/'.$eventStarter->image) }}" class='noscript noscript-img img-fluid' alt='' />
 											</noscript>

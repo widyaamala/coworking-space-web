@@ -58,6 +58,10 @@ class FrontendController extends Controller
 	public function eventDetail($id)
     {
 		$eventStarter = EventStarter::find($id);
+		
+		if(Auth::guest()){
+          return Redirect::guest("login")->withSuccess('You have to login first');
+        }
         return view('frontend.detail-event', compact('eventStarter'));
     }
 	

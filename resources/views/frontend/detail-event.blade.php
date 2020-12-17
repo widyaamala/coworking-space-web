@@ -13,7 +13,7 @@
 		<div class="col-lg-9">
 			<div class="row ">
 				<div class="room-img col-lg-6 col-sm-5 col-md-4 mb-sm-7">
-					<img src="img/cowork.jpg" class="img-fluid" alt="" width="100%">
+					<img src="{{ url('/uploads/'.$eventStarter->image) }}" class="img-fluid" alt="" width="100%">
 				 </div>
 				  <div class="info col-lg-6 col-sm-7 col-md-8 pt-3 pl-xl-4 pl-lg-5 pl-sm-4">
 					<span class="badge badge-secondary">{{$eventStarter->event_category}}</span>
@@ -37,22 +37,67 @@
 		</div>
       
       </div>
-	  <div class="row">
-		<nav>
-		  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-			<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Description</a>
-			<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Discussion</a>
-		  </div>
-		</nav>
-		<div class="tab-content" id="nav-tabContent">
-		  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-		  {{$eventStarter->description}}
-		  <hr>
-		  {{$eventStarter->rundown}}
-		  </div>
-		  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
-		</div>
-    </div>
+  <!-- Tabs navs -->
+<ul class="nav nav-tabs mb-3" id="ex1" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a
+      class="nav-link active"
+      id="ex1-tab-1"
+      data-toggle="tab"
+      href="#ex1-tabs-1"
+      role="tab"
+      aria-controls="ex1-tabs-1"
+      aria-selected="true"
+      >Description</a
+    >
+  </li>
+  <li class="nav-item" role="presentation">
+    <a
+      class="nav-link"
+      id="ex1-tab-2"
+      data-toggle="tab"
+      href="#ex1-tabs-2"
+      role="tab"
+      aria-controls="ex1-tabs-2"
+      aria-selected="false"
+      >Discussion</a
+    >
+  </li>
+</ul>
+<!-- Tabs navs -->
+
+<!-- Tabs content -->
+<div class="tab-content" id="ex1-content">
+  <div
+    class="tab-pane fade show active"
+    id="ex1-tabs-1"
+    role="tabpanel"
+    aria-labelledby="ex1-tab-1"
+  >
+    Description
+  </div>
+  <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+    <h6>Anda dapat berdiskusi dan bertanya mengenai Event ini.</h6>
+  
+                    @include('frontend.commentDisplay', ['comments' => $eventStarter->comments, 'event_starter_id' => $eventStarter->id])
+   
+                    <hr />
+                    <h6>Add comment</h6>
+                    <form method="post" action="{{ route('post-comment'   ) }}">
+                        @csrf
+                        <div class="form-group">
+						<input type="hidden" name="user_id" value="{{(Auth()->user()->id)}}" />
+						<input type="hidden" name="event_starter_id" value="{{ $eventStarter->id }}" />
+                            <textarea class="form-control" name="comment"></textarea>
+                            
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-success" value="Add Comment" />
+                        </div>
+                    </form>
+  </div>
+</div>
+<!-- Tabs content -->
 	</div>
 </div>
 <!-- #info -->
