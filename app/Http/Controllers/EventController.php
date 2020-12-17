@@ -97,7 +97,7 @@ class EventController extends Controller
         ]);
         $event->status = ($event->invoice->status == 'Confirmed') ? 'Active' : 'Deactive';
         $event->save();
-		
+
 		/**if(Auth::User()){
           return redirect('confirmation/')->withSuccess('Get Your Invoice');
         }*/
@@ -114,6 +114,7 @@ class EventController extends Controller
     {
         $event->load(['user', 'invoice']);
         $data['products'] = Product::where('category', 'room')->get();
+        // dd($event);
 
         return view('pages.events.edit', $data, compact('event'));
     }

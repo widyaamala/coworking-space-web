@@ -20,7 +20,7 @@
 				<a href="#about" class="btn-get-started scrollto">Get Started</a>
 			  </div>
 			</div>
-		   
+
 			<div class="col-md-6 intro-img order-md-last order-first">
 			  <img src="img/img-ill.png" alt="" class="img-fluid">
 			</div>
@@ -28,7 +28,7 @@
 
 		</div>
 	</section> <!-- #intro -->
-	
+
 <!-- Home -->
 <div id="home" class="service spacer p-t-30 p-b-30">
 	<div class="container">
@@ -96,7 +96,7 @@
 		<center>
 			  <h3 style="color: #413e66;">Why Choose Us</h3>
 			  <p>Karena Ezo Coworking Space adalah tempat kerja yang mengusung konsep “bekerja bersama” yang didesain tanpa batas, vibes yang dihasilkan dari bekerja di Coworking Space sangat berbeda daripada kantor pada umumnya.</p>
-		
+
 		</center>
         <div class="row counters">
 
@@ -119,13 +119,13 @@
             <span data-toggle="counter-up">18</span>
             <p>Hard Workers</p>
           </div>
-  
+
         </div>
 
 	</div>
 </section>
 <!-- #home -->
-  
+
    <section id="services" class="service spacer p-t-30 p-b-30">
       <div class="container">
 		<div class="section-header">
@@ -146,14 +146,14 @@
 					<p>Rangsang kreativitas dan perluas networking dengan bekerja di open space dan bertemu dengan pekerja kreatif setiap hari.</p>
 					<p>Meja dan kursi (tidak dapat dipindahkan)</br>Wi-Fi</br>Stop kontak</p>
 				  </div>
-				<a class="btn-room" href="{{ route('homepage') }}">See More</a>          
+				<a class="btn-room" href="{{ route('homepage') }}">See More</a>
             </div>
 
           </div>
 
         </div>
 		<div class="room row">
-			
+
           <div class="col-lg-6">
             <div class="space-content">
 				  <div class="room-tagline">Enjoy Event or <br>Workshop</div>
@@ -163,7 +163,7 @@
 					<p>Layar (Screen)</br>Papan Tulis dan Spidol</br>Sound System</br>1 (satu) Microphone</p>
 				  </div>
 				<a class="btn-room" href="{{ route('room') }}">See More</a>
-				
+
             </div>
 
           </div>
@@ -188,7 +188,7 @@
 					<p>Jika kamu adalah pekerja nomaden, miliki kantor virtualmu dan kamu bisa bereja dengan kenyamanan yang menginspirasi.</p>
 					<p>Meja dan kursi (tidak dapat dipindahkan)></br>Self Service (Air Mineral, Tea)</br>Wi-Fi dan Stop kontak</br>Free Seminar apapun 1x (Sebulan)</p>
 				  </div>
-				<a class="btn-room" href="{{ route('office') }}">See More</a>          
+				<a class="btn-room" href="{{ route('office') }}">See More</a>
             </div>
 
           </div>
@@ -197,7 +197,7 @@
 		</div>
 	</section>
 	<!-- #services -->
-	
+
 	<!-- #events -->
 	<section id="events" class="service spacer p-t-30 p-b-30">
       <div class="container">
@@ -207,7 +207,7 @@
 			<span class="subtitle">Temukan</span><span class="subsub"><strong> event</strong></span><span class="subtitle"> menarik atau buat</span><span class="subsub"><strong> event impianmu!</strong></span>
 			</center>
 		</div>
-		
+
       <div class="row">
 	  @foreach ($events as $event)
         <div class="col-sm-12 text-right pt-5 pb-5">
@@ -231,7 +231,7 @@
                                     <div class="card-body">
                                         <h4 class="card-title">{{ $event->event_name }}</h4>
                                         <div class="card-text">
-											<i class="fas fa-calendar-alt"></i> {{ date('d M Y', strtotime($event->date)) }}										
+											<i class="fas fa-calendar-alt"></i> {{ date('d M Y', strtotime($event->date)) }}
 											<span style="float: right"><i class="far fa-clock"></i> {{ $event->time }} </span>
 											<div class="pt-2"><strong>{{ $event->event_type }}</strong></div>
 										</div>
@@ -240,7 +240,7 @@
 
                                 </div>
                             </div>
-                    
+
 
                         </div>
                     </div>
@@ -249,12 +249,12 @@
         </div>
 		@endforeach
       </div>
-		
+
 		<div id='calendar'></div>
-		
+
 	  </div>
 	</section>
-	
+
 	<!-- about us-->
 	<section id="about" class="service spacer p-t-30 p-b-30">
 		<div class="container">
@@ -272,7 +272,7 @@
 							<div class="col-md-3 mb-3"><img src="img/clients/client-4.png" alt=""></div>
 						</div>
 					  </div>
-					  <div class="carousel-item"> 
+					  <div class="carousel-item">
 						<div class="row">
 							<div class="col-md-3 mb-3"><img src="img/clients/client-5.png" alt=""></div>
 							<div class="col-md-3 mb-3"><img src="img/clients/client-6.png" alt=""></div>
@@ -283,7 +283,7 @@
 					</div>
 					<!-- Left right --> <a class="carousel-control-prev" href="#custCarousel" data-slide="prev"> <span class="carousel-control-prev-icon"></span> </a> <a class="carousel-control-next" href="#custCarousel" data-slide="next"> <span class="carousel-control-next-icon"></span> </a>
 					</div>
-					
+
 			  <div class="aboutus-tagline">Our Benefits</div>
 				<div class="row">
 					<div class="col-md-3">
@@ -314,7 +314,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<section id="partnership">
       <div class="container">
 		<center>
@@ -324,43 +324,37 @@
 			  <div style="padding-top: 1.3em;">
 			  <a class="btn btn-outline-primary" href="{{ route('partnership') }}">Send Your Proposal</a>
 			  </div>
-		
+
 		</center>
 
 	</div>
 </section>
-		
+
 	@endsection
 
 @section('footer_scripts')
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$(window).on('scroll', function () {
-				if ( $(window).scrollTop() > 10 ) {
-					$('.navbar').addClass('active');
-				} else {
-					$('.navbar').removeClass('active');
-				}
-			});
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(window).on('scroll', function () {
+			if ( $(window).scrollTop() > 10 ) {
+				$('.navbar').addClass('active');
+			} else {
+				$('.navbar').removeClass('active');
+			}
 		});
-		
-		
-				$(document).ready(function() {
-					// page is now ready, initialize the calendar...
-					$('#calendar').fullCalendar({
-						// put your options and callbacks here
-						events : [
-							@foreach($events as $event)
-							{
-								title : '{{ $event->event_name }}',
-								start : '{{ $event->date }}',
-								url : '{{ route('events.edit', $event->id) }}'
-							},
-							@endforeach
-						]
-					})
-				});
-		
-		
-	</script>
+    $('#calendar').fullCalendar({
+      // put your options and callbacks here
+      events : [
+        @foreach($events as $event)
+        {
+          title : '{{ $event->event_name }}',
+          start : '{{ $event->date }}',
+          url : '{{ route('events.edit', $event->id) }}'
+        },
+        @endforeach
+      ]
+    })
+	});
+</script>
 @endsection

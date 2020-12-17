@@ -167,7 +167,7 @@ Route::group(['prefix' => 'manage', 'middleware' => ['auth', 'activated', 'role:
     Route::resource('events', 'EventController', [
         'names' => [
             'index'   => 'events',
-			'calendar'   => 'events',
+	          'calendar'   => 'events',
         ],
     ]);
 

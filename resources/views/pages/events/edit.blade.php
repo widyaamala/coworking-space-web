@@ -107,7 +107,7 @@
 				  <label class="form-check-label" for "facilities[]">Sound System</label>
 				</div>
 				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="facilities[]" name="facilities[]" value="Whiteboard & Marker" {{($event->facilities === 'Whiteboard & Marker') ? 'selected' : ''}}>
+				  <input class="form-check-input" type="checkbox" id="facilities[]" name="facilities[]" value="Whiteboard & Marker" >
 				  <label class="form-check-label" for "facilities[]">Whiteboard  Marker</label>
 				</div>
 				<div class="form-check form-check-inline">

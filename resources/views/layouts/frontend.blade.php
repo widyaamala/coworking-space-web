@@ -33,7 +33,7 @@
   <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 
   @yield('template_linked_css')
-
+  @yield('header_scripts')
   <style>
     body {
       background-color: #f0f8ff;
@@ -221,7 +221,7 @@
             <!-- Content -->
             <h6 class="text-uppercase font-weight-bold">Contact Us</h6>
             <hr class="cyan accent-4 accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-            
+
 
     		<!-- Form -->
             <form action="" method="post" role="form" class="contactForm">
@@ -269,9 +269,8 @@
 
     {{-- Scripts --}}
   	<!-- JQuery -->
-	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js"></script>
   	<!-- Bootstrap tooltips -->
   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
   	<!-- Bootstrap core JavaScript -->
@@ -279,9 +278,9 @@
   	<!-- MDB core JavaScript -->
   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.0/js/mdb.min.js"></script>
     <script src="{{ mix('/js/app.js') }}"></script>
-	<script src="{{ asset('/js/main.js') }}" defer></script>
+   <script src="{{ asset('/js/main.js') }}" defer></script>
 
     @yield('footer_scripts')
-    </div>
+  </div>
   </body>
 </html>
