@@ -23,7 +23,8 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('partnership', 'FrontendController@partnership')->name('partnership');
 	Route::get('room', 'FrontendController@room')->name('room');
 	Route::get('event-starter', 'FrontendController@eventStarter')->name('event-starter');
-	Route::get('detail-event/{id}', 'FrontendController@eventDetail')->name('detail-event');
+	Route::get('detail-event/{eventStarter}', 'FrontendController@eventDetail')->name('detail-event');
+	Route::get('detail-event/{eventStarter}/join', 'EventStarterController@join')->name('join-event');
 	Route::get('daftar-event', 'FrontendController@daftarEvent')->name('daftar-event');
 	Route::get('signup/{id}', 'FrontendController@checkout')->name('checkout');
 	Route::get('room/{id}', 'FrontendController@reserve')->name('reserve');
@@ -194,13 +195,13 @@ Route::group(['prefix' => 'manage', 'middleware' => ['auth', 'activated', 'role:
           'index'   => 'rooms',
       ],
     ]);
-	
+
 	Route::resource('eventStarters', 'EventStarterController', [
         'names' => [
             'index'   => 'eventStarters',
         ],
     ]);
-	
+
 	Route::resource('comments', 'CommentController', [
         'names' => [
             'index'   => 'comments',

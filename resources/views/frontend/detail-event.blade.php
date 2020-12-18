@@ -19,21 +19,27 @@
 					<span class="badge badge-secondary">{{$eventStarter->event_category}}</span>
 					<h2>{{$eventStarter->event_name}}</h2>
 					<small class="text-muted d-block mb-3">Diselenggarakan oleh: <span class="text-muted">{{$eventStarter->organizer}}</span></small>
-					<a class="btn btn-small btn-outline-success btn-block" href="">Share This Event</a>
-				   </div>
+          @if(Auth::user() && $eventStarter->user_id == Auth::user()->id)
+            <a class="btn btn-small btn-outline-success btn-block" href="">Share This Event</a>
+          @else
+            <a class="btn btn-small btn-outline-success btn-block {{$joined?'disabled':''}}" href="{{ route('join-event', ['eventStarter' => $eventStarter->id]) }}">{{$joined?'You are already joined this event':'Join this event'}}</a>
+          @endif
+           </div>
 			</div>
 		</div>
 		<div class="col-lg-3 pt-5">
 			<b>10</b>
-										<span class="text-muted d-block mb-2">Days to go</span>
+									<span class="text-muted d-block mb-2">Days to go</span>
 
-									<b>1865 peserta</b>
-									<span class="text-muted d-block mb-2">Participants to go</span>
+									<b>{{count($eventStarter->participants)}} peserta</b>
+									<span class="text-muted d-block mb-2">{{(count($eventStarter->participants) < $eventStarter->min_participant) ? $eventStarter->min_participant - count($eventStarter->participants) .' Participants to go': ''}}</span>
 
 									<p class="mt-3">This event will only be held if it reaches its participant's goal by </p>
-									<a class="btn btn-small btn-outline-success" href="">Go</a>
-									<a class="btn btn-small btn-outline-success" href="">Cancel</a>
-									<a class="btn btn-small btn-outline-success" href="">Re-schedule</a>
+                  @if(Auth::user() && $eventStarter->user_id == Auth::user()->id)
+  									<a class="btn btn-small btn-outline-success" href="">Go</a>
+  									<a class="btn btn-small btn-outline-success" href="">Cancel</a>
+  									<a class="btn btn-small btn-outline-success" href="">Re-schedule</a>
+                  @endif
 		</div>
 
       </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\EventStarter;
 use App\Product;
 use App\Invoice;
+use App\Participant;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
@@ -52,19 +53,19 @@ class EventStarterController extends Controller
 			'event_category' => 'required',
 			'min_participant' => 'required',
 			'image' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
-			
+
         ]);
-		
-		
+
+
 		// menyimpan data file yang diupload ke variabel $file
 		$file = $request->file('image');
-		
+
 		$file_name = time()."_".$file->getClientOriginalName();
-		
+
 		// isi dengan nama folder tempat kemana file diupload
 		$upload_folder = 'uploads';
 		$file->move($upload_folder,$file_name);
-		
+
 		$eventStarter = new EventStarter([
              'user_id' => $request->get('user_id'),
              'organizer'=> $request->get('organizer'),
@@ -79,7 +80,7 @@ class EventStarterController extends Controller
          ]);
 
          $eventStarter->save();
-		 
+
 		 return redirect('manage/eventStarters')->with('success', 'Event has been added');
     }
 
@@ -132,5 +133,16 @@ class EventStarterController extends Controller
     public function destroy(EventStarter $eventStarter)
     {
         //
+    }
+
+    public function join(EventStarter $eventStarter)
+    {
+        $participant = new Participant([
+          'user_id' => Auth::user()->id,
+          'event_starter_id' => $eventStarter->id
+        ]);
+        $participant->save();
+
+        return redirect(route('detail-event', ['eventStarter' => $eventStarter->id]))->with('success', 'You joined this event');
     }
 }

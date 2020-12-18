@@ -6,11 +6,11 @@
         <form method="post" action="{{ route('post-comment') }}">
             @csrf
             <div class="form-group">
-				<input type="hidden" name="user_id" value="{{(Auth()->user()->id)}}" />
+				<input type="hidden" name="user_id" value="{{Auth()->user()?Auth()->user()->id:''}}" />
 				<input type="hidden" name="event_starter_id" value="{{$eventStarter->id}}" />
                 <input type="hidden" name="parent_id" value="{{ $comment->id }}" />
                 <input type="text" name="comment" class="form-control" />
-                
+
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-warning" value="Reply" />

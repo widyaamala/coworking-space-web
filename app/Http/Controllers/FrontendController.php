@@ -8,6 +8,7 @@ use App\Product;
 use App\Invoice;
 use App\Event;
 use App\EventStarter;
+use App\Participant;
 use Validator,Redirect,Response;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,7 +31,7 @@ class FrontendController extends Controller
 		$products = Product::whereType('general membership')->get();
         return view('frontend.index', compact('products'));
     }
-	
+
 	public function office()
     {
 		$products = Product::whereType('private')->get();
@@ -42,35 +43,36 @@ class FrontendController extends Controller
         $products = Product::whereCategory('room')->get();
         return view('frontend.room', compact('products'));
     }
-	
+
 	public function partnership()
     {
-		
+
         return view('frontend.partnership');
     }
-	
+
 	public function eventStarter()
     {
 		$products = Product::whereCategory('room')->get();
         return view('frontend.event-starter', compact('products'));
     }
-	
-	public function eventDetail($id)
+
+	public function eventDetail(EventStarter $eventStarter)
     {
-		$eventStarter = EventStarter::find($id);
-		
-		if(Auth::guest()){
-          return Redirect::guest("login")->withSuccess('You have to login first');
-        }
-        return view('frontend.detail-event', compact('eventStarter'));
+			$eventStarter->load('participants');
+			$joined = $eventStarter->participants()->where('user_id', Auth::user()->id)->first();
+			// dd($joined);
+			if(Auth::guest()){
+	      return Redirect::guest("login")->withSuccess('You have to login first');
+	    }
+	    return view('frontend.detail-event', compact('eventStarter', 'joined'));
     }
-	
+
 	public function daftarEvent()
     {
 		$eventStarters = EventStarter::whereStatus('confirmed')->get();
         return view('frontend.daftar-event', compact('eventStarters'));
     }
-	
+
 	public function calendar()
     {
 		    $events = Event::all();
