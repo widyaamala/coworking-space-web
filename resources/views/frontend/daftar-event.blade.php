@@ -16,7 +16,7 @@
 						<h4 class="mb-4">Event Starter</h4>
 						<p>Create Your Own Event </p>
 					</div>
-				</div>            
+				</div>
 			</div>
 			<div class="col-lg-9 pl-lg-5">
                 <form method="GET" action="https://www.dicoding.com/events/list" accept-charset="UTF-8" role="form" class="js-listing-form">
@@ -43,7 +43,7 @@
                             <div class="col-sm-6">
 								<div class="card white-bg shadow  mb-3 ">
 									<a href="{{ route('detail-event', $eventStarter->id) }}"  class="position-relative">
-										<div class="rounded-top js-balanced-height-img"><img src="{{ url('/receipt/'.$eventStarter->image) }}" class="img-fluid" alt="" width="100%" />
+										<div class="rounded-top js-balanced-height-img"><img src="{{ url('/uploads/'.$eventStarter->image) }}" class="img-fluid" alt="" width="100%" />
 											<noscript>
 												<img src="{{ url('/uploads/'.$eventStarter->image) }}" class='noscript noscript-img img-fluid' alt='' />
 											</noscript>
@@ -54,7 +54,7 @@
 											<span class='badge badge-secondary mb-3'>{{$eventStarter->event_category}}</span>
 										</div>
 										<div data-equal-height="card">
-                    
+
 											<h5 class="mb-0">
 											<a data-equal-height="title" href="{{ route('detail-event', $eventStarter->id) }}" >
 											{{$eventStarter->event_name}}

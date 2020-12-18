@@ -45,8 +45,8 @@
     				  <td>{{ $eventStarter->event_type }}</td>
 					  <td>{{ $eventStarter->event_category }}</td>
     				  <td>{{ $eventStarter->min_participant }}</td>
-					  
-    				  <td><img width="150px" src="{{ url('/receipt/'.$eventStarter->image) }}"></td>
+
+    				  <td><img width="150px" src="{{ url('/uploads/'.$eventStarter->image) }}"></td>
     				  <td>{{ $eventStarter->status }}</td>
               <td>
                   <form action="{{ route('eventStarters.destroy',$eventStarter->id) }}" method="POST">
