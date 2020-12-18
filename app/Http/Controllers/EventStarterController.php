@@ -81,7 +81,7 @@ class EventStarterController extends Controller
 
          $eventStarter->save();
 
-		 return redirect('manage/eventStarters')->with('success', 'Event has been added');
+		 return redirect(route('daftar-event'))->with('success', 'Event Starter has been submitted');
     }
 
     /**
@@ -107,6 +107,13 @@ class EventStarterController extends Controller
         //dd($invoice->product->category);
         return view('pages.event-starters.edit', compact('eventStarter'));
     }
+	
+	public function reschedule(EventStarter $eventStarter)
+    {
+        $eventStarter->load(['user']);
+        //dd($invoice->product->category);
+        return view('pages.event-starters.reschedule', compact('eventStarter'));
+    }
 
     /**
      * Update the specified resource in storage.
@@ -121,7 +128,7 @@ class EventStarterController extends Controller
        $eventStarter->update();
 
 
-	     return redirect('manage/eventStarters')->with('success', 'Event Starter has been updated');
+	     return redirect(route('detail-event', ['eventStarter' => $eventStarter->id]))->with('success', 'Event Starter has been updated');
     }
 
     /**

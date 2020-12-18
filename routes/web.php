@@ -38,6 +38,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('confirm-payment/{id}', 'FrontendController@confirmPayment')->name('confirm-payment');
 	Route::post('post-confirmation', 'PaymentController@postConfirmation')->name('post-confirmation');
 	Route::get('calendar', 'EventController@calendar')->name('calendar');
+	Route::get('reschedule/{eventStarter}', 'EventStarterController@reschedule')->name('reschedule');
 });
 
 // Authentication Routes

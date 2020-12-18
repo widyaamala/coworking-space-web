@@ -20,31 +20,32 @@
 					<h2>{{$eventStarter->event_name}}</h2>
 					<small class="text-muted d-block mb-3">Diselenggarakan oleh: <span class="text-muted">{{$eventStarter->organizer}}</span></small>
           @if(Auth::user() && $eventStarter->user_id == Auth::user()->id)
-            <a class="btn btn-small btn-outline-success btn-block" href="">Share This Event</a>
-          @else
-            <a class="btn btn-small btn-outline-success btn-block {{$joined?'disabled':''}}" href="{{ route('join-event', ['eventStarter' => $eventStarter->id]) }}">{{$joined?'You are already joined this event':'Join this event'}}</a>
-          @endif
+  									<a class="btn btn-sm btn-outline-success" href="{{ route('room') }}">Go</a>
+  									<a class="btn btn-sm btn-outline-success" href="">Cancel</a>
+  									<a class="btn btn-sm btn-outline-success" href="{{ route('reschedule', $eventStarter->id) }}">Re-schedule</a>
+                  @endif
            </div>
 			</div>
 		</div>
 		<div class="col-lg-3 pt-5">
-			<b>10</b>
-									<span class="text-muted d-block mb-2">Days to go</span>
+									<span class="text-muted d-block mb-2">Terbuka Hingga</span>
+									<b>{{$eventStarter->schedule_plan}}</b></br>
 
-									<b>{{count($eventStarter->participants)}} peserta</b>
-									<span class="text-muted d-block mb-2">{{(count($eventStarter->participants) < $eventStarter->min_participant) ? $eventStarter->min_participant - count($eventStarter->participants) .' Participants to go': ''}}</span>
+									<span class="text-muted d-block mb-2">{{count($eventStarter->participants)}} peserta</span>
+									<b>{{(count($eventStarter->participants) < $eventStarter->min_participant) ? $eventStarter->min_participant - count($eventStarter->participants) .' Participants to go': ''}}</b>
 
-									<p class="mt-3">This event will only be held if it reaches its participant's goal by </p>
-                  @if(Auth::user() && $eventStarter->user_id == Auth::user()->id)
-  									<a class="btn btn-small btn-outline-success" href="">Go</a>
-  									<a class="btn btn-small btn-outline-success" href="">Cancel</a>
-  									<a class="btn btn-small btn-outline-success" href="">Re-schedule</a>
-                  @endif
+									<p class="mt-3">This event will only be held if it reaches its participant's goal by schedule plan</p>
+									@if(Auth::user() && $eventStarter->user_id == Auth::user()->id)
+										<a class="btn btn-sm btn-outline-success btn-block" href="">Share This Event</a>
+									  @else
+										<a class="btn btn-sm btn-outline-success btn-block {{$joined?'disabled':''}}" href="{{ route('join-event', ['eventStarter' => $eventStarter->id]) }}">{{$joined?'You are already joined this event':'Join this event'}}</a>
+									  @endif
+                  
 		</div>
 
       </div>
   <!-- Tabs navs -->
-<ul class="nav nav-tabs mb-3" id="ex1" role="tablist">
+<ul class="nav nav-tabs mb-3 mt-5" id="ex1" role="tablist">
   <li class="nav-item" role="presentation">
     <a
       class="nav-link active"
@@ -54,7 +55,8 @@
       role="tab"
       aria-controls="ex1-tabs-1"
       aria-selected="true"
-      >Description</a
+      > Description
+	  </a
     >
   </li>
   <li class="nav-item" role="presentation">
@@ -80,7 +82,11 @@
     role="tabpanel"
     aria-labelledby="ex1-tab-1"
   >
-    Description
+    <h5 style = "text-transform:capitalize;">Description</h5>
+	  <p>{{$eventStarter->description}}</p>
+	  <hr>
+	  <h5 style = "text-transform:capitalize;">Rundown</h5>
+	  <p>{{$eventStarter->rundown}}</p>
   </div>
   <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
     <h6>Anda dapat berdiskusi dan bertanya mengenai Event ini.</h6>
