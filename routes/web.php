@@ -32,6 +32,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('post-event', 'EventController@store')->name('post-event');
 	Route::post('post-partner', 'PartnershipController@store')->name('post-partner');
 	Route::post('post-eventStarter', 'EventStarterController@store')->name('post-eventStarter');
+	Route::post('post-comment', 'CommentController@store')->name('post-comment');
 	Route::get('confirmation', 'InvoiceController@confirmation')->name('invoice');
 	Route::get('confirm-payment/{id}', 'FrontendController@confirmPayment')->name('confirm-payment');
 	Route::post('post-confirmation', 'PaymentController@postConfirmation')->name('post-confirmation');
@@ -197,6 +198,12 @@ Route::group(['prefix' => 'manage', 'middleware' => ['auth', 'activated', 'role:
 	Route::resource('eventStarters', 'EventStarterController', [
         'names' => [
             'index'   => 'eventStarters',
+        ],
+    ]);
+	
+	Route::resource('comments', 'CommentController', [
+        'names' => [
+            'index'   => 'comments',
         ],
     ]);
 

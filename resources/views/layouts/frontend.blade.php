@@ -269,7 +269,7 @@
 
     {{-- Scripts --}}
   	<!-- JQuery -->
-	   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
   	<!-- Bootstrap tooltips -->
   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
