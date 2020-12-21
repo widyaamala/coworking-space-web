@@ -119,21 +119,52 @@
 
   	<header class="header">
       <nav class="navbar navbar-expand-lg fixed-top py-3">
-          <div class="container"><a href="#" class="navbar-brand text-uppercase font-weight-bold">EZO SPACE</a>
+          <div class="container">
+		  <a href="#" class="navbar-brand"><img height="30" width="70" class="d-inline-block align-top" alt="" src="/img/logoezo.png"></a>
               <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
 
               <div id="navbarSupportedContent" class="collapse navbar-collapse">
                   <ul class="navbar-nav ml-auto">
-                      <li class="nav-item active"><a href="#intro" class="nav-link text-uppercase font-weight-bold">Home <span class="sr-only">(current)</span></a></li>
-                      <li class="nav-item"><a href="#prices" class="nav-link text-uppercase font-weight-bold">Services</a></li>
-                      <li class="nav-item"><a href="#seats" class="nav-link text-uppercase font-weight-bold">Events</a></li>
+                      <li class="nav-item active"><a href="#home" class="nav-link text-uppercase font-weight-bold">Home <span class="sr-only">(current)</span></a></li>
+                      <li class="nav-item"><a href="#services" class="nav-link text-uppercase font-weight-bold">Services</a></li>
+                      <li class="nav-item"><a href="#events" class="nav-link text-uppercase font-weight-bold">Events</a></li>
                       <li class="nav-item"><a href="#about" class="nav-link text-uppercase font-weight-bold">About</a></li>
                       <li class="nav-item"><a href="#contacts" class="nav-link text-uppercase font-weight-bold">Contact</a></li>
+					  
+					  @if(Auth::user())
+					 <li class="nav-item dropdown ml-3">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item {{ Request::is('profile/'.Auth::user()->name, 'profile/'.Auth::user()->name . '/edit') ? 'active' : null }}" href="{{ route('profile', ['profile' => Auth::user()->name]) }}">
+                                {!! trans('titles.profile') !!}
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+					@endif
                   </ul>
               </div>
           </div>
       </nav>
   	</header>
+	
+	<div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            @include('partials.form-status')
+                        </div>
+                    </div>
+                </div>
 
   	@yield('content')
 
@@ -275,8 +306,7 @@
   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
   	<!-- Bootstrap core JavaScript -->
   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  	<!-- MDB core JavaScript -->
-  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.0/js/mdb.min.js"></script>
+  	
     <script src="{{ mix('/js/app.js') }}"></script>
    <script src="{{ asset('/js/main.js') }}" defer></script>
 

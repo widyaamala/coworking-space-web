@@ -52,8 +52,10 @@ class FrontendController extends Controller
 
 	public function eventStarter()
     {
-		$products = Product::whereCategory('room')->get();
-        return view('frontend.event-starter', compact('products'));
+		if(Auth::guest()){
+				return Redirect::guest("login")->withSuccess('You have to login first');
+			}
+        return view('frontend.event-starter');
     }
 
 	public function eventDetail(EventStarter $eventStarter)

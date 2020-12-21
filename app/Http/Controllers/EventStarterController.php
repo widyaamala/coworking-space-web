@@ -42,7 +42,10 @@ class EventStarterController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+		
+		 $validator = Validator::make(
+            $request->all(),
+            [
 			'user_id' => 'required',
 			'organizer' => 'required',
 			'schedule_plan' => 'required',
@@ -54,7 +57,13 @@ class EventStarterController extends Controller
 			'min_participant' => 'required',
 			'image' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
 
-        ]);
+        ]
+        );
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+        
 
 
 		// menyimpan data file yang diupload ke variabel $file
@@ -92,7 +101,7 @@ class EventStarterController extends Controller
      */
     public function show(EventStarter $eventStarter)
     {
-        //
+       return view('pages.event-starters.show',compact('eventStarter'));
     }
 
     /**
@@ -124,11 +133,13 @@ class EventStarterController extends Controller
      */
     public function update(Request $request, EventStarter $eventStarter)
     {
-        $eventStarter->status = $request->get('status');
-       $eventStarter->update();
+		
+		$eventStarter->schedule_plan = $request->get('schedule_plan');
+		$eventStarter->status = $request->get('status');
+		$eventStarter->save();
 
 
-	     return redirect(route('detail-event', ['eventStarter' => $eventStarter->id]))->with('success', 'Event Starter has been updated');
+	     return redirect(route('detail-event', ['eventStarter' => $eventStarter->id]));
     }
 
     /**

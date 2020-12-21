@@ -97,19 +97,26 @@ class InvoiceController extends Controller
 
 	public function postInvoice(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make(
+            $request->all(),
+            [
             'user_id' => 'required',
             'product_id' => 'required',
             'payment_method' => 'required',
         ]);
 
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
         $product = Product::find($request->product_id);
 
         if ($request->payment_method == 'Cash') {
-          $status = 'Confirmed';
-        } else {
-          $status = 'On Process';
-        }
+    			$status = 'Confirmed';
+    		} else {
+    			$status = 'On Process';
+    		}
+			
         //dd($request->user_id);
 
         if($product->category == 'membership') {

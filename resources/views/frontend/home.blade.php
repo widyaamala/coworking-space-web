@@ -17,7 +17,7 @@
 			  <div class="quote">Co-Working Space terlengkap hanya untuk kamu</br>Didesain sesuai kebutuhanmu
 			  </div>
 			  <div>
-				<a href="#about" class="btn-get-started scrollto">Get Started</a>
+				<a href="{{ route('login') }}" class="btn-get-started scrollto">Get Started</a>
 			  </div>
 			</div>
 
@@ -194,6 +194,27 @@
           </div>
 
         </div>
+		<div class="room row">
+
+          <div class="col-lg-6">
+            <div class="space-content">
+				  <div class="room-tagline">Creat Your Own <br>Event</div>
+				  <div class="room-title">Event Starter</div>
+				  <div class="room-info">
+					<p>Our latest innovation, we can bring together creative workers or freelancers and nomadic workers, or even students in an event or collaboration that you have initiated yourself. If you are looking for a collaboration partner or if you want to hold an event but you don't have access to find as many participants as possible, We Have You Covered!</p>
+					
+				  </div>
+				<a class="btn-room" href="{{ route('daftar-event') }}">See More</a>
+
+            </div>
+
+          </div>
+          <div class="col-lg-6">
+            <div class="room-img">
+              <img src="img/eventstarter.png" alt="" class="img-fluid" width="100%">
+            </div>
+          </div>
+        </div>
 		</div>
 	</section>
 	<!-- #services -->
@@ -206,6 +227,12 @@
 			<center>
 			<span class="subtitle">Temukan</span><span class="subsub"><strong> event</strong></span><span class="subtitle"> menarik atau buat</span><span class="subsub"><strong> event impianmu!</strong></span>
 			</center>
+		</div>
+		
+		<div class="row pt-5">
+			<div class="col-sm-6 col-lg-6">
+			<div id='calendar'></div>
+			</div>
 		</div>
 
       <div class="row">
@@ -225,15 +252,15 @@
                     <div class="carousel-item active">
                         <div class="row">
 
-                            <div class="col-md-3 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <div class="card">
                                     <img class="img-fluid" alt="100%x280" src="{{ url('/receipt/'.$event->image) }}">
                                     <div class="card-body">
                                         <h4 class="card-title">{{ $event->event_name }}</h4>
                                         <div class="card-text">
 											<i class="fas fa-calendar-alt"></i> {{ date('d M Y', strtotime($event->date)) }}
-											<span style="float: right"><i class="far fa-clock"></i> {{ $event->time }} </span>
-											<div class="pt-2"><strong>{{ $event->event_type }}</strong></div>
+											<span style="float: right"><i class="far fa-clock"></i> {{ $event->start_time }} - {{ $event->end_time }}  </span>
+											<div class="pt-2"><strong>{{ $event->organizer }}</strong></div>
 										</div>
 
                                     </div>
@@ -250,7 +277,7 @@
 		@endforeach
       </div>
 
-		<div id='calendar'></div>
+		
 
 	  </div>
 	</section>

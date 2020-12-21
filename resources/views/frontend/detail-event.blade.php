@@ -19,19 +19,36 @@
 					<span class="badge badge-secondary">{{$eventStarter->event_category}}</span>
 					<h2>{{$eventStarter->event_name}}</h2>
 					<small class="text-muted d-block mb-3">Diselenggarakan oleh: <span class="text-muted">{{$eventStarter->organizer}}</span></small>
-          @if(Auth::user() && $eventStarter->user_id == Auth::user()->id)
+					@if(Auth::user() && $eventStarter->user_id == Auth::user()->id)
+							<form action="{{ route('eventStarters.update',$eventStarter->id) }}" method="POST">
+									@csrf
+									@method('PUT')
+									@if( $eventStarter->status == 'Canceled')
+										<p class="mt-3">This event has been canceled by creator</p>
+									@else
   									<a class="btn btn-sm btn-outline-success" href="{{ route('room') }}">Go</a>
-  									<a class="btn btn-sm btn-outline-success" href="">Cancel</a>
-  									<a class="btn btn-sm btn-outline-success" href="{{ route('reschedule', $eventStarter->id) }}">Re-schedule</a>
+									
+									<input type="hidden"  name="schedule_plan" id="schedule_plan" class="form-control"  value="{{$eventStarter->schedule_plan}}"/>
+									  <input type="hidden"  name="status" id="status" class="form-control"  value="Canceled"/>
+									  <button type="submit" class="btn btn-sm btn-outline-danger" href="">Cancel</button>
+									
+  									<a class="btn btn-sm btn-outline-warning" href="{{ route('reschedule', $eventStarter->id) }}">Re-schedule</a>
+							</form>
+									@endif
+					@else
+							@if( $eventStarter->status == 'Canceled')
+										<p class="mt-3">This event has been canceled by creator</p>
+							@endif		
                   @endif
+				  
            </div>
 			</div>
 		</div>
 		<div class="col-lg-3 pt-5">
-									<span class="text-muted d-block mb-2">Terbuka Hingga</span>
+									<span class="text-muted d-block mb-2">Schedule Plan</span>
 									<b>{{$eventStarter->schedule_plan}}</b></br>
 
-									<span class="text-muted d-block mb-2">{{count($eventStarter->participants)}} peserta</span>
+									<span class="text-muted d-block mb-2">{{count($eventStarter->participants)}} participant</span>
 									<b>{{(count($eventStarter->participants) < $eventStarter->min_participant) ? $eventStarter->min_participant - count($eventStarter->participants) .' Participants to go': ''}}</b>
 
 									<p class="mt-3">This event will only be held if it reaches its participant's goal by schedule plan</p>

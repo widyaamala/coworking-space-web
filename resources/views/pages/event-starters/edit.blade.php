@@ -33,7 +33,7 @@
 		<div class="form-group row">
 			<label for="schedule_plan" class="col-sm-2 col-form-label">Schedule Plan</label>
 			<div class="col-sm-10">
-				<input type="datetime" name="schedule_plan" id="schedule_plan" class="form-control" disabled value="{{$eventStarter->schedule_plan}}"/>
+				<input type="datetime" name="schedule_plan" id="schedule_plan" class="form-control"  value="{{$eventStarter->schedule_plan}}"/>
 			</div>
 		</div>
 		<div class="form-group row">

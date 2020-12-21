@@ -72,6 +72,7 @@ class EventController extends Controller
     		// isi dengan nama folder tempat kemana file diupload
     		$upload_folder = 'receipt';
     		$file->move($upload_folder,$file_name);
+			
         // dd($file_name);
         $event = new Event([
            'user_id' => $request->get('user_id'),
@@ -86,7 +87,7 @@ class EventController extends Controller
 			 'event_category' => $request->get('event_category'),
         	 'total_seats' => $request->get('total_seats'),
         	 'layout_seat' => $request->get('layout_seat'),
-        	 'facilities' => $request->get('facilities'),
+			 'facilities' => json_encode($request->get('facilities')),
            'image'=> $file_name,
         ]);
         $event->save();
@@ -157,6 +158,11 @@ class EventController extends Controller
         $event->update();
 
 		return redirect('manage/events')->with('success', 'Event has been updated');
+    }
+	
+	 public function show(Event $event)
+    {
+       return view('pages.events.show',compact('event'));
     }
 
     /**

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Session;
+use Validator;
 
 class ProductController extends Controller
 {
@@ -42,6 +43,20 @@ class ProductController extends Controller
       */
      public function store(Request $request)
      {
+		 
+		 $validator = Validator::make(
+            $request->all(),
+            [
+                'name' => 'required',
+            'description' => 'required',
+		        'category' => 'required',
+				'price' => 'required',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
          $product = new Product;
          $product->fill($request->all());
          $product->save();

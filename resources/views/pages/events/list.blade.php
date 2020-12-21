@@ -19,12 +19,13 @@
               <th>No</th>
               <th>User</th>
               <th>Room</th>
+			  <th>Organizer</th>
               <th class="hidden-xs">Date</th>
-              <th class="hidden-xs">Time</th>
-              <th>Duration</th>
+              <th class="hidden-xs">Start Time</th>
+			  <th class="hidden-xs">End Time</th>
               <th>Event Name</th>
-	            <th>Description</th>
               <th>Event Type</th>
+              <th>Event Category</th>
 	            <th>Total Seats</th>
               <th>Layout Seat</th>
 	            <th>Facilities</th>
@@ -40,12 +41,13 @@
               <td>{{ ++$i }}</td>
               <td>{{ $event->user->name }}</td>
               <td>{{ $event->invoice->product->name }}</td>
+			  <td>{{ $event->organizer }}</td>
               <td class="hidden-xs">{{ date('d M Y', strtotime($event->date)) }}</td>
-              <td class="hidden-xs">{{ $event->time }}</td>
-    				  <td>{{ $event->duration }}</td>
+              <td class="hidden-xs">{{ $event->start_time }}</td>
+			  <td class="hidden-xs">{{ $event->end_time }}</td>
     				  <td>{{ $event->event_name }}</td>
-    				  <td>{{ $event->description }}</td>
     				  <td>{{ $event->event_type }}</td>
+    				  <td>{{ $event->event_category }}</td>
     				  <td>{{ $event->total_seats }}</td>
     				  <td>{{ $event->layout_seat }}</td>
     				  <td>{{ $event->facilities?implode(', ', $event->facilities):'' }}</td>
@@ -54,6 +56,7 @@
     				  <td>{{ $event->status }}</td>
               <td>
                   <form action="{{ route('events.destroy',$event->id) }}" method="POST">
+					<a class="btn btn-sm btn-info" href="{{ route('events.show',$event->id) }}">Show</a>
                       <a class="btn btn-sm btn-primary" href="{{ route('events.edit',$event->id) }}"><i class="fa fa-pencil"></i><span class="hidden-xs"> Edit</span></a>
                       @csrf
                       @method('DELETE')

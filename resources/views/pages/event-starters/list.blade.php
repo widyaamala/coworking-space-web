@@ -21,8 +21,6 @@
               <th>Organizer</th>
               <th class="hidden-xs">Schedule Plan</th>
               <th>Event Name</th>
-	            <th>Description</th>
-              <th>Rundown</th>
 	            <th>Event Type</th>
               <th>Event Category</th>
 	            <th>Minimum Participant</th>
@@ -40,8 +38,6 @@
 			  <td>{{ $eventStarter->organizer }}</td>
               <td class="hidden-xs">{{ date('Y-m-d H:i:s', strtotime($eventStarter->schedule_plan)) }}</td>
     				  <td>{{ $eventStarter->event_name }}</td>
-    				  <td>{{ $eventStarter->description }}</td>
-					  <td>{{ $eventStarter->rundown }}</td>
     				  <td>{{ $eventStarter->event_type }}</td>
 					  <td>{{ $eventStarter->event_category }}</td>
     				  <td>{{ $eventStarter->min_participant }}</td>
@@ -50,6 +46,7 @@
     				  <td>{{ $eventStarter->status }}</td>
               <td>
                   <form action="{{ route('eventStarters.destroy',$eventStarter->id) }}" method="POST">
+					<a class="btn btn-sm btn-info" href="{{ route('eventStarters.show',$eventStarter->id) }}">Show</a>
                       <a class="btn btn-sm btn-primary" href="{{ route('eventStarters.edit',$eventStarter->id) }}"><i class="fa fa-pencil"></i><span class="hidden-xs"> Edit</span></a>
                       @csrf
                       @method('DELETE')

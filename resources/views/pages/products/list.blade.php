@@ -17,7 +17,7 @@
       <table class="table table-bordered table-responsive">
           <tr>
               <th>No</th>
-              <th>Package Name</th>
+              <th>Product Name</th>
               <th class="hidden-xs">Description</th>
               <th>Category</th>
               <th>Type</th>

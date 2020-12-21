@@ -11,43 +11,29 @@
    <div class="container">
        <div class="row mb-5 pt-5">
             <div class="col-lg-3 pb-5">
-                 <div class="sticky sticky-event">
-					<div class="pt-lg-3">
+                 <div class="info">
+					<div class="single-well pt-lg-3">
 						<h4 class="mb-4">Event Starter</h4>
-						<p>Create Your Own Event </p>
+						<p>Create your own event with the categories that you want, and you can discuss with each other before the event can actually be held. The event will only be held if it reaches its participant's goal by your schedule plan </p>
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-9 pl-lg-5">
-                <form method="GET" action="https://www.dicoding.com/events/list" accept-charset="UTF-8" role="form" class="js-listing-form">
-				<div class="input-group mb-3 shadow">
-                     <input name="criteria" type="hidden" value="name">
-                     <input type="text" class="form-control js-entity-filter" name="q" value="" placeholder="Cari Event" aria-label="Cari Event" aria-describedby="button-addon2">
-                     <div class="input-group-append">
-                          <button class="btn btn-secondary" type="submit" id="button-addon2"><i class="fas fa-search text-green"></i></button>
-                     </div>
-                </div>
+				<div class="d-flex justify-content-end align-items-center">
+                <a class="btn btn-sm btn-outline-success" href="{{ route('event-starter') }}">Create Your Event</a>
+				</div>
 
                 <hr>
-
-                <div class="d-flex justify-content-end align-items-center">
-                     <small class="mr-2 text-muted">Urut berdasarkan: </small>
-                     <select class="js-order-by form-control" style="width:fit-content;" name="order_by"><option value="newest" selected="selected">Event Terbaru</option><option value="updated">Update Terbaru</option><option value="endsoon">Segera Berakhir</option></select>
-                 </div>
                  </form>
 
                     <!-- DAFTAR EVENT -->
                     <div class="my-5">
-					@foreach ($eventStarters as $eventStarter)
                         <div class="row row-eq-height mb-3">
-                            <div class="col-sm-6">
+					@foreach ($eventStarters as $eventStarter)
+                            <div class="col-sm-6 d-flex align-items-stretch">
 								<div class="card white-bg shadow  mb-3 ">
 									<a href="{{ route('detail-event', $eventStarter->id) }}"  class="position-relative">
-										<div class="rounded-top js-balanced-height-img"><img src="{{ url('/uploads/'.$eventStarter->image) }}" class="img-fluid" alt="" width="100%" />
-											<noscript>
-												<img src="{{ url('/uploads/'.$eventStarter->image) }}" class='noscript noscript-img img-fluid' alt='' />
-											</noscript>
-										</div>
+										<img src="{{ url('/uploads/'.$eventStarter->image) }}" class="card-img-top img-fluid" alt="" />
 									  </a>
 									<div class="card-body">
 										<div>
@@ -62,29 +48,26 @@
 											</h5>
                                         <span class="tipe">oleh: <span class="text-muted">
 											{{$eventStarter->organizer}}</span></span>
-                                        <div class="mt-1 mb-3 text-09">
-											<p>{{$eventStarter->description}}</p>
-										</div>
 										</div>
 									</div>
 									<a href="{{ route('detail-event', $eventStarter->id) }}" class="remove-style-link" >
 									<div class="card-footer">
 									<div class="row">
 										<div class="col-12 col-lg text-center text-lg-left">
-                                            <small>Sisa Kuota: <span></span></small>
+                                            <small>Sisa Kuota: <span>{{(count($eventStarter->participants) < $eventStarter->min_participant) ? $eventStarter->min_participant - count($eventStarter->participants): ''}}</span></small>
                                         </div>
 
                                         <div class="col-12 col-lg-auto text-center text-lg-right">
-											<small><span></span> Hari Lagi</small>
+											<small>{{$eventStarter->schedule_plan}}</small>
 										</div>
                                     </div>
 									</div>
 									</a>
 								</div>
 							</div>
+					@endforeach
 						</div>
 					</div>
-					@endforeach
 				</div>
 			</div>
 		</div>

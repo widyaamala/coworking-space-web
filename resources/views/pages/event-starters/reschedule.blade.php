@@ -7,8 +7,9 @@
 <div class="container">
 
 
-  <form class="needs-validation mb-5" action="{{ route('eventStarters.update', ['evenStarter' => $evenStarter->id]) }}" method="POST" enctype="multipart/form-data">
+  <form class="needs-validation mb-5" action="{{ route('eventStarters.update', $eventStarter->id) }}" method="POST" enctype="multipart/form-data">
   @csrf
+		@method('PUT')
     <div class="row">
       <div class="col-md-12 order-md-1">
         <div class="card p-3">
@@ -37,22 +38,6 @@
               </div>
           </div>
 		  <div class="form-group row">
-              <div class="col-md-12 mb-3">
-				  <label for="description" class="col-4 col-form-label">Event Description</label>
-				  <div class="col-12">
-				<textarea type="textarea" name="description" id="description" class="form-control" disabled value="{{$eventStarter->description}}"></textarea>
-				</div>
-              </div>
-          </div>
-		  <div class="form-group row">
-              <div class="col-md-12 mb-3">
-				  <label for="rundown" class="col-4 col-form-label">Rundown Plan</label>
-				<div class="col-12">
-				<textarea type="textarea" name="rundown" id="rundown" class="form-control" disabled value="{{$eventStarter->rundown}}"></textarea>
-				</div>
-              </div>
-          </div>
-		  <div class="form-group row">
               <div class="col-md-6 mb-3">
 				  <label for="event_type" class="col-4 col-form-label">Event Type</label>
 				<div class="col-8">
@@ -71,16 +56,6 @@
 				  <label for="min_participant" class="col-4 col-form-label">Minimum Participant</label>
 				  <div class="col-8">
 					<input class="form-control" type="number" value="{{$eventStarter->min_participant}}" name="min_participant">
-				  </div>
-              </div>
-              <div class="col-md-6 mb-3">
-				  <label for="images" class="col-6 col-form-label">Poster Event / Logo Organizer</label>
-				  
-				<div class="col-8">
-					<div class="custom-file">
-					<input type="file" class="custom-file-input" id="image" name="image" required>
-					<label class="custom-file-label" for="image">Choose file...</label>
-					</div>
 				  </div>
               </div>
           </div>
