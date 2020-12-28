@@ -105,7 +105,7 @@
   </style>
   </head>
   <body>
-    <div id="apps">
+    <div id="app">
       <!--<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
         <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
         <nav class="my-2 my-md-0 mr-md-3">
@@ -130,7 +130,7 @@
                       <li class="nav-item"><a href="#events" class="nav-link text-uppercase font-weight-bold">Events</a></li>
                       <li class="nav-item"><a href="#about" class="nav-link text-uppercase font-weight-bold">About</a></li>
                       <li class="nav-item"><a href="#contacts" class="nav-link text-uppercase font-weight-bold">Contact</a></li>
-					  
+
 					  @if(Auth::user())
 					 <li class="nav-item dropdown ml-3">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -157,7 +157,7 @@
           </div>
       </nav>
   	</header>
-	
+
 	<div class="container">
                     <div class="row">
                         <div class="col-12">
@@ -298,19 +298,13 @@
     </footer>
     <!-- Footer -->
 
+    </div>
     {{-- Scripts --}}
-  	<!-- JQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
-  	<!-- Bootstrap tooltips -->
-  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-  	<!-- Bootstrap core JavaScript -->
-  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  	
+
     <script src="{{ mix('/js/app.js') }}"></script>
    <script src="{{ asset('/js/main.js') }}" defer></script>
 
     @yield('footer_scripts')
-  </div>
   </body>
 </html>

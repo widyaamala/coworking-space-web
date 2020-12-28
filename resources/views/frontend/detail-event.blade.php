@@ -27,37 +27,40 @@
 										<p class="mt-3">This event has been canceled by creator</p>
 									@else
   									<a class="btn btn-sm btn-outline-success" href="{{ route('room') }}">Go</a>
-									
+
 									<input type="hidden"  name="schedule_plan" id="schedule_plan" class="form-control"  value="{{$eventStarter->schedule_plan}}"/>
 									  <input type="hidden"  name="status" id="status" class="form-control"  value="Canceled"/>
 									  <button type="submit" class="btn btn-sm btn-outline-danger" href="">Cancel</button>
-									
+
   									<a class="btn btn-sm btn-outline-warning" href="{{ route('reschedule', $eventStarter->id) }}">Re-schedule</a>
 							</form>
 									@endif
 					@else
 							@if( $eventStarter->status == 'Canceled')
 										<p class="mt-3">This event has been canceled by creator</p>
-							@endif		
+							@endif
                   @endif
-				  
+
            </div>
 			</div>
 		</div>
 		<div class="col-lg-3 pt-5">
 									<span class="text-muted d-block mb-2">Schedule Plan</span>
-									<b>{{$eventStarter->schedule_plan}}</b></br>
+									<b>{{ date('d M Y H:i', strtotime($eventStarter->schedule_plan)) }}</b></br>
 
 									<span class="text-muted d-block mb-2">{{count($eventStarter->participants)}} participant</span>
 									<b>{{(count($eventStarter->participants) < $eventStarter->min_participant) ? $eventStarter->min_participant - count($eventStarter->participants) .' Participants to go': ''}}</b>
 
 									<p class="mt-3">This event will only be held if it reaches its participant's goal by schedule plan</p>
 									@if(Auth::user() && $eventStarter->user_id == Auth::user()->id)
-										<a class="btn btn-sm btn-outline-success btn-block" href="">Share This Event</a>
+										Share This Event
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <div class="addthis_inline_share_toolbox_6rtl"></div>
+
 									  @else
 										<a class="btn btn-sm btn-outline-success btn-block {{$joined?'disabled':''}}" href="{{ route('join-event', ['eventStarter' => $eventStarter->id]) }}">{{$joined?'You are already joined this event':'Join this event'}}</a>
 									  @endif
-                  
+
 		</div>
 
       </div>
@@ -134,6 +137,9 @@
 @endsection
 
 @section('footer_scripts')
+  <!-- Go to www.addthis.com/dashboard to customize your tools -->
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=za2n"></script>
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$(window).on('scroll', function () {
