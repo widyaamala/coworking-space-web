@@ -14,6 +14,7 @@
         </div>
     </div>
     <div class="card-body">
+	@if(isset($eventStarters))
       <table class="table table-bordered table-responsive">
           <tr>
               <th>No</th>
@@ -47,15 +48,16 @@
               <td>
                   <form action="{{ route('eventStarters.destroy',$eventStarter->id) }}" method="POST">
 					<a class="btn btn-sm btn-info" href="{{ route('eventStarters.show',$eventStarter->id) }}">Show</a>
-                      <a class="btn btn-sm btn-primary" href="{{ route('eventStarters.edit',$eventStarter->id) }}"><i class="fa fa-pencil"></i><span class="hidden-xs"> Edit</span></a>
+                      <a class="btn btn-sm btn-primary mt-1" href="{{ route('eventStarters.edit',$eventStarter->id) }}"><i class="fa fa-pencil"></i><span class="hidden-xs"> Edit</span></a>
                       @csrf
                       @method('DELETE')
-                      <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i><span class="hidden-xs"> Delete</span></button>
+                      <button type="submit" class="btn btn-sm btn-danger  mt-1"><i class="fa fa-trash"></i><span class="hidden-xs"> Delete</span></button>
                   </form>
               </td>
           </tr>
           @endforeach
       </table>
+	  {!! $eventStarters->links() !!}@endif
     </div>
   </div>
 </div>

@@ -28,7 +28,7 @@
 									@else
   									<a class="btn btn-sm btn-outline-success" href="{{ route('room') }}">Go</a>
 									
-									<input type="hidden"  name="schedule_plan" id="schedule_plan" class="form-control"  value="{{$eventStarter->schedule_plan}}"/>
+									<input type="hidden"  name="schedule_plan" id="schedule_plan" class="form-control"  value="{{ date('d M Y H:i', strtotime($eventStarter->schedule_plan)) }}"/>
 									  <input type="hidden"  name="status" id="status" class="form-control"  value="Canceled"/>
 									  <button type="submit" class="btn btn-sm btn-outline-danger" href="">Cancel</button>
 									

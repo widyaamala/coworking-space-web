@@ -148,7 +148,7 @@
 		<div class="col-md-4 col-sm-4 col-xs-12">
 		<div class="card h-100 mb-4 text-center border-success  align-items-center">
           <div class="card-header  ml-0 text-success bg-transparent">
-            <h3 class="my-0">{{$product->name}}<br/> <span>{{$product->price}}</span></h3>
+            <h3 class="my-0">{{$product->name}}<br/> <span>Rp. {{ number_format($product->price, 2) }}</span></h3>
           </div>
           <div class="card-body ml-0 ">
             <div class="row">

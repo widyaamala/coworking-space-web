@@ -78,9 +78,6 @@
 				<label for="to_bank">Transfer To Bank</label>
 					<select id="to_bank" name="to_bank" class="form-control">
 						<option value="Bank BCA">Bank BCA</option>
-						<option value="Bank Mandiri">Bank Mandiri</option>
-						<option value="Bank BRI">Bank BRI</option>
-						<option value="Bank BTPN">Bank BTPN</option>
 					</select>
 				<input type="hidden" name="total" value="{{$invoice->total}}">
 			  </div>

@@ -20,7 +20,7 @@ class ProductController extends Controller
      public function index()
      {
          //
-         $products = Product::latest('created_at')->paginate(15);
+         $products = Product::latest('created_at')->paginate(5);
          return view('pages.products.list', compact('products'));
      }
 

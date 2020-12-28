@@ -230,9 +230,9 @@
 		</div>
 		
 		<div class="row pt-5">
-			<div class="col-sm-6 col-lg-6">
+			<center><div class="col-sm-8 col-lg-8">
 			<div id='calendar'></div>
-			</div>
+			</div></center>
 		</div>
 
       <div class="row">
@@ -258,8 +258,7 @@
                                     <div class="card-body">
                                         <h4 class="card-title">{{ $event->event_name }}</h4>
                                         <div class="card-text">
-											<i class="fas fa-calendar-alt"></i> {{ date('d M Y', strtotime($event->date)) }}
-											<span style="float: right"><i class="far fa-clock"></i> {{ $event->start_time }} - {{ $event->end_time }}  </span>
+											<i class="fas fa-calendar-alt"></i> {{ date('d M Y H:i', strtotime($event->start_time)) }} - {{ date('H:i', strtotime($event->end_time)) }} 
 											<div class="pt-2"><strong>{{ $event->organizer }}</strong></div>
 										</div>
 
@@ -371,13 +370,21 @@
 			}
 		});
     $('#calendar').fullCalendar({
+		header: {
+			left: 'prev,next today',
+			center: 'title',
+			right: 'month,agendaWeek,agendaDay'
+
+		   },
+		   navLinks: true,
       // put your options and callbacks here
       events : [
         @foreach($events as $event)
         {
           title : '{{ $event->event_name }}',
-          start : '{{ $event->date }}',
-          url : '{{ route('events.edit', $event->id) }}'
+          start : '{{ $event->start_time }}',
+		  end : '{{ $event->end_time }}',
+          //url : '{{ route('events.edit', $event->id) }}'
         },
         @endforeach
       ]

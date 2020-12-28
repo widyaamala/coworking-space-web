@@ -14,6 +14,7 @@
         </div>
     </div>
     <div class="card-body">
+		@if(isset($invoices))
      <table class="table table-bordered table-responsive">
           <tr>
               <th>Invoice</th>
@@ -47,6 +48,7 @@
               </tr>
           @endforeach
       </table>
+	  {!! $invoices->links() !!}@endif
     </div>
   </div>
 </div>

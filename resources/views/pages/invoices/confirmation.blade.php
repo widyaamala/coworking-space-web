@@ -12,14 +12,14 @@
 			  </span>
 					<div class="step-title">Cart</div>
 				</div>
-				<div class="step-wrapper col">
+				<div class="step-wrapper col" style="color:green">
 			  <span class="fa-stack fa-lg">
 				<i class="far fa-circle fa-stack-2x"></i>
 				<i class="fas fa-lock fa-stack-1x"></i>
 			  </span>
 					<div class="step-title">Payment</div>
 				</div>
-				<div class="step-wrapper col"  style="color:green">
+				<div class="step-wrapper col">
 			  <span class="fa-stack fa-lg">
 				<i class="far fa-circle fa-stack-2x"></i>
 				<i class="fas fa-check fa-stack-1x"></i>
@@ -43,7 +43,7 @@
 				  <div class="col-sm-3">
 					<p class="font-weight-bold">Amount</p>
 				  </div>
-				  <div class="col-sm-8 text-left"><strong>Rp. {{$invoice->total}}</strong></div>
+				  <div class="col-sm-8 text-left"><strong>Rp. {{ number_format($invoice->total, 2) }}</strong></div>
 				  <div class="col-sm-1 text-right"></div>
              </div>
 			 <div class="row">
@@ -58,16 +58,21 @@
 			  <p>Please transfer the total amount to the following bank account!</p>
 			  <div class="row">
 				  <div class="col-sm-3">
+					<p class="font-weight-bold">Bank BCA</p>
+				  </div>
+             </div>
+			  <div class="row">
+				  <div class="col-sm-3">
 					<p class="font-weight-bold">Account Number</p>
 				  </div>
-				  <div class="col-sm-8 text-left"><strong>xxx xxx xxx</strong></div>
+				  <div class="col-sm-8 text-left"><strong>0112682226</strong></div>
 				  <div class="col-sm-1 text-left"></div>
              </div>
 			 <div class="row">
 				  <div class="col-sm-3">
 					<p class="font-weight-bold">Account Name</p>
 				  </div>
-				  <div class="col-sm-8 text-left"><strong>xxx xxx xxx</strong></div>
+				  <div class="col-sm-8 text-left"><strong>Anang Andika</strong></div>
 				  <div class="col-sm-1 text-right"></div>
              </div>
 			 <span class="font-weight-bold text-danger">*Please transfer and confirm with expire time! Otherwise this order will be canceled automatically.</span>

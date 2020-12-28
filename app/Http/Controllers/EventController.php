@@ -19,7 +19,7 @@ class EventController extends Controller
      */
     public function index()
     {
-    		$events = Event::with(['user', 'invoice'])->latest('created_at')->paginate(15);
+    		$events = Event::with(['user', 'invoice'])->latest('created_at')->paginate(5);
         return view('pages.events.list', compact('events'));
     }
 
@@ -102,10 +102,14 @@ class EventController extends Controller
         $event->status = ($event->invoice->status == 'Confirmed') ? 'Active' : 'Deactive';
         $event->save();
 
-		/**if(Auth::User()){
-          return redirect('confirmation/')->withSuccess('Get Your Invoice');
-        }*/
-        return redirect('manage/events')->with('success', 'Event has been added');
+		$invoice = $event->invoice;
+		
+		$user = Auth::user();
+
+        if ($user->isAdmin()) {
+            return redirect('manage/events')->with('success', 'Event has been added');
+        }
+        return view('pages.invoices.confirmation', compact('invoice'));
     }
 
     /**

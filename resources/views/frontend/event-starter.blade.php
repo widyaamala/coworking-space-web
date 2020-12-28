@@ -28,7 +28,7 @@
               <div class="col-md-6 mb-3">
 				  <label for="schedule_plan" class="col-4 col-form-label">Schedule Plan</label>
 				  <div class="col-8">
-					<input class ="form-control" type="datetime-local" name="schedule_plan" value="{{ date('Y-m-d\TH:i') }}" min="2020-01-01" max="2022-01-01">
+					<input class ="form-control" type="datetime-local" name="schedule_plan" value="{{ date('Y-m-d\TH:i') }}" min="2020-01-01">
 				  </div>
               </div>
           </div>

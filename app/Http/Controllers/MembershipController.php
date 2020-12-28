@@ -17,7 +17,7 @@ class MembershipController extends Controller
      */
     public function index()
     {
-        $memberships = Membership::with(['user', 'invoice'])->latest('created_at')->paginate(15);
+        $memberships = Membership::with(['user', 'invoice'])->latest('created_at')->paginate(5);
         return view('pages.memberships.list', compact('memberships'));
     }
 

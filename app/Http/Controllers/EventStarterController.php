@@ -20,7 +20,7 @@ class EventStarterController extends Controller
      */
     public function index()
     {
-        $eventStarters = EventStarter::with(['user'])->latest('created_at')->paginate(15);
+        $eventStarters = EventStarter::with(['user'])->latest('created_at')->paginate(5);
         return view('pages.event-starters.list', compact('eventStarters'));
     }
 

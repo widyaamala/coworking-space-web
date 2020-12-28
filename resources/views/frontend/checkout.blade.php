@@ -98,12 +98,17 @@
 
             <div class="row collapse show" id="bank" data-parent=".payment-processors">
               <div class="col-12 mb-3">
+				<div class="row">
+				  <div class="col-sm-6">
+                    <h6>Transfer To Bank BCA</h6>
+                  </div>
+				</div>
                 <div class="row">
                   <div class="col-sm-6">
-                    <h6>Nomor Rekening: xxxx-xxxx-xxxx</h6>
+                    <h6>Nomor Rekening: 0112682226</h6>
                   </div>
                   <div class="col-sm-6">
-                    <h6>A/N: xxxx-xxxx-xxxx</h6>
+                    <h6>A/N: Anang Andika</h6>
                   </div>
                 </div>
 

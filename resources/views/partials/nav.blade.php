@@ -119,9 +119,15 @@
                             <a class="dropdown-item {{ Request::is('manage/events/create') ? 'active' : null }}" href="{{ route('events.create') }}">
                                 {!! trans('Create New Event') !!}
                             </a>
-	                          <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('manage/events/calendar') ? 'active' : null }}" href="{{ route('calendar') }}">
-                                {!! trans('Calendar') !!}
+                        </div>
+                    </li>
+					<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {!! trans('Event Starters') !!}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item {{ Request::is('manage/events') ? 'active' : null }}" href="{{ route('eventStarters') }}">
+                                {!! trans('All Event Starters') !!}
                             </a>
                         </div>
                     </li>

@@ -21,7 +21,7 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        $invoices = Invoice::with(['user', 'product'])->latest('created_at')->paginate(15);
+        $invoices = Invoice::with(['user', 'product'])->latest('created_at')->paginate(5);
         //dd($invoices);
         return view('pages.invoices.list', compact('invoices'));
     }
@@ -156,6 +156,7 @@ class InvoiceController extends Controller
 	public function confirmation(Invoice $invoice)
     {
         //$invoice = Invoice::all();
+		dd($invoice);
         return view('pages.invoices.confirmation', compact('invoice'));
     }
 

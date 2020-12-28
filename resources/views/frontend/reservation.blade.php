@@ -96,21 +96,15 @@
 			  </div>
 		  </div>
 		  <div class="form-group row">
-			  <label for="date" class="col-4 col-form-label">Date</label>
-			  <div class="col-8">
-				<input class="form-control" type="date" name="date" value="2020-11-21" min="2020-01-01" max="2022-01-01">
-			  </div>
-		  </div>
-		  <div class="form-group row">
 			  <label for="start_time" class="col-4 col-form-label">Start Time</label>
 			  <div class="col-8">
-				<input class="form-control" type="time" name="start_time" value="22:00">
+				<input class ="form-control" type="datetime-local" id="start_time" name="start_time" value="{{ date('Y-m-d\TH:i') }}" min="2020-01-01">
 			  </div>
 		  </div>
 		  <div class="form-group row">
 			  <label for="end_time" class="col-4 col-form-label">End Time</label>
 			  <div class="col-8">
-				<input class="form-control" type="time" value="22:00" id="end_time" name="end_time">
+				<input class ="form-control" type="datetime-local" id="end_time" name="end_time" value="{{ date('Y-m-d\TH:i') }}" min="2020-01-01">
 			  </div>
 		  </div>
 		  <div class="form-group row">

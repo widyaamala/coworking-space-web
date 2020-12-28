@@ -21,7 +21,7 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        $payments = Payment::all();
+        $payments = Payment::latest()->paginate(5);
         return view('pages.payments.list', compact('payments'));
     }
 	
