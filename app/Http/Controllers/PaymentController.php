@@ -65,7 +65,12 @@ class PaymentController extends Controller
 
          $payment->save();
 		 
-		 return redirect('manage/payments')->with('success', 'Payment has been added');
+		 $user = Auth::user();
+
+        if ($user->isAdmin()) {
+            return redirect('manage/payments')->with('success', 'Payment has been added');
+        }
+        return view('frontend.complete-payment', compact('payment'));
 	
 	}
 

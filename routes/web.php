@@ -34,7 +34,6 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('post-partner', 'PartnershipController@store')->name('post-partner');
 	Route::post('post-eventStarter', 'EventStarterController@store')->name('post-eventStarter');
 	Route::post('post-comment', 'CommentController@store')->name('post-comment');
-	Route::get('confirmation', 'InvoiceController@confirmation')->name('invoice');
 	Route::get('confirm-payment/{id}', 'FrontendController@confirmPayment')->name('confirm-payment');
 	Route::post('post-confirmation', 'PaymentController@postConfirmation')->name('post-confirmation');
 	Route::get('calendar', 'EventController@calendar')->name('calendar');

@@ -155,7 +155,7 @@ class EventController extends Controller
            'event_type' => $request->get('event_type'),
            'total_seats' => $request->get('total_seats'),
            'layout_seat' => $request->get('layout_seat'),
-           'facilities' => $request->get('facilities'),
+           'facilities' => json_encode($request->get('facilities')),
            'image'=> $file_name,
         ];
         $event = $data;

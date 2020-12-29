@@ -220,7 +220,7 @@
 	<!-- #services -->
 
 	<!-- #events -->
-	<section id="events" class="service spacer p-t-30 p-b-30">
+	<section id="events" class="service spacer">
       <div class="container">
 		<div class="section-header">
 			<h3>Events</h3>
@@ -235,45 +235,42 @@
 			</div></center>
 		</div>
 
-      <div class="row">
-	  @foreach ($events as $event)
-        <div class="col-sm-12 text-right pt-5 pb-5">
-            <a class="btn btn-success mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
-                <i class="fa fa-arrow-left"></i>
-            </a>
-            <a class="btn btn-success mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
-                <i class="fa fa-arrow-right"></i>
-            </a>
-        </div>
+      <div class="row pt-5">
+	  @if(isset($events))
         <div class="col-12">
-            <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                        <div class="row row-eq-height">
 
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row">
-
-                            <div class="col-md-4 mb-3">
+	  @foreach ($events as $event)
+                            <div class="col-md-4 d-flex align-items-stretch mb-3">
                                 <div class="card">
-                                    <img class="img-fluid" alt="100%x280" src="{{ url('/receipt/'.$event->image) }}">
+                                    <img class="card-img-top img-fluid" alt="" src="{{ url('/receipt/'.$event->image) }}">
                                     <div class="card-body">
-                                        <h4 class="card-title">{{ $event->event_name }}</h4>
-                                        <div class="card-text">
-											<i class="fas fa-calendar-alt"></i> {{ date('d M Y H:i', strtotime($event->start_time)) }} - {{ date('H:i', strtotime($event->end_time)) }} 
-											<div class="pt-2"><strong>{{ $event->organizer }}</strong></div>
+										<div data-equal-height="card">
+                                        <h4 data-equal-height="title">{{ $event->event_name }}
+										</h4>
+										<span class="tipe">oleh: <span class="text-muted">
+											{{ $event->organizer }}</span></span>
+											
 										</div>
 
                                     </div>
+									<div class="card-footer">
+									<div class="row">
+
+                                        <div class="col-12 col-lg-auto text-center text-lg-right">
+											<i class="fas fa-calendar-alt"></i> {{ date('d M Y H:i', strtotime($event->start_time)) }} - {{ date('H:i', strtotime($event->end_time)) }} 
+										</div>
+                                    </div>
+									</div>
 
                                 </div>
                             </div>
 
 
+		@endforeach
                         </div>
                     </div>
-				</div>
-            </div>
-        </div>
-		@endforeach
+		{!! $events->links() !!}@endif
       </div>
 
 		

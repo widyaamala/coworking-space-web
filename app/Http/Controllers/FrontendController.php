@@ -22,7 +22,7 @@ class FrontendController extends Controller
 
 	public function home()
     {
-		$events = Event::whereStatus('active')->get();
+		$events = Event::whereStatus('active')->paginate(3);
         return view('frontend.home' , compact('events'));
     }
 
