@@ -21,7 +21,6 @@
               <th>User</th>
               <th>Room</th>
 			  <th>Organizer</th>
-              <th class="hidden-xs">Date</th>
               <th class="hidden-xs">Start Time</th>
 			  <th class="hidden-xs">End Time</th>
               <th>Event Name</th>
@@ -43,7 +42,6 @@
               <td>{{ $event->user->name }}</td>
               <td>{{ $event->invoice->product->name }}</td>
 			  <td>{{ $event->organizer }}</td>
-              <td class="hidden-xs">{{ date('d M Y', strtotime($event->date)) }}</td>
               <td class="hidden-xs">{{ $event->start_time }}</td>
 			  <td class="hidden-xs">{{ $event->end_time }}</td>
     				  <td>{{ $event->event_name }}</td>

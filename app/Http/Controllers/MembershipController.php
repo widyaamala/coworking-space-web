@@ -7,6 +7,8 @@ use App\Product;
 use App\Invoice;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\InvoiceGenerated;
 
 class MembershipController extends Controller
 {
@@ -72,6 +74,8 @@ class MembershipController extends Controller
         ]);
         $membership->status = ($membership->invoice->status == 'Confirmed') ? 'Active' : 'Deactive';
         $membership->save();
+
+        Mail::to($membership->user->email)->send(new InvoiceGenerated($membership->invoice));
 
         return redirect('manage/memberships')->with('success', 'Membership has been added');
     }

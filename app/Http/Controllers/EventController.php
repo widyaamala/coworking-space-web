@@ -9,6 +9,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\InvoiceGenerated;
 
 class EventController extends Controller
 {
@@ -104,8 +106,9 @@ class EventController extends Controller
 
 		$invoice = $event->invoice;
 
-		$user = Auth::user();
+    Mail::to($event->user->email)->send(new InvoiceGenerated($invoice));
 
+    		$user = Auth::user();
         if ($user->isAdmin()) {
             return redirect('manage/events')->with('success', 'Event has been added');
         }

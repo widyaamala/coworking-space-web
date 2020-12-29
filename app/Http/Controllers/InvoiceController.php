@@ -137,6 +137,7 @@ class InvoiceController extends Controller
            $membership->status = ($membership->invoice->status == 'Confirmed') ? 'Active' : 'Deactive';
            $membership->save();
            $invoice = $membership->invoice;
+           Mail::to($membership->user->email)->send(new InvoiceGenerated($invoice));
         } else {
           $invoice = new Invoice([
                'user_id' => $request->user_id,
@@ -148,8 +149,8 @@ class InvoiceController extends Controller
                'status'=> $status,
            ]);
            $invoice->save();
+           Mail::to($invoice->user->email)->send(new InvoiceGenerated($invoice));
         }
-
 	      return view('pages.invoices.confirmation', compact('invoice'));
     }
 
