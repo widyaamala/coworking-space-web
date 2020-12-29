@@ -119,10 +119,9 @@ class ProfilesController extends Controller
     {
         $user = $this->getUserByUsername($username);
 
-		
+
         $input = $request->only('theme_id','profession','institute','phone', 'location', 'bio', 'twitter_username', 'facebook','instagram', 'github_username', 'avatar_status');
 
-		dd($input);
         $ipAddress = new CaptureIpTrait();
 
         if ($user->profile === null) {

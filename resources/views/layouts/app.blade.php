@@ -15,7 +15,7 @@
         <link rel="shortcut icon" href="{{asset('/favicon.ico')}}">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css">
 
-  
+
         {{-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --}}
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -60,7 +60,7 @@
 
     </head>
     <body>
-        <div id="app">
+        <div id="apps">
 
             @include('partials.nav')
 
@@ -82,7 +82,6 @@
 
         {{-- Scripts --}}
         <script src="{{ mix('/js/app.js') }}"></script>
-		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
 

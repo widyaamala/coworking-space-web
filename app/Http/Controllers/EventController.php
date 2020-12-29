@@ -72,7 +72,7 @@ class EventController extends Controller
     		// isi dengan nama folder tempat kemana file diupload
     		$upload_folder = 'receipt';
     		$file->move($upload_folder,$file_name);
-			
+
         // dd($file_name);
         $event = new Event([
            'user_id' => $request->get('user_id'),
@@ -87,7 +87,7 @@ class EventController extends Controller
 			 'event_category' => $request->get('event_category'),
         	 'total_seats' => $request->get('total_seats'),
         	 'layout_seat' => $request->get('layout_seat'),
-			 'facilities' => json_encode($request->get('facilities')),
+			 // 'facilities' => json_encode($request->get('facilities')),
            'image'=> $file_name,
         ]);
         $event->save();
@@ -103,7 +103,7 @@ class EventController extends Controller
         $event->save();
 
 		$invoice = $event->invoice;
-		
+
 		$user = Auth::user();
 
         if ($user->isAdmin()) {
@@ -145,25 +145,28 @@ class EventController extends Controller
     		$upload_folder = 'receipt';
     		$file->move($upload_folder,$file_name);
 
-        $data = [
-           'user_id' => $request->get('user_id'),
-           'date'=> $request->get('date'),
-           'time' => $request->get('time'),
-           'duration'=> $request->get('duration'),
-           'event_name' => $request->get('event_name'),
-           'description' => $request->get('description'),
-           'event_type' => $request->get('event_type'),
-           'total_seats' => $request->get('total_seats'),
-           'layout_seat' => $request->get('layout_seat'),
-           'facilities' => json_encode($request->get('facilities')),
-           'image'=> $file_name,
-        ];
-        $event = $data;
-        $event->update();
+        // $event = {
+        //    'user_id' = $request->get('user_id'),
+        //    'date'= $request->get('date'),
+        //    'time' = $request->get('time'),
+        //    'duration'= $request->get('duration'),
+        //    'event_name' = $request->get('event_name'),
+        //    'description' = $request->get('description'),
+        //    'event_type' = $request->get('event_type'),
+        //    'total_seats' = $request->get('total_seats'),
+        //    'layout_seat' = $request->get('layout_seat'),
+        //    'facilities' = json_encode($request->get('facilities')),
+        //    'image'= $file_name,
+        // };
+        // $event->update();
+        $event->update($request->all());
+        $event->image = $file_name;
+        // $event->facilities = json_encode($request->get('facilities'));
+        $event->save();
 
 		return redirect('manage/events')->with('success', 'Event has been updated');
     }
-	
+
 	 public function show(Event $event)
     {
        return view('pages.events.show',compact('event'));

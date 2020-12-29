@@ -17,6 +17,7 @@
     <div class="card-body">
       <form action="{{ route('events.update', $event->id) }}" method="POST" enctype="multipart/form-data">
   		@csrf
+  		@method('PUT')
   		<div class="form-group row">
   			<label for="user_name" class="col-sm-2 col-form-label">User Name</label>
   			<div class="col-sm-10">

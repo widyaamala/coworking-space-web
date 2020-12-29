@@ -116,7 +116,7 @@ class InvoiceController extends Controller
     		} else {
     			$status = 'On Process';
     		}
-			
+
         //dd($request->user_id);
 
         if($product->category == 'membership') {
@@ -156,7 +156,6 @@ class InvoiceController extends Controller
 	public function confirmation(Invoice $invoice)
     {
         //$invoice = Invoice::all();
-		dd($invoice);
         return view('pages.invoices.confirmation', compact('invoice'));
     }
 

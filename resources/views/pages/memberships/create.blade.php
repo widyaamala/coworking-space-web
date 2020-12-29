@@ -31,7 +31,7 @@
 			<label for="product_id" class="col-sm-2 col-form-label">Plan Name</label>
 			<div class="col-sm-10">
 				<select id="product_id" name="product_id" class="form-control">
-				@foreach ($plans as $plan)
+				@foreach ($products as $plan)
 					<option value="{{$plan->id}}">{{$plan->name}} - {{$plan->price}}</option>
 				@endforeach
 				</select>

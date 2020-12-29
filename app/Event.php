@@ -27,9 +27,9 @@ class Event extends Model
 
   public function getSnackAttribute($value)
   {
-      return $this->attributes['snack_choices'] = json_decode($value);
+      return json_decode($value);
   }
-  
+
   public function setFacilitiesAttribute($value)
   {
       $this->attributes['facilities'] = json_encode($value);
@@ -37,6 +37,6 @@ class Event extends Model
 
   public function getFacilitiesAttribute($value)
   {
-      return $this->attributes['facilities'] = json_decode($value);
+      return json_decode($value);
   }
 }
