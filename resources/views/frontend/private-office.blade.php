@@ -156,7 +156,7 @@
     <p class="lead">Join our membership plans and get the best services at minimum prices.</p>
   </header>
   <div class="row">
-	<div class="d-flex justify-content-center">
+	<div class="col d-flex justify-content-center">
     @foreach ($products as $product)
 		<div class="col-md-4 col-sm-4 col-xs-12">
 		<div class="card h-100 mb-4 text-center border-success  align-items-center">
@@ -166,7 +166,7 @@
           <div class="card-body ml-0 ">
             <div class="row">
               <ol>
-				<li style="list-style-type: none;">{!!$product->description!!}</li>
+				<li style="list-style-type: none;">{!! nl2br($product->description) !!}</li>
 			  </ol>
             </div>
           </div>

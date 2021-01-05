@@ -11,7 +11,7 @@
 			<div class="col-md-6 intro-info order-md-first order-last">
 			  <h2>Ezo Co-working<br><span>Space</span></h2>
 			  <span style="line-height: 2.5em;">
-				  <span class="subtitle">Rangsang</span><span class="subsub"><strong> Kreatatifitas</strong></span>
+				  <span class="subtitle">Rangsang</span><span class="subsub"><strong> Kreativitas</strong></span></br>
 				  <span class="subtitle">Perluas</span><span class="subsub"><strong> Networking</strong></span>
 			  </span>
 			  <div class="quote">Co-Working Space terlengkap hanya untuk kamu</br>Didesain sesuai kebutuhanmu

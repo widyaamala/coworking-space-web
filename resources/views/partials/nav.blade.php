@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md bg-light">
     <div class="container">
-        <a href="#" class="navbar-brand"><img height="30" width="70" class="d-inline-block align-top" alt="" src="/img/logoezo.png"></a>
+        <a href="{{ route('home') }}" class="navbar-brand"><img height="30" width="70" class="d-inline-block align-top" alt="" src="/img/logoezo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             <span class="sr-only">{!! trans('titles.toggleNav') !!}</span>

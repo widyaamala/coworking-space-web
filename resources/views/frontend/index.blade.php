@@ -140,7 +140,7 @@
           <div class="card-body ml-0 ">
             <div class="row">
               <ol>
-				<li style="list-style-type: none;">{!!$product->description!!}</li>
+				<li style="list-style-type: none;">{!! nl2br($product->description) !!}</li>
 			  </ol>
             </div>
           </div>

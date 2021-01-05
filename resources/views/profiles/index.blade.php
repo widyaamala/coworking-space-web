@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.frontend')
 
 @section('template_title')
     {{ $user->name }}'s Profile
@@ -9,6 +9,7 @@
         min-height: 300px;
         height: 100%;
         width: 100%;
+		margin-top: 100px;
     }
 @endsection
 
@@ -17,6 +18,7 @@
 @endphp
 
 @section('content')
+<div id="services" class="service spacer p-t-30 p-b-30">
      <div class="container emp-profile">
             <form method="post">
                 <div class="row">
@@ -140,6 +142,7 @@
                 </div>
             </form>           
         </div>
+		</div>
 @endsection
 
 @section('footer_scripts')

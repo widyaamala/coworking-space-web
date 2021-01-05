@@ -53,7 +53,7 @@ class FrontendController extends Controller
 	public function eventStarter()
     {
 		if(Auth::guest()){
-				return Redirect::guest("login")->withSuccess('You have to login first');
+				return Redirect::guest("login")->with('error', 'You have to login first!');
 			}
         return view('frontend.event-starter');
     }
@@ -97,7 +97,7 @@ class FrontendController extends Controller
         $product = Product::find($id);
 
         if(Auth::guest()){
-          return Redirect::guest("login")->withSuccess('You have to login first');
+          return Redirect::guest("login")->with('error', 'You have to login first!');
         }
         return view('frontend.checkout', compact('product'));
     }
@@ -107,7 +107,7 @@ class FrontendController extends Controller
         $product = Product::find($id);
 
         if(Auth::guest()){
-          return Redirect::guest("login")->withSuccess('You have to login first');
+          return Redirect::guest("login")->with('error', 'You have to login first!');
         }
         return view('frontend.reservation', compact('product'));
     }
@@ -117,7 +117,7 @@ class FrontendController extends Controller
         $invoice = Invoice::find($id);
 
         if(Auth::guest()){
-          return Redirect::guest("login")->withSuccess('You have to login first');
+          return Redirect::guest("login")->with('error', 'You have to login first!');
         }
         return view('frontend.confirm-payment', compact('invoice'));
     }

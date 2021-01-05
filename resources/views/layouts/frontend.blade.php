@@ -9,7 +9,7 @@
     {{-- CSRF Token --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@hasSection('template_title')@yield('template_title') | @endif {{ config('app.name', Lang::get('titles.app')) }}</title>
+    <title class="mt-5">@hasSection('template_title')@yield('template_title') | @endif {{ config('app.name', Lang::get('titles.app')) }}</title>
 
     {{-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --}}
     <!--[if lt IE 9]>
@@ -117,10 +117,17 @@
         <a class="btn btn-outline-primary" href="#">Sign up</a>
       </div>-->
 
+	  <div class="fixed-top container">
+                    <div class="row">
+                        <div class="col-12" style="z-index: -1">
+                            @include('partials.form-status')
+                        </div>
+                    </div>
+                </div>
   	<header class="header">
       <nav class="navbar navbar-expand-lg fixed-top py-3">
           <div class="container">
-		  <a href="#" class="navbar-brand"><img height="30" width="70" class="d-inline-block align-top" alt="" src="/img/logoezo.png"></a>
+		  <a href="{{ route('home') }}" class="navbar-brand"><img height="30" width="70" class="d-inline-block align-top" alt="" src="/img/logoezo.png"></a>
               <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
 
               <div id="navbarSupportedContent" class="collapse navbar-collapse">
@@ -158,13 +165,7 @@
       </nav>
   	</header>
 
-	<div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            @include('partials.form-status')
-                        </div>
-                    </div>
-                </div>
+	
 
   	@yield('content')
 

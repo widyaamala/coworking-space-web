@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateUserProfile;
 use App\Models\Profile;
 use App\Models\Theme;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use App\Notifications\SendGoodbyeEmail;
 use App\Traits\CaptureIpTrait;
 use File;
@@ -67,9 +68,15 @@ class ProfilesController extends Controller
         $data = [
             'user'         => $user,
             'currentTheme' => $currentTheme,
+			'membership'   => $user->membership->load('invoice')->first()->invoice->product->name,
+			'end_date'	   => $user->membership->load('invoice')->first()->end_date,
         ];
 
-        return view('profiles.show')->with($data);
+			$user = Auth::user();
+        if ($user->isAdmin()) {
+            return view('profiles.show')->with($data);
+        }
+        return view('profiles.index')->with($data);
     }
 
     /**

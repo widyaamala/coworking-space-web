@@ -86,6 +86,7 @@
 		  <div class="form-group row">
 			  <label for="company" class="col-4 col-form-label">Your Company Name</label>
 			  <div class="col-8">
+			  <input type="hidden" name="user_id" value="{{(Auth()->user()->id)}}">
 				<input class="form-control" type="text" value="" id="company" name="company">
 			  </div>
 		  </div>

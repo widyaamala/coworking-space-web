@@ -14,7 +14,8 @@ class PartnershipController extends Controller
      */
     public function index()
     {
-        //
+        $partnerships = Partnership::latest()->paginate(5);
+        return view('pages.partnerships.list', compact('partnerships'));
     }
 
     /**
@@ -39,19 +40,19 @@ class PartnershipController extends Controller
 			'user_id' => 'required',
 			'company' => 'required',
 			'partner_type' => 'required',
-			'proposal' => 'required|file|image|mimes:pdf,zip,xlx,csv|max:2048',
+			'proposal' => 'required|file|mimes:pdf,zip,xlx,csv|max:2048',
 			
         ]);
 		
 		
 		// menyimpan data file yang diupload ke variabel $file
-		$file = $request->file('image');
-		
-		$file_name = time()."_".$file->getClientOriginalName();
-		
-		// isi dengan nama folder tempat kemana file diupload
-		$upload_folder = 'uploads';
-		$file->move($upload_folder,$file_name);
+    		$file = $request->file('proposal');
+
+    		$file_name = time()."_".$file->getClientOriginalName();
+
+    		// isi dengan nama folder tempat kemana file diupload
+    		$upload_folder = 'uploads';
+    		$file->move($upload_folder,$file_name);
 		
 		$partnership = new Partnership([
              'user_id' => $request->get('user_id'),
@@ -84,7 +85,7 @@ class PartnershipController extends Controller
      */
     public function edit(Partnership $partnership)
     {
-        //
+        return view('pages.partnerships.edit',compact('partnership'));
     }
 
     /**
@@ -96,7 +97,12 @@ class PartnershipController extends Controller
      */
     public function update(Request $request, Partnership $partnership)
     {
-        //
+        $partnership->status = $request->get('status');
+       $partnership->update();
+
+         $partnership->update();
+
+         return redirect('/manage/partnerships')->with('success', 'Partnership updated successfully');
     }
 
     /**

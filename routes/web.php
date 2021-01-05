@@ -44,7 +44,7 @@ Route::group(['middleware' => ['web']], function () {
 Auth::routes();
 
 // Public Routes
-Route::group(['middleware' => ['web', 'activity', 'checkblocked']], function () {
+Route::group(['middleware' => ['web']], function () {
 
     // Activation Routes
     Route::get('/activate', ['as' => 'activate', 'uses' => 'Auth\ActivateController@initial']);
@@ -62,7 +62,7 @@ Route::group(['middleware' => ['web', 'activity', 'checkblocked']], function () 
 });
 
 // Registered and Activated User Routes
-Route::group(['prefix' => 'manage', 'middleware' => ['auth', 'activated', 'activity', 'checkblocked']], function () {
+Route::group(['prefix' => 'manage', 'middleware' => ['auth', 'activated']], function () {
 
     // Activation Routes
     Route::get('/activation-required', ['uses' => 'Auth\ActivateController@activationRequired'])->name('activation-required');
@@ -70,7 +70,7 @@ Route::group(['prefix' => 'manage', 'middleware' => ['auth', 'activated', 'activ
 });
 
 // Registered and Activated User Routes
-Route::group(['prefix' => 'manage', 'middleware' => ['auth', 'activated', 'activity', 'twostep', 'checkblocked']], function () {
+Route::group(['prefix' => 'manage', 'middleware' => ['auth', 'activated', 'twostep']], function () {
 
     //  Homepage Route - Redirect based on user role is in controller.
     Route::get('dashboard', ['as' => 'public.home',   'uses' => 'UserController@index'])->name('home');
@@ -83,7 +83,7 @@ Route::group(['prefix' => 'manage', 'middleware' => ['auth', 'activated', 'activ
 });
 
 // Registered, activated, and is current user routes.
-Route::group(['prefix' => 'manage', 'middleware' => ['auth', 'activated', 'currentUser', 'activity', 'twostep', 'checkblocked']], function () {
+Route::group(['prefix' => 'manage', 'middleware' => ['auth', 'activated', 'currentUser',  'twostep']], function () {
 
     // User Profile and Account Routes
     Route::resource(
@@ -124,7 +124,7 @@ Route::group(['prefix' => 'manage', 'middleware' => ['auth', 'activated', 'curre
 });
 
 // Registered, activated, and is admin routes.
-Route::group(['prefix' => 'manage', 'middleware' => ['auth', 'activated', 'role:admin', 'activity', 'twostep', 'checkblocked']], function () {
+Route::group(['prefix' => 'manage', 'middleware' => ['auth', 'activated', 'role:admin',  'twostep']], function () {
     Route::resource('/users/deleted', 'SoftDeletesController', [
         'names' => [
           'index'   => 'deleteduser',
@@ -205,6 +205,12 @@ Route::group(['prefix' => 'manage', 'middleware' => ['auth', 'activated', 'role:
 	Route::resource('comments', 'CommentController', [
         'names' => [
             'index'   => 'comments',
+        ],
+    ]);
+	
+	Route::resource('partnerships', 'PartnershipController', [
+        'names' => [
+            'index'   => 'partnerships',
         ],
     ]);
 

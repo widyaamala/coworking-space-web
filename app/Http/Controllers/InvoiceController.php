@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Validator,Redirect,Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\InvoiceGenerated;
 use Session;
 
 class InvoiceController extends Controller

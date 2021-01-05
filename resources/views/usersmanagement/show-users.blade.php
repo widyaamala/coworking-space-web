@@ -46,11 +46,11 @@
                                     </span>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="/users/create">
+                                    <a class="dropdown-item" href="/manage/users/create">
                                         <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
                                         {!! trans('usersmanagement.buttons.create-new') !!}
                                     </a>
-                                    <a class="dropdown-item" href="/users/deleted">
+                                    <a class="dropdown-item" href="/manage/users/deleted">
                                         <i class="fa fa-fw fa-group" aria-hidden="true"></i>
                                         {!! trans('usersmanagement.show-deleted-users') !!}
                                     </a>
@@ -110,18 +110,18 @@
                                             <td class="hidden-sm hidden-xs hidden-md">{{$user->created_at}}</td>
                                             <td class="hidden-sm hidden-xs hidden-md">{{$user->updated_at}}</td>
                                             <td>
-                                                {!! Form::open(array('url' => 'users/' . $user->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => 'Delete')) !!}
+                                                {!! Form::open(array('url' => 'manage/users/' . $user->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => 'Delete')) !!}
                                                     {!! Form::hidden('_method', 'DELETE') !!}
                                                     {!! Form::button(trans('usersmanagement.buttons.delete'), array('class' => 'btn btn-danger btn-sm','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => 'Delete User', 'data-message' => 'Are you sure you want to delete this user ?')) !!}
                                                 {!! Form::close() !!}
                                             </td>
                                             <td>
-                                                <a class="btn btn-sm btn-success btn-block" href="{{ URL::to('users/' . $user->id) }}" data-toggle="tooltip" title="Show">
+                                                <a class="btn btn-sm btn-success btn-block" href="{{ URL::to('manage/users/' . $user->id) }}" data-toggle="tooltip" title="Show">
                                                     {!! trans('usersmanagement.buttons.show') !!}
                                                 </a>
                                             </td>
                                             <td>
-                                                <a class="btn btn-sm btn-info btn-block" href="{{ URL::to('users/' . $user->id . '/edit') }}" data-toggle="tooltip" title="Edit">
+                                                <a class="btn btn-sm btn-info btn-block" href="{{ URL::to('manage/users/' . $user->id . '/edit') }}" data-toggle="tooltip" title="Edit">
                                                     {!! trans('usersmanagement.buttons.edit') !!}
                                                 </a>
                                             </td>

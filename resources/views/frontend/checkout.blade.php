@@ -76,10 +76,10 @@
           </div>
           <div class="row">
               <div class="col-md-6 mb-3">
-              <input type="text" class="form-control" id="Instansi" placeholder="Instansi" aria-label="Instansi" value="" readonly>
+              <input type="text" class="form-control" id="Instansi" placeholder="Instansi" aria-label="Instansi" value="{{ (Auth()->user()->institute) }}" readonly>
               </div>
               <div class="col-md-6 mb-3">
-              <input type="text" class="form-control" id="Phone" placeholder="Phone" aria-label="Phone" value="" readonly>
+              <input type="text" class="form-control" id="Phone" placeholder="Phone" aria-label="Phone" value="{{ (Auth()->user()->phone) }}" readonly>
               </div>
           </div>
 
